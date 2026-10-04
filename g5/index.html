@@ -13,8 +13,10 @@
   HOW TO ADD THE NEXT UNIT
   ------------------------
   Everything the student sees lives in the UNITS object below (the DATA BLOCK).
-  To add Unit 2, copy the whole `1: { ... }` block, change the key to `2`,
-  replace the content, then set CURRENT_UNIT = 2. Nothing else needs touching.
+  To add a unit, copy the whole `1: { ... }` block, change the key, and
+  replace the content. Each unit keeps its own progress, so you can move
+  between them freely: pick the live unit in the teacher view, or change
+  DEFAULT_UNIT below to change which unit a brand new browser opens on.
   Safer option: send this file back to Claude with the unit details and have
   the block written for you — a single missing comma will stop the page loading.
 
@@ -202,7 +204,7 @@
 <script>
 /* Build stamp — check this matches what Claude says, so you know the browser
    is not showing you a cached copy of an older file. */
-const BUILD = "v18 · 15 July 2026";
+const BUILD = "v19 · 24 Aug 2026";
 
 /* If anything ever breaks, say so on screen instead of failing silently.
    The student will not normally see this. */
@@ -223,7 +225,9 @@ window.onerror = function(m, src, line){
    Parallel content for OIE Stage 6 (Grade 5). NOT Oxford's text.
    ========================================================================== */
 
-const CURRENT_UNIT = 1;
+/* Which unit a brand new browser opens on. The teacher can switch units in
+   the teacher view, and that choice is remembered in S.unit from then on. */
+const DEFAULT_UNIT = 1;
 
 const UNITS = {
 
@@ -710,33 +714,1205 @@ const UNITS = {
           text: "I dug with both hands, deeper and deeper, until the sand turned dark and wet. Water! Slow, clean drops filled my bottle. I drank, rested, and walked out of the desert on my own. I found the tree. The tree saved me." }
       }
     }
-  }
+  },
 
-  /* , 2: { ...copy the block above and replace the content... } */
+  2: {
+    "title": "Unit 2: Inspiring People",
+    "oie": "OIE Stage 6 - Student Book pp. 26-44 · Workbook pp. 12-19",
+    "genre": "Non-fiction - biography, newspaper report, autobiography and interview",
+    "focus": "How writers tell a real life · naming a text feature and saying what job it does · telling fact from opinion",
+    "skills": "Adverbials of time · single-clause and multi-clause sentences · prefixes and suffixes · /shun/ and -ance, -ence spellings",
+    "tasks": [
+      {
+        "id": "u2t1",
+        "icon": "📖",
+        "label": "Read: The Girl Who Built a Library",
+        "go": [
+          "reading",
+          0
+        ]
+      },
+      {
+        "id": "u2t2",
+        "icon": "🔤",
+        "label": "Word Work: pre- and fore- words",
+        "go": [
+          "word",
+          0
+        ]
+      },
+      {
+        "id": "u2t3",
+        "icon": "🗂️",
+        "label": "Learn 4 new words",
+        "go": [
+          "vocab",
+          0
+        ]
+      }
+    ],
+    "passages": [
+      {
+        "title": "The Girl Who Built a Library",
+        "blurb": "A biography of a real kind of life story. Same text type as the class biography.",
+        "chunks": [
+          "Early years. Amara Boateng was born in 1994, in a town with a market, two schools and no library. Her school owned eleven books, and she had read every one of them by the age of eight.",
+          "Every Saturday she walked four miles to her aunt's house, because her aunt kept a box of old paperbacks under the bed.",
+          "A simple question. In 2006, when Amara was twelve, she asked her teacher why a town could have a market but not a library. Her teacher had no answer.",
+          "So Amara started collecting books herself. She began with nine, kept in a rice sack behind the door.",
+          "Building it. By 2011 she had two thousand books and nowhere to keep them. She wrote to every builder in the district. One of them wrote back.",
+          "The library opened in 2013, in a room behind the old grain store. On the first morning, forty-one children were waiting outside before the door was unlocked.",
+          "Since then. Amara has helped to open nine more libraries. She still owns the first book she was ever given: a torn paperback about the sea."
+        ],
+        "questions": [
+          {
+            "q": "In which year did the first library open?",
+            "opts": [
+              "2013",
+              "2006",
+              "2011"
+            ],
+            "a": 0,
+            "why": "The text says the library opened in 2013. 2006 is when she asked the question, and 2011 is when she had two thousand books."
+          },
+          {
+            "q": "How can you tell this text is a biography and not an autobiography?",
+            "opts": [
+              "It uses dates and subheadings",
+              "It is written about her, using 'she'",
+              "It is written in the present tense"
+            ],
+            "a": 1,
+            "why": "A biography is written about someone in the third person. An autobiography would say 'I'."
+          },
+          {
+            "q": "Why does the writer tell you the school owned only eleven books?",
+            "opts": [
+              "To prove she was the best reader in the school",
+              "To explain why the school closed",
+              "To show how much she wanted to read and how little there was"
+            ],
+            "a": 2,
+            "why": "The small number sets up the whole story. It shows the gap that Amara later filled."
+          }
+        ]
+      },
+      {
+        "title": "City Cheers Its Youngest Champion",
+        "blurb": "A newspaper report of a real event. Look for the headline, the facts and the quotations.",
+        "chunks": [
+          "A twelve-year-old swimmer from Bell Street made history yesterday when she won the national two hundred metres final in Cardiff.",
+          "Nadia Okoro touched the wall in two minutes and four seconds, beating swimmers who were four years older than her.",
+          "She is the youngest winner in the competition's forty-year history.",
+          "'I could not hear anything at the end,' Nadia said afterwards. 'The noise was like being under water again.'",
+          "Her coach, Mr Peter Lang, said the win was no accident. He said she has trained before school, five days a week, since she was nine.",
+          "The city council has invited Nadia to switch on the harbour lights next month.",
+          "Nadia says she will be back in the same pool on Monday morning at half past five, as usual."
+        ],
+        "questions": [
+          {
+            "q": "Where did the final take place?",
+            "opts": [
+              "Bell Street",
+              "The harbour",
+              "Cardiff"
+            ],
+            "a": 2,
+            "why": "The report says she won the national final in Cardiff. Bell Street is where she lives."
+          },
+          {
+            "q": "The report says Nadia 'made history'. What does that phrase mean here?",
+            "opts": [
+              "She studied the past",
+              "She did something nobody had done before",
+              "She was the last to finish"
+            ],
+            "a": 1,
+            "why": "She is the youngest winner in forty years, so she did something that had never happened before."
+          },
+          {
+            "q": "Why does a newspaper report include quotations from Nadia and her coach?",
+            "opts": [
+              "To let the reader hear the real people in their own words",
+              "To fill up space on the page",
+              "Because the writer was not at the race"
+            ],
+            "a": 0,
+            "why": "Quotations are a report feature. Their job is to bring the real voices into the story."
+          }
+        ]
+      },
+      {
+        "title": "Two Wheels and a Long Road",
+        "blurb": "An autobiography. The writer tells her own story, in her own words.",
+        "chunks": [
+          "I was fourteen when I decided to cycle the length of the country. My mother said no for three weeks, and then she said yes.",
+          "We planned it at the kitchen table with a map, a marker pen and far too much confidence.",
+          "The first day was flat and easy, and I remember thinking the whole thing would be simple.",
+          "The fourth day was not. It rained from six in the morning until dark, and I cried twice, both times where nobody could see me.",
+          "On the seventh day a farmer let me sleep in his barn. He gave me soup and told me his own father had cycled the same road in 1961.",
+          "I finished on a Tuesday, eleven days after I set off. My legs shook too much for me to stand up straight in the photograph.",
+          "People ask me what the best part was. It was not the finish. It was the barn, the soup, and the man whose father had done it first."
+        ],
+        "questions": [
+          {
+            "q": "How did the writer feel on the fourth day?",
+            "opts": [
+              "Confident",
+              "Miserable",
+              "Bored"
+            ],
+            "a": 1,
+            "why": "It rained all day and she cried twice. The word 'miserable' is never used, but the evidence shows it."
+          },
+          {
+            "q": "How can you tell this is an autobiography?",
+            "opts": [
+              "The writer uses 'I' to tell her own life",
+              "It is a true story about a journey",
+              "It has a headline and quotations"
+            ],
+            "a": 0,
+            "why": "An autobiography is your own life, told in the first person."
+          },
+          {
+            "q": "Which sentence from the text is an opinion rather than a fact?",
+            "opts": [
+              "I finished on a Tuesday, eleven days after I set off.",
+              "A farmer let me sleep in his barn.",
+              "It was the barn, the soup, and the man whose father had done it first."
+            ],
+            "a": 2,
+            "why": "The best part cannot be proved. It is what she thinks. The other two could be checked."
+          }
+        ]
+      },
+      {
+        "title": "Ten Questions for Dani Alvarez",
+        "blurb": "A magazine interview. Watch how the questions are built. Good ideas for your own.",
+        "chunks": [
+          "Dani Alvarez is seventeen, and one of the best street skateboarders in the country. We met her at the skate park on a wet Thursday.",
+          "How did you start? My brother broke his board and gave me the pieces. I made one board out of two and taught myself in a car park.",
+          "What has been the hardest trick to learn? The one I am still learning. Every time I land it, I see something in it I do not like yet.",
+          "How many times do you fall in a day? Hundreds. People think falling is the bad part of skating. Falling is the lesson.",
+          "What would you say to someone who is too scared to start? Go on a wet Thursday, when the park is empty. Nobody is watching. That is the secret.",
+          "Who inspires you? My brother, who never skates any more. And my grandmother, who has never seen a skateboard in her life.",
+          "What comes next? A competition in March, and a new board. This one has been broken twice already."
+        ],
+        "questions": [
+          {
+            "q": "How did Dani get her first board?",
+            "opts": [
+              "She bought it before a competition",
+              "The skate park lent her one",
+              "She made one from her brother's broken board"
+            ],
+            "a": 2,
+            "why": "She says her brother gave her the pieces and she made one board out of two."
+          },
+          {
+            "q": "Which of these questions would be hardest to answer with just 'yes' or 'no'?",
+            "opts": [
+              "What would you say to someone who is too scared to start?",
+              "Do you skate?",
+              "Is your board broken?"
+            ],
+            "a": 0,
+            "why": "That is an open question. It needs a real answer. The other two are closed questions."
+          },
+          {
+            "q": "Dani says, 'Falling is the lesson.' What does she mean?",
+            "opts": [
+              "She falls on purpose to look brave",
+              "She learns something from every fall",
+              "She thinks people should stop skating"
+            ],
+            "a": 1,
+            "why": "She is saying the falls are how she improves, not a sign that she is failing."
+          }
+        ]
+      }
+    ],
+    "wordSessions": [
+      {
+        "pattern": "pre- and fore-",
+        "say": "the beginnings p-r-e and f-o-r-e, which both mean 'before'",
+        "words": [
+          {
+            "w": "predict",
+            "parts": [
+              "pre",
+              "dict"
+            ],
+            "tricky": "pre",
+            "sent": "Nobody could predict how fast she would swim."
+          },
+          {
+            "w": "prepare",
+            "parts": [
+              "pre",
+              "pare"
+            ],
+            "tricky": "pre",
+            "sent": "She had to prepare for months before the final."
+          },
+          {
+            "w": "preview",
+            "parts": [
+              "pre",
+              "view"
+            ],
+            "tricky": "pre",
+            "sent": "The magazine printed a preview of the competition."
+          },
+          {
+            "w": "forecast",
+            "parts": [
+              "fore",
+              "cast"
+            ],
+            "tricky": "fore",
+            "sent": "The forecast said rain, and the forecast was right."
+          },
+          {
+            "w": "forehead",
+            "parts": [
+              "fore",
+              "head"
+            ],
+            "tricky": "fore",
+            "sent": "She wiped her forehead and got back on the bike."
+          },
+          {
+            "w": "foretell",
+            "parts": [
+              "fore",
+              "tell"
+            ],
+            "tricky": "fore",
+            "sent": "No one can foretell who will win."
+          }
+        ]
+      },
+      {
+        "pattern": "im- and in-",
+        "say": "the beginnings i-m and i-n, which mean 'not'",
+        "words": [
+          {
+            "w": "impossible",
+            "parts": [
+              "im",
+              "poss",
+              "ible"
+            ],
+            "tricky": "im",
+            "sent": "People told her it was impossible, so she did it."
+          },
+          {
+            "w": "impatient",
+            "parts": [
+              "im",
+              "pat",
+              "ient"
+            ],
+            "tricky": "im",
+            "sent": "The crowd grew impatient before the race."
+          },
+          {
+            "w": "imperfect",
+            "parts": [
+              "im",
+              "per",
+              "fect"
+            ],
+            "tricky": "im",
+            "sent": "Her first board was imperfect but it worked."
+          },
+          {
+            "w": "incorrect",
+            "parts": [
+              "in",
+              "cor",
+              "rect"
+            ],
+            "tricky": "in",
+            "sent": "The first report gave an incorrect time."
+          },
+          {
+            "w": "invisible",
+            "parts": [
+              "in",
+              "vis",
+              "ible"
+            ],
+            "tricky": "in",
+            "sent": "The work behind a win is almost invisible."
+          },
+          {
+            "w": "informal",
+            "parts": [
+              "in",
+              "form",
+              "al"
+            ],
+            "tricky": "in",
+            "sent": "An interview often uses informal language."
+          }
+        ]
+      },
+      {
+        "pattern": "the /shun/ ending",
+        "say": "the shun sound at the end, spelled t-i-o-n, c-i-a-n or s-s-i-o-n",
+        "words": [
+          {
+            "w": "action",
+            "parts": [
+              "act",
+              "ion"
+            ],
+            "tricky": "ion",
+            "sent": "The photograph caught her in mid action."
+          },
+          {
+            "w": "station",
+            "parts": [
+              "sta",
+              "tion"
+            ],
+            "tricky": "tion",
+            "sent": "She waited at the station with her bike."
+          },
+          {
+            "w": "attention",
+            "parts": [
+              "at",
+              "ten",
+              "tion"
+            ],
+            "tricky": "tion",
+            "sent": "The win brought her a lot of attention."
+          },
+          {
+            "w": "musician",
+            "parts": [
+              "mus",
+              "ic",
+              "ian"
+            ],
+            "tricky": "ian",
+            "sent": "Her grandmother was a musician."
+          },
+          {
+            "w": "magician",
+            "parts": [
+              "mag",
+              "ic",
+              "ian"
+            ],
+            "tricky": "ian",
+            "sent": "On the board she moves like a magician."
+          },
+          {
+            "w": "discussion",
+            "parts": [
+              "dis",
+              "cuss",
+              "ion"
+            ],
+            "tricky": "ion",
+            "sent": "The discussion lasted the whole lesson."
+          }
+        ]
+      },
+      {
+        "pattern": "-ance and -ence",
+        "say": "the endings a-n-c-e and e-n-c-e",
+        "words": [
+          {
+            "w": "distance",
+            "parts": [
+              "dis",
+              "tance"
+            ],
+            "tricky": "tance",
+            "sent": "She cycled the whole distance in eleven days."
+          },
+          {
+            "w": "balance",
+            "parts": [
+              "bal",
+              "ance"
+            ],
+            "tricky": "ance",
+            "sent": "Skating is really a lesson in balance."
+          },
+          {
+            "w": "entrance",
+            "parts": [
+              "en",
+              "trance"
+            ],
+            "tricky": "trance",
+            "sent": "Children queued at the library entrance."
+          },
+          {
+            "w": "silence",
+            "parts": [
+              "si",
+              "lence"
+            ],
+            "tricky": "lence",
+            "sent": "There was silence before the starting gun."
+          },
+          {
+            "w": "patience",
+            "parts": [
+              "pa",
+              "tience"
+            ],
+            "tricky": "tience",
+            "sent": "Collecting two thousand books took patience."
+          },
+          {
+            "w": "difference",
+            "parts": [
+              "diff",
+              "er",
+              "ence"
+            ],
+            "tricky": "ence",
+            "sent": "One person can make a real difference."
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "w": "biography",
+        "emoji": "📖",
+        "def": "The story of a real person's life, written by someone else.",
+        "sent": "We read a biography of a swimmer."
+      },
+      {
+        "w": "autobiography",
+        "emoji": "✍️",
+        "def": "The story of your own life, written by you.",
+        "sent": "In her autobiography she describes the rain."
+      },
+      {
+        "w": "chronological",
+        "emoji": "📅",
+        "def": "In the order that things happened.",
+        "sent": "A biography is usually chronological."
+      },
+      {
+        "w": "adverbial",
+        "emoji": "⏰",
+        "def": "A word or phrase that says when, where or how.",
+        "sent": "'Later that year' is an adverbial of time."
+      },
+      {
+        "w": "prefix",
+        "emoji": "➕",
+        "def": "A part added to the front of a word to change its meaning.",
+        "sent": "The prefix im- means not."
+      },
+      {
+        "w": "suffix",
+        "emoji": "🔗",
+        "def": "A part added to the end of a word.",
+        "sent": "Adding the suffix -ence makes a naming word."
+      },
+      {
+        "w": "fact",
+        "emoji": "✅",
+        "def": "Something that can be proved.",
+        "sent": "Her time of two minutes and four seconds is a fact."
+      },
+      {
+        "w": "opinion",
+        "emoji": "💬",
+        "def": "What somebody thinks. It cannot be proved.",
+        "sent": "'She is the best swimmer alive' is an opinion."
+      },
+      {
+        "w": "headline",
+        "emoji": "📰",
+        "def": "The short title at the top of a news report.",
+        "sent": "The headline was only four words long."
+      },
+      {
+        "w": "interview",
+        "emoji": "🎤",
+        "def": "A set of questions and answers with one person.",
+        "sent": "The interview filled two pages."
+      },
+      {
+        "w": "quotation",
+        "emoji": "🗣️",
+        "def": "Someone's exact words, inside speech marks.",
+        "sent": "The report ends with a quotation from her coach."
+      },
+      {
+        "w": "determined",
+        "emoji": "💪",
+        "def": "Refusing to give up.",
+        "sent": "She was determined to finish the ride."
+      },
+      {
+        "w": "victorious",
+        "emoji": "🏆",
+        "def": "Having won.",
+        "sent": "The victorious team came home on Sunday."
+      },
+      {
+        "w": "pioneer",
+        "emoji": "🧭",
+        "def": "The first person to do something.",
+        "sent": "She was a pioneer of street skating."
+      },
+      {
+        "w": "equality",
+        "emoji": "⚖️",
+        "def": "Everybody being treated the same.",
+        "sent": "The library was built for equality."
+      },
+      {
+        "w": "overcome",
+        "emoji": "🏔️",
+        "def": "To beat a difficulty.",
+        "sent": "She had to overcome four days of rain."
+      },
+      {
+        "w": "achieve",
+        "emoji": "🌟",
+        "def": "To succeed in doing something hard.",
+        "sent": "It took ten years to achieve."
+      },
+      {
+        "w": "inspire",
+        "emoji": "✨",
+        "def": "To make someone want to try.",
+        "sent": "Her story will inspire other readers."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "When did it happen?",
+        "skill": "Adverbials of time",
+        "intro": "An adverbial of time tells you when. Words like 'first', 'later that year' and 'at last' hold a life story together. When the adverbial comes first in the sentence, put a comma after it.",
+        "items": [
+          {
+            "q": "Which one is an adverbial of time?",
+            "opts": [
+              "behind the grain store",
+              "very quietly",
+              "two years later"
+            ],
+            "a": 2,
+            "why": "'Two years later' tells you when. The others tell you where and how."
+          },
+          {
+            "q": "Which sentence is punctuated correctly?",
+            "opts": [
+              "In 2013, the library finally opened.",
+              "In 2013 the library finally opened.",
+              "In, 2013 the library finally opened."
+            ],
+            "a": 0,
+            "why": "The adverbial comes first, so it takes a comma after it."
+          },
+          {
+            "q": "Which adverbial best starts the FIRST event in a life story?",
+            "opts": [
+              "In the end",
+              "At first",
+              "Meanwhile"
+            ],
+            "a": 1,
+            "why": "'At first' opens the story. 'In the end' closes it."
+          },
+          {
+            "q": "Which adverbial best ends a biography?",
+            "opts": [
+              "Since then",
+              "Soon afterwards",
+              "The next morning"
+            ],
+            "a": 0,
+            "why": "'Since then' looks back over everything and brings you to now."
+          },
+          {
+            "q": "'___ she trains before school every day.' Which fits best?",
+            "opts": [
+              "Yesterday,",
+              "In 1961,",
+              "These days,"
+            ],
+            "a": 2,
+            "why": "'Trains' is present tense, so the adverbial has to be about now."
+          }
+        ]
+      },
+      {
+        "title": "One clause or two?",
+        "skill": "Single-clause and multi-clause sentences",
+        "intro": "A clause has a verb in it. A single-clause sentence has one. A multi-clause sentence joins two or more, often with 'and', 'but' or 'because'. A subordinate clause cannot stand alone.",
+        "items": [
+          {
+            "q": "How many clauses? 'She swam every morning before school.'",
+            "opts": [
+              "Two",
+              "One",
+              "Three"
+            ],
+            "a": 1,
+            "why": "There is only one verb, 'swam'. 'Before school' has no verb of its own."
+          },
+          {
+            "q": "How many clauses? 'She swam every morning and she never missed a day.'",
+            "opts": [
+              "One",
+              "Three",
+              "Two"
+            ],
+            "a": 2,
+            "why": "Two main clauses, joined by 'and'. Each one could stand alone."
+          },
+          {
+            "q": "Which part is the subordinate clause? 'Although she was tired, she finished the ride.'",
+            "opts": [
+              "she finished the ride",
+              "Although she was tired",
+              "the ride"
+            ],
+            "a": 1,
+            "why": "It cannot stand alone as a sentence, so it is subordinate."
+          },
+          {
+            "q": "Which sentence is multi-clause?",
+            "opts": [
+              "The crowd cheered because she had broken the record.",
+              "The crowd cheered loudly.",
+              "The loud, excited crowd."
+            ],
+            "a": 0,
+            "why": "'Because she had broken the record' adds a second clause with its own verb."
+          },
+          {
+            "q": "Which one is NOT a sentence?",
+            "opts": [
+              "When the gun went off.",
+              "She waited.",
+              "The pool was quiet."
+            ],
+            "a": 0,
+            "why": "It is a subordinate clause on its own. It leaves you waiting for the rest."
+          }
+        ]
+      },
+      {
+        "title": "Can you prove it?",
+        "skill": "Fact and opinion",
+        "intro": "A fact can be checked. An opinion is what somebody thinks. Watch out for opinions dressed up as facts: words like 'best', 'amazing' and 'everyone knows' are a clue.",
+        "items": [
+          {
+            "q": "Which one is a fact?",
+            "opts": [
+              "Swimming is the best sport.",
+              "Everyone loves watching her.",
+              "She swam the final in two minutes and four seconds."
+            ],
+            "a": 2,
+            "why": "A time can be checked against the record. The others cannot be proved."
+          },
+          {
+            "q": "Which one is an opinion?",
+            "opts": [
+              "The library opened in 2013.",
+              "It is the most important building in the town.",
+              "Forty-one children were waiting."
+            ],
+            "a": 1,
+            "why": "'Most important' is a judgement. Different people would answer differently."
+          },
+          {
+            "q": "'Clearly, she is the greatest young athlete in the country.' What is this?",
+            "opts": [
+              "A fact, because it says 'clearly'",
+              "An opinion dressed up as a fact",
+              "A quotation"
+            ],
+            "a": 1,
+            "why": "'Clearly' makes it sound proved, but 'greatest' still cannot be checked."
+          },
+          {
+            "q": "Which question best tests whether something is a fact?",
+            "opts": [
+              "Does it sound true?",
+              "Do I agree with it?",
+              "Can it be proved?"
+            ],
+            "a": 2,
+            "why": "That single question is the test. Everything else is how it feels."
+          },
+          {
+            "q": "Which sentence would you expect in a report rather than an advertisement?",
+            "opts": [
+              "She trained five days a week from the age of nine.",
+              "This is the most exciting story of the year.",
+              "You will love reading about her."
+            ],
+            "a": 0,
+            "why": "It is checkable information. The other two are trying to persuade you."
+          }
+        ]
+      }
+    ],
+    "writing": {
+      "title": "Ten Questions for Someone Amazing",
+      "type": "Magazine interview",
+      "piece": "interview",
+      "classTask": "The class is planning, drafting and editing a sports-magazine interview (Student Book pp. 42 and 43). This is the same task, in smaller steps.",
+      "reminders": [
+        "An interview is questions and answers, printed in the person's own words.",
+        "Open questions get real answers. Closed questions only get yes or no.",
+        "The voice is informal and friendly, but the facts still have to be right.",
+        "A headline, a photograph and a caption finish the page."
+      ],
+      "settingsLabel": "Choose the person you will interview",
+      "settings": [
+        {
+          "icon": "🏅",
+          "text": "a wheelchair racer training for her first marathon"
+        },
+        {
+          "icon": "🧑‍🍳",
+          "text": "a fourteen-year-old chef who cooks for her whole street"
+        },
+        {
+          "icon": "📷",
+          "text": "a young wildlife photographer who works at night"
+        },
+        {
+          "icon": "🧤",
+          "text": "a goalkeeper who has never missed a training session"
+        }
+      ],
+      "problemsLabel": "Choose the moment you will ask them about",
+      "problems": [
+        {
+          "icon": "🔄",
+          "text": "the day they nearly gave up"
+        },
+        {
+          "icon": "🌟",
+          "text": "the first time it went right"
+        },
+        {
+          "icon": "🤝",
+          "text": "the person who helped them most"
+        },
+        {
+          "icon": "🔮",
+          "text": "what they want to do next"
+        }
+      ],
+      "order": {
+        "prompt": "Put these words in order to make one opening sentence.",
+        "words": [
+          "We",
+          "met",
+          "her",
+          "at",
+          "the",
+          "track",
+          "on",
+          "a",
+          "cold",
+          "morning"
+        ],
+        "answer": "We met her at the track on a cold morning"
+      },
+      "steps": [
+        {
+          "key": "head",
+          "label": "1. Write your headline",
+          "hint": "Three to five words. Make the reader want to know more.",
+          "starters": [
+            "The Girl Who Never Stops",
+            "Ten Questions For...",
+            "Nobody Told Her It Was Impossible"
+          ]
+        },
+        {
+          "key": "open",
+          "label": "2. Write the opening",
+          "hint": "Two or three sentences. Who is this person, how old are they, and where did you meet them?",
+          "starters": [
+            "... is seventeen, and one of the best...",
+            "We met her at...",
+            "Everybody in the town knows..."
+          ]
+        },
+        {
+          "key": "ask",
+          "label": "3. Write three open questions",
+          "hint": "Start each one on a new line. An open question cannot be answered with yes or no.",
+          "tilesLabel": "Openers that make a question open:",
+          "tiles": [
+            "How did you",
+            "Why do you",
+            "What was it like when",
+            "Tell me about",
+            "What would you say to"
+          ],
+          "starters": [
+            "How did you start?",
+            "What has been the hardest part?",
+            "Who inspires you?"
+          ]
+        },
+        {
+          "key": "answer",
+          "label": "4. Write their answers",
+          "hint": "Answer in their voice, not yours. Keep it informal. One answer can be very short.",
+          "starters": [
+            "I taught myself, really.",
+            "People think the hard part is...",
+            "My grandmother, who has never..."
+          ]
+        },
+        {
+          "key": "close",
+          "label": "5. Finish the page",
+          "hint": "One last question about what comes next, and a caption for the photograph.",
+          "starters": [
+            "What comes next?",
+            "Photograph:",
+            "She is back at training on Monday."
+          ]
+        }
+      ],
+      "checklist": [
+        "My interview has a short headline.",
+        "The opening says who the person is and where we met.",
+        "At least three of my questions are open questions.",
+        "The answers sound like a real person talking.",
+        "I have written a caption for the photograph.",
+        "I have checked my spelling of the /shun/ and -ence words."
+      ]
+    },
+    "adventure": {
+      "title": "You Are the Reporter",
+      "blurb": "A story where YOU choose whose story to tell.",
+      "intro": "You have a notebook, a recorder and one afternoon to find a story worth printing. You choose where to go and what to ask. There are no wrong choices. Every path finds a real person and a real story. Can you find all twelve endings?",
+      "start": "start",
+      "nodes": {
+        "start": {
+          "text": "Your editor gives you one afternoon and one page. Four places have called in with something worth seeing. You can only get to one. Where do you go?",
+          "choices": [
+            {
+              "icon": "🏟️",
+              "label": "The stadium, an hour before the final",
+              "next": "s1"
+            },
+            {
+              "icon": "⛰️",
+              "label": "The mountain rescue base",
+              "next": "m1"
+            },
+            {
+              "icon": "🔬",
+              "label": "The science lab at the university",
+              "next": "b1"
+            },
+            {
+              "icon": "🛹",
+              "label": "The skate park under the bridge",
+              "next": "k1"
+            }
+          ]
+        },
+        "s1": {
+          "text": "The tunnel under the stand smells of warm rubber and cold concrete. The favourite for the final is surrounded by cameras. In the corner, alone, a younger athlete is retying the same shoelace for the third time.",
+          "choices": [
+            {
+              "icon": "🎤",
+              "label": "Join the cameras around the favourite",
+              "next": "s2a"
+            },
+            {
+              "icon": "👀",
+              "label": "Go and sit near the one in the corner",
+              "next": "s2b"
+            }
+          ]
+        },
+        "s2a": {
+          "text": "The favourite gives the same six answers she has given all week. Then, as you turn to leave, she stops you. 'Ask her,' she says, nodding at the corner. 'She beat my time in training on Tuesday and nobody wrote it down.'",
+          "choices": [
+            {
+              "icon": "📓",
+              "label": "Go and ask the quiet one",
+              "next": "se1"
+            },
+            {
+              "icon": "🏃",
+              "label": "Ask who trained them both",
+              "next": "se2"
+            }
+          ]
+        },
+        "s2b": {
+          "text": "She does not look up for a while. Then she says, without being asked, 'I have run this race four hundred times in my head. In two of them I lose.' You write it down exactly as she says it.",
+          "choices": [
+            {
+              "icon": "📸",
+              "label": "Stay for the finish and watch closely",
+              "next": "se3"
+            },
+            {
+              "icon": "🏃",
+              "label": "Ask who taught her to think that way",
+              "next": "se2"
+            }
+          ]
+        },
+        "se1": {
+          "ending": "The Quiet Champion",
+          "icon": "🏅",
+          "text": "She talks for eleven minutes and never once mentions winning. She talks about a bus timetable, a borrowed pair of spikes and a mother who works nights. Your page runs the next morning under a four-word headline, and the phone does not stop ringing."
+        },
+        "se2": {
+          "ending": "The Coach's Story",
+          "icon": "🧢",
+          "text": "The coach is seventy-one and has trained both of them since they were nine. 'People ask me for the secret,' he says. 'The secret is turning up on the days nobody is watching.' You print the quotation on its own, in large type, in the middle of the page."
+        },
+        "se3": {
+          "ending": "The Photo Finish",
+          "icon": "📸",
+          "text": "Two of them cross the line together and nobody in the stadium knows who won. In the long wait you watch the quiet one, and she is not looking at the screen. She is looking for her mother in the stand. That is the picture you describe, and it is better than the result."
+        },
+        "m1": {
+          "text": "The rescue base is a low building full of ropes, radios and mugs. Nothing is happening. A woman is checking a stretcher for the second time that hour, and a dog is asleep under the table.",
+          "choices": [
+            {
+              "icon": "🗺️",
+              "label": "Ask about the map room at the back",
+              "next": "m2a"
+            },
+            {
+              "icon": "🐕",
+              "label": "Ask about the dog under the table",
+              "next": "m2b"
+            }
+          ]
+        },
+        "m2a": {
+          "text": "The map room is covered floor to ceiling. Every rescue for thirty years is a small pin. Some parts of the mountain are almost solid with pins, and one whole valley is empty.",
+          "choices": [
+            {
+              "icon": "📍",
+              "label": "Ask why one valley has no pins",
+              "next": "me1"
+            },
+            {
+              "icon": "🌙",
+              "label": "Stay in case a call comes in",
+              "next": "me2"
+            }
+          ]
+        },
+        "m2b": {
+          "text": "The dog is called Pepper and she is eleven years old. 'She has found sixteen people,' the handler says. 'Two of them were not lost. They were just sitting down and had stopped answering.'",
+          "choices": [
+            {
+              "icon": "🐕",
+              "label": "Ask what happens when Pepper retires",
+              "next": "me3"
+            },
+            {
+              "icon": "🌙",
+              "label": "Stay in case a call comes in",
+              "next": "me2"
+            }
+          ]
+        },
+        "me1": {
+          "ending": "The Map Room",
+          "icon": "🗺️",
+          "text": "The empty valley is empty because a farmer there has spent forty years telling walkers to turn back before the weather closes in. Nobody has ever written about him. Nobody has ever needed to rescue anyone from his valley either. You put both facts in the same sentence and let the reader do the maths."
+        },
+        "me2": {
+          "ending": "The Night Call-Out",
+          "icon": "🌙",
+          "text": "At twenty past six the radio goes and the room changes shape. Nobody runs. Everybody moves. Four minutes later the van is gone and you are standing in an empty room with a half-drunk mug of tea going cold. You write about the four minutes, because that is the whole story."
+        },
+        "me3": {
+          "ending": "The Dog Handler",
+          "icon": "🐕",
+          "text": "'She retires next spring,' he says, and then he cannot say anything else for a moment. Later he tells you that the hardest part of the job is not the mountain. It is knowing that one day you will have to go up it without your dog. You ask if you can print that. He thinks, and says yes."
+        },
+        "b1": {
+          "text": "The lab is quiet and far too bright. A student who does not look much older than you is writing numbers into a book, one line at a time, hundreds of them.",
+          "choices": [
+            {
+              "icon": "📓",
+              "label": "Ask what all the numbers are for",
+              "next": "b2a"
+            },
+            {
+              "icon": "🧪",
+              "label": "Ask about the broken glass in the tray",
+              "next": "b2b"
+            }
+          ]
+        },
+        "b2a": {
+          "text": "'It is the same test, four hundred and twelve times,' she says. 'Four hundred and eleven of them were wrong. That is not the sad part. That is the job.'",
+          "choices": [
+            {
+              "icon": "🌟",
+              "label": "Ask what happened on number four hundred and twelve",
+              "next": "be1"
+            },
+            {
+              "icon": "⏳",
+              "label": "Ask how long she has been doing this",
+              "next": "be2"
+            }
+          ]
+        },
+        "b2b": {
+          "text": "The tray holds a cracked sample tube, carefully labelled and kept. 'Three months of work,' she says, almost cheerfully. 'I keep it where I can see it.'",
+          "choices": [
+            {
+              "icon": "🧪",
+              "label": "Ask why she keeps it instead of binning it",
+              "next": "be3"
+            },
+            {
+              "icon": "⏳",
+              "label": "Ask how long she has been doing this",
+              "next": "be2"
+            }
+          ]
+        },
+        "be1": {
+          "ending": "The First Result",
+          "icon": "🌟",
+          "text": "On number four hundred and twelve the line on the screen went where she said it would. She tells you she did not cheer. She checked it again, then a third time, then rang her supervisor at half past eleven at night. 'That is what it feels like,' she says. 'Mostly it feels like checking.'"
+        },
+        "be2": {
+          "ending": "The Young Scientist",
+          "icon": "🔬",
+          "text": "Six years, since she was seventeen. She shows you a photograph of the same lab, the same bench, a younger face. 'People think you need to be clever,' she says. 'You need to be patient. Clever is helpful.' You use that as the last line of the piece."
+        },
+        "be3": {
+          "ending": "The Broken Sample",
+          "icon": "🧪",
+          "text": "'Because it was not carelessness,' she says. 'It was a bad clamp, and now nobody in this lab uses that clamp.' She keeps the broken tube the way a climber keeps a frayed rope: not as a punishment, but as a fact worth remembering. Your headline writes itself."
+        },
+        "k1": {
+          "text": "Under the bridge the concrete is dry even though it is raining. Someone is trying the same jump over and over. You count seven falls before you have got your notebook out.",
+          "choices": [
+            {
+              "icon": "🛹",
+              "label": "Count the attempts and wait",
+              "next": "k2a"
+            },
+            {
+              "icon": "🔨",
+              "label": "Ask who built the ramps",
+              "next": "k2b"
+            }
+          ]
+        },
+        "k2a": {
+          "text": "You stop counting at fifty-one. She lands it on fifty-two, gets up, and immediately goes back to the start to try it again. When she finally stops, she is not out of breath. She is grinning.",
+          "choices": [
+            {
+              "icon": "🎯",
+              "label": "Ask why she went straight back to the start",
+              "next": "ke1"
+            },
+            {
+              "icon": "🧒",
+              "label": "Ask about the small boy watching from the wall",
+              "next": "ke3"
+            }
+          ]
+        },
+        "k2b": {
+          "text": "The ramps were built by a man who used to skate here in the 1980s. He comes down on Sundays with a saw and a bag of screws. 'It is not a hobby,' someone tells you. 'It is maintenance.'",
+          "choices": [
+            {
+              "icon": "🔨",
+              "label": "Wait until Sunday and meet him",
+              "next": "ke2"
+            },
+            {
+              "icon": "🧒",
+              "label": "Ask about the small boy watching from the wall",
+              "next": "ke3"
+            }
+          ]
+        },
+        "ke1": {
+          "ending": "The Fifty-Second Try",
+          "icon": "🎯",
+          "text": "'Because if I stop after I land it, I have only landed it once,' she says, as if this is obvious. You write down the number fifty-two and put it in the first line of the report, because no adjective you own is as convincing as that number."
+        },
+        "ke2": {
+          "ending": "The Ramp Builder",
+          "icon": "🔨",
+          "text": "On Sunday he is there at eight with a flask and a saw. He has rebuilt the same ramp nine times in thirty years. 'Somebody did it for me,' he says, and that is his entire explanation. It turns out to be the whole article."
+        },
+        "ke3": {
+          "ending": "The Youngest Rider",
+          "icon": "🧒",
+          "text": "The boy on the wall is six and has been coming every wet Thursday for a month without a board. Today somebody lends him one. He falls twice, laughs both times, and looks around to check that the older ones saw. They did. Every one of them clapped."
+        }
+      }
+    }
+  }
 };
 
 /* ==========================================================================
    END OF DATA BLOCK — the code below does not need to change.
    ========================================================================== */
 
-const U = UNITS[CURRENT_UNIT];
+let CURRENT_UNIT = DEFAULT_UNIT;
+let U = UNITS[CURRENT_UNIT];
 const LS_KEY = "englishHub.v1";
 
-const defaultState = {
-  settings:{ fs:19, bg:"cream", spacing:false, rate:0.85, voice:"" },
+/* Progress that belongs to ONE unit. Kept in S.units[unit] so that moving
+   the app on to a new unit never marks the new work as already done. */
+const defaultUnitState = {
   tasksDone:{},
   passagesDone:{},           // idx -> true
   answers:{},                // "p0q1" -> {correct:bool, tries:int}
-  wordsMastered:{},          // word -> true
-  vocabSeen:{},              // word -> true
   vocabQuiz:{ right:0, wrong:0 },
   grammarDone:{},            // set index -> true
   grammarQuiz:{ right:0, wrong:0 },
   writing:{},                // step key -> text
   writingSetting:"", writingProblem:"",
-  daysPracticed:[],          // ISO dates
   reading:null,              // remembers her place: {p, chunk, phase, q}
-  adventure:{ node:null, endings:{} },  // choose-your-path story: current page + endings found
+  adventure:{ node:null, endings:{} }   // choose-your-path story: current page + endings found
+};
+const UNIT_KEYS = Object.keys(defaultUnitState);
+
+/* Everything that is true of the student, not of one unit. These carry over
+   between units on purpose: wins, badges and the pup must never go down. */
+const defaultState = {
+  settings:{ fs:19, bg:"cream", spacing:false, rate:0.85, voice:"" },
+  unit: DEFAULT_UNIT,        // the live unit
+  units:{},                  // unit number -> the block above
+  wordsMastered:{},          // word -> true
+  vocabSeen:{},              // word -> true
+  badges:{},                 // badge name -> true, once earned it stays earned
+  daysPracticed:[],          // ISO dates
   pup:{ name:"" },           // Today-screen companion (husky pup)
   log:{},                    // usage diary: "YYYY-MM-DD" -> per-day counters (teacher only)
   lastExport:"",             // date the summary CSV was last downloaded/copied
@@ -759,13 +1935,42 @@ function same(a, b){
 }
 
 let S = load();
+CURRENT_UNIT = UNITS[S.unit] ? S.unit : DEFAULT_UNIT;
+S.unit = CURRENT_UNIT;
+U = UNITS[CURRENT_UNIT];
+let PROG = unitState(CURRENT_UNIT);   /* progress for the live unit */
+
+/* Turn anything we might read (a fresh start, a current save, or a save from
+   before units existed) into the current shape. A pre-units save has its
+   progress folded into Unit 1, so nobody loses a term's work to an update. */
+function hydrate(obj){
+  const st = Object.assign(clone(defaultState), obj || {});
+  st.units = st.units || {};
+  const legacy = {}; let hasLegacy = false;
+  UNIT_KEYS.forEach(function(k){
+    if(obj && Object.prototype.hasOwnProperty.call(obj, k)){ legacy[k] = obj[k]; hasLegacy = true; }
+    delete st[k];
+  });
+  if(hasLegacy && !Object.keys(st.units).length){
+    st.units["1"] = Object.assign(clone(defaultUnitState), legacy);
+  }
+  if(!UNITS[st.unit]) st.unit = DEFAULT_UNIT;
+  return st;
+}
+
+/* The progress block for one unit, created on first use. Returns the object
+   that lives inside S, not a copy, so ordinary writes still save. */
+function unitState(n){
+  const k = String(n);
+  S.units[k] = Object.assign(clone(defaultUnitState), S.units[k] || {});
+  return S.units[k];
+}
 
 function load(){
   try{
     const raw = localStorage.getItem(LS_KEY);
-    if(!raw) return clone(defaultState);
-    return Object.assign(clone(defaultState), JSON.parse(raw));
-  }catch(e){ return clone(defaultState); }
+    return hydrate(raw ? JSON.parse(raw) : null);
+  }catch(e){ return hydrate(null); }
 }
 function save(){
   try{ localStorage.setItem(LS_KEY, JSON.stringify(S)); }catch(e){}
@@ -1320,6 +2525,477 @@ const AUDIO = {
   "You found an ending: The Mirror Signal! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-mirror-signal-we-25a0b0f3.mp3",
   "I dug with both hands, deeper and deeper, until the sand turned dark and wet. Water! Slow, clean drops filled my bottle. I drank, rested, and walked out of the desert on my own. I found the tree. The tree saved me.": "audio/adv-i-dug-with-both-hands-deeper-and-deeper-ed716aba.mp3",
   "You found an ending: The Water Finder! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-water-finder-wel-050860cf.mp3",
+  "Read: The Girl Who Built a Library": "audio/task-read-the-girl-who-built-a-library-855fecc7.mp3",
+  "Word Work: pre- and fore- words": "audio/task-word-work-pre-and-fore-words-15cd468b.mp3",
+  "Passage 1. The Girl Who Built a Library. A biography of a real kind of life story. Same text type as the class biography.": "audio/read-passage-1-the-girl-who-built-a-library-a-b-85629e20.mp3",
+  "Passage 2. City Cheers Its Youngest Champion. A newspaper report of a real event. Look for the headline, the facts and the quotations.": "audio/read-passage-2-city-cheers-its-youngest-champio-3523fa64.mp3",
+  "Passage 3. Two Wheels and a Long Road. An autobiography. The writer tells her own story, in her own words.": "audio/read-passage-3-two-wheels-and-a-long-road-an-au-7dc49dbd.mp3",
+  "Passage 4. Ten Questions for Dani Alvarez. A magazine interview. Watch how the questions are built. Good ideas for your own.": "audio/read-passage-4-ten-questions-for-dani-alvarez-a-a5a80925.mp3",
+  "Early years. Amara Boateng was born in 1994, in a town with a market, two schools and no library. Her school owned eleven books, and she had read every one of them by the age of eight.": "audio/read-early-years-amara-boateng-was-born-in-1994-78a2cf26.mp3",
+  "Every Saturday she walked four miles to her aunt's house, because her aunt kept a box of old paperbacks under the bed.": "audio/read-every-saturday-she-walked-four-miles-to-he-ce938b4c.mp3",
+  "A simple question. In 2006, when Amara was twelve, she asked her teacher why a town could have a market but not a library. Her teacher had no answer.": "audio/read-a-simple-question-in-2006-when-amara-was-t-633b5595.mp3",
+  "So Amara started collecting books herself. She began with nine, kept in a rice sack behind the door.": "audio/read-so-amara-started-collecting-books-herself-cabd83e4.mp3",
+  "Building it. By 2011 she had two thousand books and nowhere to keep them. She wrote to every builder in the district. One of them wrote back.": "audio/read-building-it-by-2011-she-had-two-thousand-b-c6950020.mp3",
+  "The library opened in 2013, in a room behind the old grain store. On the first morning, forty-one children were waiting outside before the door was unlocked.": "audio/read-the-library-opened-in-2013-in-a-room-behin-35c09870.mp3",
+  "Since then. Amara has helped to open nine more libraries. She still owns the first book she was ever given: a torn paperback about the sea.": "audio/read-since-then-amara-has-helped-to-open-nine-m-e89a1c11.mp3",
+  "In which year did the first library open?": "audio/read-in-which-year-did-the-first-library-open-0b128d6b.mp3",
+  "2013": "audio/read-2013-d08b10a3.mp3",
+  "2011": "audio/read-2011-32a70a32.mp3",
+  "2006": "audio/read-2006-1938b797.mp3",
+  "The text says the library opened in 2013. 2006 is when she asked the question, and 2011 is when she had two thousand books.": "audio/read-the-text-says-the-library-opened-in-2013-2-c835ce35.mp3",
+  "How can you tell this text is a biography and not an autobiography?": "audio/read-how-can-you-tell-this-text-is-a-biography-7a931ebc.mp3",
+  "It is written in the present tense": "audio/read-it-is-written-in-the-present-tense-b5116811.mp3",
+  "It is written about her, using 'she'": "audio/read-it-is-written-about-her-using-she-0ea2fb44.mp3",
+  "It uses dates and subheadings": "audio/read-it-uses-dates-and-subheadings-e9e32dc1.mp3",
+  "A biography is written about someone in the third person. An autobiography would say 'I'.": "audio/read-a-biography-is-written-about-someone-in-th-235ee4d7.mp3",
+  "Why does the writer tell you the school owned only eleven books?": "audio/read-why-does-the-writer-tell-you-the-school-ow-a378a969.mp3",
+  "To prove she was the best reader in the school": "audio/read-to-prove-she-was-the-best-reader-in-the-sc-d5cc5d6e.mp3",
+  "To explain why the school closed": "audio/read-to-explain-why-the-school-closed-22a1de61.mp3",
+  "To show how much she wanted to read and how little there was": "audio/read-to-show-how-much-she-wanted-to-read-and-ho-d563f3ac.mp3",
+  "The small number sets up the whole story. It shows the gap that Amara later filled.": "audio/read-the-small-number-sets-up-the-whole-story-i-142e8fd1.mp3",
+  "A twelve-year-old swimmer from Bell Street made history yesterday when she won the national two hundred metres final in Cardiff.": "audio/read-a-twelve-year-old-swimmer-from-bell-street-a767fb7b.mp3",
+  "Nadia Okoro touched the wall in two minutes and four seconds, beating swimmers who were four years older than her.": "audio/read-nadia-okoro-touched-the-wall-in-two-minute-d9ccb11b.mp3",
+  "She is the youngest winner in the competition's forty-year history.": "audio/read-she-is-the-youngest-winner-in-the-competit-3aead23b.mp3",
+  "'I could not hear anything at the end,' Nadia said afterwards. 'The noise was like being under water again.'": "audio/read-i-could-not-hear-anything-at-the-end-nadia-7817809a.mp3",
+  "Her coach, Mr Peter Lang, said the win was no accident. He said she has trained before school, five days a week, since she was nine.": "audio/read-her-coach-mr-peter-lang-said-the-win-was-n-502d5b6d.mp3",
+  "The city council has invited Nadia to switch on the harbour lights next month.": "audio/read-the-city-council-has-invited-nadia-to-swit-668ba30a.mp3",
+  "Nadia says she will be back in the same pool on Monday morning at half past five, as usual.": "audio/read-nadia-says-she-will-be-back-in-the-same-po-2a5541f5.mp3",
+  "Where did the final take place?": "audio/read-where-did-the-final-take-place-398f4ff2.mp3",
+  "Bell Street": "audio/read-bell-street-1dec9f53.mp3",
+  "The harbour": "audio/read-the-harbour-4b4a856f.mp3",
+  "Cardiff": "audio/read-cardiff-0cbfb470.mp3",
+  "The report says she won the national final in Cardiff. Bell Street is where she lives.": "audio/read-the-report-says-she-won-the-national-final-b1d5702c.mp3",
+  "The report says Nadia 'made history'. What does that phrase mean here?": "audio/read-the-report-says-nadia-made-history-what-do-8bdd7792.mp3",
+  "She studied the past": "audio/read-she-studied-the-past-3ff46c7c.mp3",
+  "She did something nobody had done before": "audio/read-she-did-something-nobody-had-done-before-daa3f28e.mp3",
+  "She was the last to finish": "audio/read-she-was-the-last-to-finish-d8ca5aed.mp3",
+  "She is the youngest winner in forty years, so she did something that had never happened before.": "audio/read-she-is-the-youngest-winner-in-forty-years-488f1471.mp3",
+  "Why does a newspaper report include quotations from Nadia and her coach?": "audio/read-why-does-a-newspaper-report-include-quotat-e64ae84d.mp3",
+  "To let the reader hear the real people in their own words": "audio/read-to-let-the-reader-hear-the-real-people-in-07d4dbc3.mp3",
+  "To fill up space on the page": "audio/read-to-fill-up-space-on-the-page-83858526.mp3",
+  "Because the writer was not at the race": "audio/read-because-the-writer-was-not-at-the-race-679a6b1d.mp3",
+  "Quotations are a report feature. Their job is to bring the real voices into the story.": "audio/read-quotations-are-a-report-feature-their-job-6fe3e5a1.mp3",
+  "I was fourteen when I decided to cycle the length of the country. My mother said no for three weeks, and then she said yes.": "audio/read-i-was-fourteen-when-i-decided-to-cycle-the-18221ac1.mp3",
+  "We planned it at the kitchen table with a map, a marker pen and far too much confidence.": "audio/read-we-planned-it-at-the-kitchen-table-with-a-547abeac.mp3",
+  "The first day was flat and easy, and I remember thinking the whole thing would be simple.": "audio/read-the-first-day-was-flat-and-easy-and-i-reme-56d930c3.mp3",
+  "The fourth day was not. It rained from six in the morning until dark, and I cried twice, both times where nobody could see me.": "audio/read-the-fourth-day-was-not-it-rained-from-six-d4179b92.mp3",
+  "On the seventh day a farmer let me sleep in his barn. He gave me soup and told me his own father had cycled the same road in 1961.": "audio/read-on-the-seventh-day-a-farmer-let-me-sleep-i-9124c4de.mp3",
+  "I finished on a Tuesday, eleven days after I set off. My legs shook too much for me to stand up straight in the photograph.": "audio/read-i-finished-on-a-tuesday-eleven-days-after-bba709e4.mp3",
+  "People ask me what the best part was. It was not the finish. It was the barn, the soup, and the man whose father had done it first.": "audio/read-people-ask-me-what-the-best-part-was-it-wa-77d9a0de.mp3",
+  "How did the writer feel on the fourth day?": "audio/read-how-did-the-writer-feel-on-the-fourth-day-fc819537.mp3",
+  "Confident": "audio/read-confident-83a829e0.mp3",
+  "Bored": "audio/read-bored-2d00a1b8.mp3",
+  "Miserable": "audio/read-miserable-17d2aa3a.mp3",
+  "It rained all day and she cried twice. The word 'miserable' is never used, but the evidence shows it.": "audio/read-it-rained-all-day-and-she-cried-twice-the-963387d0.mp3",
+  "How can you tell this is an autobiography?": "audio/read-how-can-you-tell-this-is-an-autobiography-f36f96dd.mp3",
+  "It has a headline and quotations": "audio/read-it-has-a-headline-and-quotations-d837b506.mp3",
+  "It is a true story about a journey": "audio/read-it-is-a-true-story-about-a-journey-75b3c7e8.mp3",
+  "The writer uses 'I' to tell her own life": "audio/read-the-writer-uses-i-to-tell-her-own-life-67a9a91d.mp3",
+  "An autobiography is your own life, told in the first person.": "audio/read-an-autobiography-is-your-own-life-told-in-8ba59457.mp3",
+  "Which sentence from the text is an opinion rather than a fact?": "audio/read-which-sentence-from-the-text-is-an-opinion-94d440fe.mp3",
+  "It was the barn, the soup, and the man whose father had done it first.": "audio/read-it-was-the-barn-the-soup-and-the-man-whose-9fa1a6fe.mp3",
+  "A farmer let me sleep in his barn.": "audio/read-a-farmer-let-me-sleep-in-his-barn-40ff074f.mp3",
+  "I finished on a Tuesday, eleven days after I set off.": "audio/read-i-finished-on-a-tuesday-eleven-days-after-0bdf2534.mp3",
+  "The best part cannot be proved. It is what she thinks. The other two could be checked.": "audio/read-the-best-part-cannot-be-proved-it-is-what-8ed12f04.mp3",
+  "Dani Alvarez is seventeen, and one of the best street skateboarders in the country. We met her at the skate park on a wet Thursday.": "audio/read-dani-alvarez-is-seventeen-and-one-of-the-b-732c0560.mp3",
+  "How did you start? My brother broke his board and gave me the pieces. I made one board out of two and taught myself in a car park.": "audio/read-how-did-you-start-my-brother-broke-his-boa-95ccb8e3.mp3",
+  "What has been the hardest trick to learn? The one I am still learning. Every time I land it, I see something in it I do not like yet.": "audio/read-what-has-been-the-hardest-trick-to-learn-t-1ccd6545.mp3",
+  "How many times do you fall in a day? Hundreds. People think falling is the bad part of skating. Falling is the lesson.": "audio/read-how-many-times-do-you-fall-in-a-day-hundre-44149113.mp3",
+  "What would you say to someone who is too scared to start? Go on a wet Thursday, when the park is empty. Nobody is watching. That is the secret.": "audio/read-what-would-you-say-to-someone-who-is-too-s-60046fe9.mp3",
+  "Who inspires you? My brother, who never skates any more. And my grandmother, who has never seen a skateboard in her life.": "audio/read-who-inspires-you-my-brother-who-never-skat-98fc5d07.mp3",
+  "What comes next? A competition in March, and a new board. This one has been broken twice already.": "audio/read-what-comes-next-a-competition-in-march-and-9a94b0c6.mp3",
+  "How did Dani get her first board?": "audio/read-how-did-dani-get-her-first-board-fc61cefd.mp3",
+  "She made one from her brother's broken board": "audio/read-she-made-one-from-her-brother-s-broken-boa-15a0d94f.mp3",
+  "She bought it before a competition": "audio/read-she-bought-it-before-a-competition-f2916a36.mp3",
+  "The skate park lent her one": "audio/read-the-skate-park-lent-her-one-d227b252.mp3",
+  "She says her brother gave her the pieces and she made one board out of two.": "audio/read-she-says-her-brother-gave-her-the-pieces-a-012dba02.mp3",
+  "Which of these questions would be hardest to answer with just 'yes' or 'no'?": "audio/read-which-of-these-questions-would-be-hardest-7350c6ea.mp3",
+  "What would you say to someone who is too scared to start?": "audio/read-what-would-you-say-to-someone-who-is-too-s-d80948df.mp3",
+  "Do you skate?": "audio/read-do-you-skate-c71dd428.mp3",
+  "Is your board broken?": "audio/read-is-your-board-broken-ad5ea349.mp3",
+  "That is an open question. It needs a real answer. The other two are closed questions.": "audio/read-that-is-an-open-question-it-needs-a-real-a-50c918f9.mp3",
+  "Dani says, 'Falling is the lesson.' What does she mean?": "audio/read-dani-says-falling-is-the-lesson-what-does-46005821.mp3",
+  "She learns something from every fall": "audio/read-she-learns-something-from-every-fall-4f5462cd.mp3",
+  "She falls on purpose to look brave": "audio/read-she-falls-on-purpose-to-look-brave-d35e07a4.mp3",
+  "She thinks people should stop skating": "audio/read-she-thinks-people-should-stop-skating-823e26ec.mp3",
+  "She is saying the falls are how she improves, not a sign that she is failing.": "audio/read-she-is-saying-the-falls-are-how-she-improv-c1639f9f.mp3",
+  "Set 1. the beginnings p-r-e and f-o-r-e, which both mean 'before'": "audio/word-set-1-the-beginnings-p-r-e-and-f-o-r-e-whi-3d0cc2a1.mp3",
+  "Set 2. the beginnings i-m and i-n, which mean 'not'": "audio/word-set-2-the-beginnings-i-m-and-i-n-which-mea-1eec90a6.mp3",
+  "Set 3. the shun sound at the end, spelled t-i-o-n, c-i-a-n or s-s-i-o-n": "audio/word-set-3-the-shun-sound-at-the-end-spelled-t-3a4fe528.mp3",
+  "Set 4. the endings a-n-c-e and e-n-c-e": "audio/word-set-4-the-endings-a-n-c-e-and-e-n-c-e-627825cb.mp3",
+  "predict": "audio/word-predict-5226c875.mp3",
+  "Nobody could predict how fast she would swim.": "audio/word-nobody-could-predict-how-fast-she-would-sw-d091d5c9.mp3",
+  "pre, dict. predict": "audio/word-pre-dict-predict-bae7a476.mp3",
+  "Yes. You built the word predict.": "audio/word-yes-you-built-the-word-predict-8682c0e4.mp3",
+  "prepare": "audio/word-prepare-4197eb0c.mp3",
+  "She had to prepare for months before the final.": "audio/word-she-had-to-prepare-for-months-before-the-f-8c0aac83.mp3",
+  "pre, pare. prepare": "audio/word-pre-pare-prepare-56423be8.mp3",
+  "Yes. You built the word prepare.": "audio/word-yes-you-built-the-word-prepare-41d73116.mp3",
+  "preview": "audio/word-preview-1aa787fe.mp3",
+  "The magazine printed a preview of the competition.": "audio/word-the-magazine-printed-a-preview-of-the-comp-0eb970f8.mp3",
+  "pre, view. preview": "audio/word-pre-view-preview-7328fcd9.mp3",
+  "Yes. You built the word preview.": "audio/word-yes-you-built-the-word-preview-3c9661aa.mp3",
+  "forecast": "audio/word-forecast-018c49f8.mp3",
+  "The forecast said rain, and the forecast was right.": "audio/word-the-forecast-said-rain-and-the-forecast-wa-c85be13e.mp3",
+  "fore, cast. forecast": "audio/word-fore-cast-forecast-65e6f238.mp3",
+  "Yes. You built the word forecast.": "audio/word-yes-you-built-the-word-forecast-dbe74942.mp3",
+  "forehead": "audio/word-forehead-8c119eb9.mp3",
+  "She wiped her forehead and got back on the bike.": "audio/word-she-wiped-her-forehead-and-got-back-on-the-4b7b6b2f.mp3",
+  "fore, head. forehead": "audio/word-fore-head-forehead-18af406b.mp3",
+  "Yes. You built the word forehead.": "audio/word-yes-you-built-the-word-forehead-23e9b6e9.mp3",
+  "foretell": "audio/word-foretell-2a9da7c7.mp3",
+  "No one can foretell who will win.": "audio/word-no-one-can-foretell-who-will-win-0d3ba3d3.mp3",
+  "fore, tell. foretell": "audio/word-fore-tell-foretell-14c918c0.mp3",
+  "Yes. You built the word foretell.": "audio/word-yes-you-built-the-word-foretell-edae4162.mp3",
+  "impossible": "audio/word-impossible-a708dd23.mp3",
+  "People told her it was impossible, so she did it.": "audio/word-people-told-her-it-was-impossible-so-she-d-473e3a75.mp3",
+  "im, poss, ible. impossible": "audio/word-im-poss-ible-impossible-809a27f7.mp3",
+  "Yes. You built the word impossible.": "audio/word-yes-you-built-the-word-impossible-35d156d3.mp3",
+  "impatient": "audio/word-impatient-9ed7f130.mp3",
+  "The crowd grew impatient before the race.": "audio/word-the-crowd-grew-impatient-before-the-race-d8159afa.mp3",
+  "im, pat, ient. impatient": "audio/word-im-pat-ient-impatient-c47c7860.mp3",
+  "Yes. You built the word impatient.": "audio/word-yes-you-built-the-word-impatient-0a8b36ec.mp3",
+  "imperfect": "audio/word-imperfect-89f382df.mp3",
+  "Her first board was imperfect but it worked.": "audio/word-her-first-board-was-imperfect-but-it-worke-fc1cb284.mp3",
+  "im, per, fect. imperfect": "audio/word-im-per-fect-imperfect-3b1662f6.mp3",
+  "Yes. You built the word imperfect.": "audio/word-yes-you-built-the-word-imperfect-df13419b.mp3",
+  "incorrect": "audio/word-incorrect-6c03ac0e.mp3",
+  "The first report gave an incorrect time.": "audio/word-the-first-report-gave-an-incorrect-time-987fdc1a.mp3",
+  "in, cor, rect. incorrect": "audio/word-in-cor-rect-incorrect-8642aa5f.mp3",
+  "Yes. You built the word incorrect.": "audio/word-yes-you-built-the-word-incorrect-d22c5192.mp3",
+  "invisible": "audio/word-invisible-6ccc38e4.mp3",
+  "The work behind a win is almost invisible.": "audio/word-the-work-behind-a-win-is-almost-invisible-1777446f.mp3",
+  "in, vis, ible. invisible": "audio/word-in-vis-ible-invisible-e36d779f.mp3",
+  "Yes. You built the word invisible.": "audio/word-yes-you-built-the-word-invisible-86fa7e00.mp3",
+  "informal": "audio/word-informal-4fc704ca.mp3",
+  "An interview often uses informal language.": "audio/word-an-interview-often-uses-informal-language-393aa0fc.mp3",
+  "in, form, al. informal": "audio/word-in-form-al-informal-a3919df2.mp3",
+  "Yes. You built the word informal.": "audio/word-yes-you-built-the-word-informal-3dcdd379.mp3",
+  "action": "audio/word-action-34eb4c4e.mp3",
+  "The photograph caught her in mid action.": "audio/word-the-photograph-caught-her-in-mid-action-5e780f1c.mp3",
+  "act, ion. action": "audio/word-act-ion-action-bc5399be.mp3",
+  "Yes. You built the word action.": "audio/word-yes-you-built-the-word-action-715add48.mp3",
+  "station": "audio/word-station-2da36ff3.mp3",
+  "She waited at the station with her bike.": "audio/word-she-waited-at-the-station-with-her-bike-3505e5c4.mp3",
+  "sta, tion. station": "audio/word-sta-tion-station-d49c43ed.mp3",
+  "Yes. You built the word station.": "audio/word-yes-you-built-the-word-station-7078045c.mp3",
+  "attention": "audio/word-attention-d0278de5.mp3",
+  "The win brought her a lot of attention.": "audio/word-the-win-brought-her-a-lot-of-attention-2bb81a7a.mp3",
+  "at, ten, tion. attention": "audio/word-at-ten-tion-attention-0044cb46.mp3",
+  "Yes. You built the word attention.": "audio/word-yes-you-built-the-word-attention-eafeb313.mp3",
+  "musician": "audio/word-musician-2e417fcb.mp3",
+  "Her grandmother was a musician.": "audio/word-her-grandmother-was-a-musician-a561a36e.mp3",
+  "mus, ic, ian. musician": "audio/word-mus-ic-ian-musician-9a18c920.mp3",
+  "Yes. You built the word musician.": "audio/word-yes-you-built-the-word-musician-29887704.mp3",
+  "magician": "audio/word-magician-182f3dc4.mp3",
+  "On the board she moves like a magician.": "audio/word-on-the-board-she-moves-like-a-magician-d8f9b025.mp3",
+  "mag, ic, ian. magician": "audio/word-mag-ic-ian-magician-d5f9b77f.mp3",
+  "Yes. You built the word magician.": "audio/word-yes-you-built-the-word-magician-6dfe3ffe.mp3",
+  "discussion": "audio/word-discussion-c255751d.mp3",
+  "The discussion lasted the whole lesson.": "audio/word-the-discussion-lasted-the-whole-lesson-2d4ed9d7.mp3",
+  "dis, cuss, ion. discussion": "audio/word-dis-cuss-ion-discussion-c4b966be.mp3",
+  "Yes. You built the word discussion.": "audio/word-yes-you-built-the-word-discussion-2c7efb85.mp3",
+  "distance": "audio/word-distance-104082c0.mp3",
+  "She cycled the whole distance in eleven days.": "audio/word-she-cycled-the-whole-distance-in-eleven-da-84f8763d.mp3",
+  "dis, tance. distance": "audio/word-dis-tance-distance-ee507e82.mp3",
+  "Yes. You built the word distance.": "audio/word-yes-you-built-the-word-distance-d485995e.mp3",
+  "balance": "audio/word-balance-8dfa30e0.mp3",
+  "Skating is really a lesson in balance.": "audio/word-skating-is-really-a-lesson-in-balance-766d43b6.mp3",
+  "bal, ance. balance": "audio/word-bal-ance-balance-31042722.mp3",
+  "Yes. You built the word balance.": "audio/word-yes-you-built-the-word-balance-227d0fab.mp3",
+  "entrance": "audio/word-entrance-df33994d.mp3",
+  "Children queued at the library entrance.": "audio/word-children-queued-at-the-library-entrance-4e312063.mp3",
+  "en, trance. entrance": "audio/word-en-trance-entrance-80e2ca54.mp3",
+  "Yes. You built the word entrance.": "audio/word-yes-you-built-the-word-entrance-db9b16d1.mp3",
+  "silence": "audio/word-silence-ca456ebf.mp3",
+  "There was silence before the starting gun.": "audio/word-there-was-silence-before-the-starting-gun-177c5a6c.mp3",
+  "si, lence. silence": "audio/word-si-lence-silence-0818ccff.mp3",
+  "Yes. You built the word silence.": "audio/word-yes-you-built-the-word-silence-88280832.mp3",
+  "patience": "audio/word-patience-10bb09f9.mp3",
+  "Collecting two thousand books took patience.": "audio/word-collecting-two-thousand-books-took-patienc-1a52f144.mp3",
+  "pa, tience. patience": "audio/word-pa-tience-patience-42393ec9.mp3",
+  "Yes. You built the word patience.": "audio/word-yes-you-built-the-word-patience-bad80892.mp3",
+  "difference": "audio/word-difference-48d53c6e.mp3",
+  "One person can make a real difference.": "audio/word-one-person-can-make-a-real-difference-d5241394.mp3",
+  "diff, er, ence. difference": "audio/word-diff-er-ence-difference-33c1902b.mp3",
+  "Yes. You built the word difference.": "audio/word-yes-you-built-the-word-difference-e71e974a.mp3",
+  "biography. The story of a real person's life, written by someone else.": "audio/vocab-biography-the-story-of-a-real-person-s-lif-a0c07c1c.mp3",
+  "We read a biography of a swimmer.": "audio/vocab-we-read-a-biography-of-a-swimmer-edfc5d17.mp3",
+  "autobiography. The story of your own life, written by you.": "audio/vocab-autobiography-the-story-of-your-own-life-w-e1a4d1de.mp3",
+  "In her autobiography she describes the rain.": "audio/vocab-in-her-autobiography-she-describes-the-rai-d045eb8c.mp3",
+  "chronological. In the order that things happened.": "audio/vocab-chronological-in-the-order-that-things-hap-79d78a17.mp3",
+  "A biography is usually chronological.": "audio/vocab-a-biography-is-usually-chronological-7142ebdf.mp3",
+  "adverbial. A word or phrase that says when, where or how.": "audio/vocab-adverbial-a-word-or-phrase-that-says-when-d5287f18.mp3",
+  "'Later that year' is an adverbial of time.": "audio/vocab-later-that-year-is-an-adverbial-of-time-f5dac180.mp3",
+  "prefix. A part added to the front of a word to change its meaning.": "audio/vocab-prefix-a-part-added-to-the-front-of-a-word-19901268.mp3",
+  "The prefix im- means not.": "audio/vocab-the-prefix-im-means-not-d40fd610.mp3",
+  "suffix. A part added to the end of a word.": "audio/vocab-suffix-a-part-added-to-the-end-of-a-word-8f8f44ec.mp3",
+  "Adding the suffix -ence makes a naming word.": "audio/vocab-adding-the-suffix-ence-makes-a-naming-word-ad6b7c69.mp3",
+  "fact. Something that can be proved.": "audio/vocab-fact-something-that-can-be-proved-b8f31f8b.mp3",
+  "Her time of two minutes and four seconds is a fact.": "audio/vocab-her-time-of-two-minutes-and-four-seconds-i-df416ba1.mp3",
+  "opinion. What somebody thinks. It cannot be proved.": "audio/vocab-opinion-what-somebody-thinks-it-cannot-be-37659be7.mp3",
+  "'She is the best swimmer alive' is an opinion.": "audio/vocab-she-is-the-best-swimmer-alive-is-an-opinio-f1e70eee.mp3",
+  "headline. The short title at the top of a news report.": "audio/vocab-headline-the-short-title-at-the-top-of-a-n-ed5b76cd.mp3",
+  "The headline was only four words long.": "audio/vocab-the-headline-was-only-four-words-long-b12764f6.mp3",
+  "interview. A set of questions and answers with one person.": "audio/vocab-interview-a-set-of-questions-and-answers-w-2ddae4e7.mp3",
+  "The interview filled two pages.": "audio/vocab-the-interview-filled-two-pages-08ed2d84.mp3",
+  "quotation. Someone's exact words, inside speech marks.": "audio/vocab-quotation-someone-s-exact-words-inside-spe-4c2d312c.mp3",
+  "The report ends with a quotation from her coach.": "audio/vocab-the-report-ends-with-a-quotation-from-her-3ca06989.mp3",
+  "determined. Refusing to give up.": "audio/vocab-determined-refusing-to-give-up-c638a054.mp3",
+  "She was determined to finish the ride.": "audio/vocab-she-was-determined-to-finish-the-ride-a55f2db6.mp3",
+  "victorious. Having won.": "audio/vocab-victorious-having-won-a89b5d18.mp3",
+  "The victorious team came home on Sunday.": "audio/vocab-the-victorious-team-came-home-on-sunday-80fcdb16.mp3",
+  "pioneer. The first person to do something.": "audio/vocab-pioneer-the-first-person-to-do-something-f848ea66.mp3",
+  "She was a pioneer of street skating.": "audio/vocab-she-was-a-pioneer-of-street-skating-b05c45f6.mp3",
+  "equality. Everybody being treated the same.": "audio/vocab-equality-everybody-being-treated-the-same-166871d6.mp3",
+  "The library was built for equality.": "audio/vocab-the-library-was-built-for-equality-fa1ec505.mp3",
+  "overcome. To beat a difficulty.": "audio/vocab-overcome-to-beat-a-difficulty-9733efef.mp3",
+  "She had to overcome four days of rain.": "audio/vocab-she-had-to-overcome-four-days-of-rain-413b92b3.mp3",
+  "achieve. To succeed in doing something hard.": "audio/vocab-achieve-to-succeed-in-doing-something-hard-2a2308f3.mp3",
+  "It took ten years to achieve.": "audio/vocab-it-took-ten-years-to-achieve-f3d088d0.mp3",
+  "inspire. To make someone want to try.": "audio/vocab-inspire-to-make-someone-want-to-try-a1cdc827.mp3",
+  "Her story will inspire other readers.": "audio/vocab-her-story-will-inspire-other-readers-3b0447e1.mp3",
+  "What does biography mean?": "audio/vocab-what-does-biography-mean-9bd3bb49.mp3",
+  "Having won.": "audio/vocab-having-won-3618b4a4.mp3",
+  "A part added to the end of a word.": "audio/vocab-a-part-added-to-the-end-of-a-word-d03ecd6d.mp3",
+  "The story of a real person's life, written by someone else.": "audio/vocab-the-story-of-a-real-person-s-life-written-05694176.mp3",
+  "'biography' means The story of a real person's life, written by someone else.": "audio/vocab-biography-means-the-story-of-a-real-person-fe9f5ba8.mp3",
+  "What does autobiography mean?": "audio/vocab-what-does-autobiography-mean-0f3a84b0.mp3",
+  "The story of your own life, written by you.": "audio/vocab-the-story-of-your-own-life-written-by-you-350aadd6.mp3",
+  "A set of questions and answers with one person.": "audio/vocab-a-set-of-questions-and-answers-with-one-pe-52321942.mp3",
+  "A word or phrase that says when, where or how.": "audio/vocab-a-word-or-phrase-that-says-when-where-or-h-9e3467a5.mp3",
+  "'autobiography' means The story of your own life, written by you.": "audio/vocab-autobiography-means-the-story-of-your-own-803107b9.mp3",
+  "What does chronological mean?": "audio/vocab-what-does-chronological-mean-68891f74.mp3",
+  "To succeed in doing something hard.": "audio/vocab-to-succeed-in-doing-something-hard-aa437e34.mp3",
+  "A part added to the front of a word to change its meaning.": "audio/vocab-a-part-added-to-the-front-of-a-word-to-cha-8c5d18b2.mp3",
+  "In the order that things happened.": "audio/vocab-in-the-order-that-things-happened-4d43dcbf.mp3",
+  "'chronological' means In the order that things happened.": "audio/vocab-chronological-means-in-the-order-that-thin-50fbd166.mp3",
+  "What does adverbial mean?": "audio/vocab-what-does-adverbial-mean-9e2def83.mp3",
+  "'adverbial' means A word or phrase that says when, where or how.": "audio/vocab-adverbial-means-a-word-or-phrase-that-says-aff4d4eb.mp3",
+  "What does prefix mean?": "audio/vocab-what-does-prefix-mean-79cb8610.mp3",
+  "'prefix' means A part added to the front of a word to change its meaning.": "audio/vocab-prefix-means-a-part-added-to-the-front-of-e13005c7.mp3",
+  "What does suffix mean?": "audio/vocab-what-does-suffix-mean-713773a9.mp3",
+  "'suffix' means A part added to the end of a word.": "audio/vocab-suffix-means-a-part-added-to-the-end-of-a-e35a7f61.mp3",
+  "What does fact mean?": "audio/vocab-what-does-fact-mean-985b59cc.mp3",
+  "Something that can be proved.": "audio/vocab-something-that-can-be-proved-6e89dbbe.mp3",
+  "'fact' means Something that can be proved.": "audio/vocab-fact-means-something-that-can-be-proved-62d05eb6.mp3",
+  "What does opinion mean?": "audio/vocab-what-does-opinion-mean-baef0917.mp3",
+  "What somebody thinks. It cannot be proved.": "audio/vocab-what-somebody-thinks-it-cannot-be-proved-ac09d3c3.mp3",
+  "'opinion' means What somebody thinks. It cannot be proved.": "audio/vocab-opinion-means-what-somebody-thinks-it-cann-a713a0e6.mp3",
+  "What does headline mean?": "audio/vocab-what-does-headline-mean-f40ad2c6.mp3",
+  "The short title at the top of a news report.": "audio/vocab-the-short-title-at-the-top-of-a-news-repor-51e24596.mp3",
+  "'headline' means The short title at the top of a news report.": "audio/vocab-headline-means-the-short-title-at-the-top-42edb701.mp3",
+  "What does interview mean?": "audio/vocab-what-does-interview-mean-f0de3713.mp3",
+  "'interview' means A set of questions and answers with one person.": "audio/vocab-interview-means-a-set-of-questions-and-ans-bf06556e.mp3",
+  "What does quotation mean?": "audio/vocab-what-does-quotation-mean-28ec7ae6.mp3",
+  "Someone's exact words, inside speech marks.": "audio/vocab-someone-s-exact-words-inside-speech-marks-c951e2cd.mp3",
+  "The first person to do something.": "audio/vocab-the-first-person-to-do-something-a149ee0a.mp3",
+  "'quotation' means Someone's exact words, inside speech marks.": "audio/vocab-quotation-means-someone-s-exact-words-insi-4f8b8b08.mp3",
+  "What does determined mean?": "audio/vocab-what-does-determined-mean-f51308b0.mp3",
+  "Everybody being treated the same.": "audio/vocab-everybody-being-treated-the-same-54452685.mp3",
+  "Refusing to give up.": "audio/vocab-refusing-to-give-up-70ae0592.mp3",
+  "'determined' means Refusing to give up.": "audio/vocab-determined-means-refusing-to-give-up-afcb8a70.mp3",
+  "What does victorious mean?": "audio/vocab-what-does-victorious-mean-314c987d.mp3",
+  "'victorious' means Having won.": "audio/vocab-victorious-means-having-won-1da1b66a.mp3",
+  "What does pioneer mean?": "audio/vocab-what-does-pioneer-mean-bed43dc3.mp3",
+  "'pioneer' means The first person to do something.": "audio/vocab-pioneer-means-the-first-person-to-do-somet-fe8c27ec.mp3",
+  "What does equality mean?": "audio/vocab-what-does-equality-mean-5ec1df80.mp3",
+  "'equality' means Everybody being treated the same.": "audio/vocab-equality-means-everybody-being-treated-the-b4126d74.mp3",
+  "What does overcome mean?": "audio/vocab-what-does-overcome-mean-6f50bee7.mp3",
+  "To beat a difficulty.": "audio/vocab-to-beat-a-difficulty-d3fb5cf0.mp3",
+  "'overcome' means To beat a difficulty.": "audio/vocab-overcome-means-to-beat-a-difficulty-c595395d.mp3",
+  "What does achieve mean?": "audio/vocab-what-does-achieve-mean-656eb5fc.mp3",
+  "'achieve' means To succeed in doing something hard.": "audio/vocab-achieve-means-to-succeed-in-doing-somethin-d7f19b19.mp3",
+  "What does inspire mean?": "audio/vocab-what-does-inspire-mean-53f7c079.mp3",
+  "To make someone want to try.": "audio/vocab-to-make-someone-want-to-try-62852789.mp3",
+  "'inspire' means To make someone want to try.": "audio/vocab-inspire-means-to-make-someone-want-to-try-1f518c80.mp3",
+  "Game 1. When did it happen?. Adverbials of time": "audio/gram-game-1-when-did-it-happen-adverbials-of-ti-f5842f95.mp3",
+  "Game 2. One clause or two?. Single-clause and multi-clause sentences": "audio/gram-game-2-one-clause-or-two-single-clause-and-45a941ab.mp3",
+  "Game 3. Can you prove it?. Fact and opinion": "audio/gram-game-3-can-you-prove-it-fact-and-opinion-6ba3a8da.mp3",
+  "An adverbial of time tells you when. Words like 'first', 'later that year' and 'at last' hold a life story together. When the adverbial comes first in the sentence, put a comma after it.": "audio/gram-an-adverbial-of-time-tells-you-when-words-8b092d78.mp3",
+  "Which one is an adverbial of time?": "audio/gram-which-one-is-an-adverbial-of-time-abfaf085.mp3",
+  "behind the grain store": "audio/gram-behind-the-grain-store-b538a340.mp3",
+  "very quietly": "audio/gram-very-quietly-a6390ea1.mp3",
+  "two years later": "audio/gram-two-years-later-23dbd0b0.mp3",
+  "'Two years later' tells you when. The others tell you where and how.": "audio/gram-two-years-later-tells-you-when-the-others-6f97a947.mp3",
+  "In, 2013 the library finally opened.": "audio/gram-in-2013-the-library-finally-opened-fd3ffc28.mp3",
+  "In 2013 the library finally opened.": "audio/gram-in-2013-the-library-finally-opened-8ee8353a.mp3",
+  "In 2013, the library finally opened.": "audio/gram-in-2013-the-library-finally-opened-86e4d675.mp3",
+  "The adverbial comes first, so it takes a comma after it.": "audio/gram-the-adverbial-comes-first-so-it-takes-a-co-3a289d65.mp3",
+  "Which adverbial best starts the FIRST event in a life story?": "audio/gram-which-adverbial-best-starts-the-first-even-c90ac5ab.mp3",
+  "At first": "audio/gram-at-first-226a1473.mp3",
+  "In the end": "audio/gram-in-the-end-19ec26f9.mp3",
+  "Meanwhile": "audio/gram-meanwhile-a4061182.mp3",
+  "'At first' opens the story. 'In the end' closes it.": "audio/gram-at-first-opens-the-story-in-the-end-closes-725381f9.mp3",
+  "Which adverbial best ends a biography?": "audio/gram-which-adverbial-best-ends-a-biography-e3f2eef6.mp3",
+  "Soon afterwards": "audio/gram-soon-afterwards-fb9d196d.mp3",
+  "Since then": "audio/gram-since-then-1b409868.mp3",
+  "The next morning": "audio/gram-the-next-morning-ec0cb2cd.mp3",
+  "'Since then' looks back over everything and brings you to now.": "audio/gram-since-then-looks-back-over-everything-and-01cda407.mp3",
+  "'___ she trains before school every day.' Which fits best?": "audio/gram-she-trains-before-school-every-day-which-f-6574d982.mp3",
+  "Yesterday,": "audio/gram-yesterday-136c3059.mp3",
+  "In 1961,": "audio/gram-in-1961-ee50e83b.mp3",
+  "These days,": "audio/gram-these-days-0dc2ab4c.mp3",
+  "'Trains' is present tense, so the adverbial has to be about now.": "audio/gram-trains-is-present-tense-so-the-adverbial-h-ddbacc2f.mp3",
+  "A clause has a verb in it. A single-clause sentence has one. A multi-clause sentence joins two or more, often with 'and', 'but' or 'because'. A subordinate clause cannot stand alone.": "audio/gram-a-clause-has-a-verb-in-it-a-single-clause-007be8f2.mp3",
+  "How many clauses? 'She swam every morning before school.'": "audio/gram-how-many-clauses-she-swam-every-morning-be-2d083d3b.mp3",
+  "One": "audio/gram-one-b58b5a8c.mp3",
+  "Three": "audio/gram-three-f3cd4632.mp3",
+  "Two": "audio/gram-two-16e018ec.mp3",
+  "There is only one verb, 'swam'. 'Before school' has no verb of its own.": "audio/gram-there-is-only-one-verb-swam-before-school-8fa166bc.mp3",
+  "How many clauses? 'She swam every morning and she never missed a day.'": "audio/gram-how-many-clauses-she-swam-every-morning-an-c1cbc6b7.mp3",
+  "Two main clauses, joined by 'and'. Each one could stand alone.": "audio/gram-two-main-clauses-joined-by-and-each-one-co-4c2f6cee.mp3",
+  "Which part is the subordinate clause? 'Although she was tired, she finished the ride.'": "audio/gram-which-part-is-the-subordinate-clause-altho-6e3d9445.mp3",
+  "she finished the ride": "audio/gram-she-finished-the-ride-cd8ac0f8.mp3",
+  "Although she was tired": "audio/gram-although-she-was-tired-f9a67a7e.mp3",
+  "the ride": "audio/gram-the-ride-b47d0a4a.mp3",
+  "It cannot stand alone as a sentence, so it is subordinate.": "audio/gram-it-cannot-stand-alone-as-a-sentence-so-it-4a1336d7.mp3",
+  "Which sentence is multi-clause?": "audio/gram-which-sentence-is-multi-clause-d0c511fb.mp3",
+  "The crowd cheered because she had broken the record.": "audio/gram-the-crowd-cheered-because-she-had-broken-t-b30bd6da.mp3",
+  "The crowd cheered loudly.": "audio/gram-the-crowd-cheered-loudly-8ceb540d.mp3",
+  "The loud, excited crowd.": "audio/gram-the-loud-excited-crowd-b7dee188.mp3",
+  "'Because she had broken the record' adds a second clause with its own verb.": "audio/gram-because-she-had-broken-the-record-adds-a-s-31f90840.mp3",
+  "Which one is NOT a sentence?": "audio/gram-which-one-is-not-a-sentence-406fbb10.mp3",
+  "She waited.": "audio/gram-she-waited-5c178b11.mp3",
+  "The pool was quiet.": "audio/gram-the-pool-was-quiet-5c286efa.mp3",
+  "When the gun went off.": "audio/gram-when-the-gun-went-off-9ecdf9a3.mp3",
+  "It is a subordinate clause on its own. It leaves you waiting for the rest.": "audio/gram-it-is-a-subordinate-clause-on-its-own-it-l-059e2fcf.mp3",
+  "A fact can be checked. An opinion is what somebody thinks. Watch out for opinions dressed up as facts: words like 'best', 'amazing' and 'everyone knows' are a clue.": "audio/gram-a-fact-can-be-checked-an-opinion-is-what-s-a0ec7c18.mp3",
+  "Which one is a fact?": "audio/gram-which-one-is-a-fact-1904627b.mp3",
+  "She swam the final in two minutes and four seconds.": "audio/gram-she-swam-the-final-in-two-minutes-and-four-a236eb0e.mp3",
+  "Everyone loves watching her.": "audio/gram-everyone-loves-watching-her-3f8f2abb.mp3",
+  "Swimming is the best sport.": "audio/gram-swimming-is-the-best-sport-83b90ce3.mp3",
+  "A time can be checked against the record. The others cannot be proved.": "audio/gram-a-time-can-be-checked-against-the-record-t-852294c5.mp3",
+  "Which one is an opinion?": "audio/gram-which-one-is-an-opinion-ae75201c.mp3",
+  "The library opened in 2013.": "audio/gram-the-library-opened-in-2013-e38edaf7.mp3",
+  "It is the most important building in the town.": "audio/gram-it-is-the-most-important-building-in-the-t-bd517d07.mp3",
+  "Forty-one children were waiting.": "audio/gram-forty-one-children-were-waiting-a5f9fbc5.mp3",
+  "'Most important' is a judgement. Different people would answer differently.": "audio/gram-most-important-is-a-judgement-different-pe-7c78d55f.mp3",
+  "'Clearly, she is the greatest young athlete in the country.' What is this?": "audio/gram-clearly-she-is-the-greatest-young-athlete-ac19c735.mp3",
+  "A fact, because it says 'clearly'": "audio/gram-a-fact-because-it-says-clearly-41313a1f.mp3",
+  "An opinion dressed up as a fact": "audio/gram-an-opinion-dressed-up-as-a-fact-c7407e17.mp3",
+  "A quotation": "audio/gram-a-quotation-64e74a5e.mp3",
+  "'Clearly' makes it sound proved, but 'greatest' still cannot be checked.": "audio/gram-clearly-makes-it-sound-proved-but-greatest-beac7098.mp3",
+  "Which question best tests whether something is a fact?": "audio/gram-which-question-best-tests-whether-somethin-09cecda8.mp3",
+  "Do I agree with it?": "audio/gram-do-i-agree-with-it-c815540d.mp3",
+  "Does it sound true?": "audio/gram-does-it-sound-true-2586b0bf.mp3",
+  "Can it be proved?": "audio/gram-can-it-be-proved-13142cc7.mp3",
+  "That single question is the test. Everything else is how it feels.": "audio/gram-that-single-question-is-the-test-everythin-e34801b4.mp3",
+  "Which sentence would you expect in a report rather than an advertisement?": "audio/gram-which-sentence-would-you-expect-in-a-repor-5c0f3d5e.mp3",
+  "You will love reading about her.": "audio/gram-you-will-love-reading-about-her-358263b7.mp3",
+  "She trained five days a week from the age of nine.": "audio/gram-she-trained-five-days-a-week-from-the-age-351a3caf.mp3",
+  "This is the most exciting story of the year.": "audio/gram-this-is-the-most-exciting-story-of-the-yea-629f60bc.mp3",
+  "It is checkable information. The other two are trying to persuade you.": "audio/gram-it-is-checkable-information-the-other-two-f5b02cf3.mp3",
+  "Your interview is empty so far.": "audio/writ-your-interview-is-empty-so-far-1182d903.mp3",
+  "The class is planning, drafting and editing a sports-magazine interview (Student Book pp. 42 and 43). This is the same task, in smaller steps.": "audio/writ-the-class-is-planning-drafting-and-editing-35e5d39c.mp3",
+  "An interview is questions and answers, printed in the person's own words.": "audio/writ-an-interview-is-questions-and-answers-prin-c125bbec.mp3",
+  "Open questions get real answers. Closed questions only get yes or no.": "audio/writ-open-questions-get-real-answers-closed-que-a7b91b8e.mp3",
+  "The voice is informal and friendly, but the facts still have to be right.": "audio/writ-the-voice-is-informal-and-friendly-but-the-8c9591b1.mp3",
+  "A headline, a photograph and a caption finish the page.": "audio/writ-a-headline-a-photograph-and-a-caption-fini-3f36bd9d.mp3",
+  "a wheelchair racer training for her first marathon": "audio/writ-a-wheelchair-racer-training-for-her-first-a5be32e7.mp3",
+  "a fourteen-year-old chef who cooks for her whole street": "audio/writ-a-fourteen-year-old-chef-who-cooks-for-her-4ec4f7cd.mp3",
+  "a young wildlife photographer who works at night": "audio/writ-a-young-wildlife-photographer-who-works-at-15068131.mp3",
+  "a goalkeeper who has never missed a training session": "audio/writ-a-goalkeeper-who-has-never-missed-a-traini-6055f06e.mp3",
+  "the day they nearly gave up": "audio/writ-the-day-they-nearly-gave-up-37235b73.mp3",
+  "the first time it went right": "audio/writ-the-first-time-it-went-right-d3de9240.mp3",
+  "the person who helped them most": "audio/writ-the-person-who-helped-them-most-37544910.mp3",
+  "what they want to do next": "audio/writ-what-they-want-to-do-next-ec987f88.mp3",
+  "Put these words in order to make one opening sentence.": "audio/writ-put-these-words-in-order-to-make-one-openi-06f7fd79.mp3",
+  "Three to five words. Make the reader want to know more.": "audio/writ-three-to-five-words-make-the-reader-want-t-1a36e92d.mp3",
+  "Two or three sentences. Who is this person, how old are they, and where did you meet them?": "audio/writ-two-or-three-sentences-who-is-this-person-8fe8a6ca.mp3",
+  "Start each one on a new line. An open question cannot be answered with yes or no.": "audio/writ-start-each-one-on-a-new-line-an-open-quest-0e240247.mp3",
+  "Answer in their voice, not yours. Keep it informal. One answer can be very short.": "audio/writ-answer-in-their-voice-not-yours-keep-it-in-223d09c0.mp3",
+  "One last question about what comes next, and a caption for the photograph.": "audio/writ-one-last-question-about-what-comes-next-an-099a97dd.mp3",
+  "My interview has a short headline.": "audio/writ-my-interview-has-a-short-headline-e3e53563.mp3",
+  "The opening says who the person is and where we met.": "audio/writ-the-opening-says-who-the-person-is-and-whe-cd1670e6.mp3",
+  "At least three of my questions are open questions.": "audio/writ-at-least-three-of-my-questions-are-open-qu-3f82bee6.mp3",
+  "The answers sound like a real person talking.": "audio/writ-the-answers-sound-like-a-real-person-talki-25ba3061.mp3",
+  "I have written a caption for the photograph.": "audio/writ-i-have-written-a-caption-for-the-photograp-bfd0b1a0.mp3",
+  "I have checked my spelling of the /shun/ and -ence words.": "audio/writ-i-have-checked-my-spelling-of-the-shun-and-c9e94408.mp3",
+  "Yes. We met her at the track on a cold morning": "audio/writ-yes-we-met-her-at-the-track-on-a-cold-morn-6bc42d67.mp3",
+  "The Girl Who Never Stops": "audio/writ-the-girl-who-never-stops-096b74de.mp3",
+  "Ten Questions For...": "audio/writ-ten-questions-for-8164f81b.mp3",
+  "Nobody Told Her It Was Impossible": "audio/writ-nobody-told-her-it-was-impossible-7862e3b8.mp3",
+  "... is seventeen, and one of the best...": "audio/writ-is-seventeen-and-one-of-the-best-5cb1adcc.mp3",
+  "We met her at...": "audio/writ-we-met-her-at-4e40da5a.mp3",
+  "Everybody in the town knows...": "audio/writ-everybody-in-the-town-knows-b346cf7a.mp3",
+  "How did you start?": "audio/writ-how-did-you-start-313cc9c7.mp3",
+  "What has been the hardest part?": "audio/writ-what-has-been-the-hardest-part-0597749a.mp3",
+  "Who inspires you?": "audio/writ-who-inspires-you-03c30f10.mp3",
+  "How did you": "audio/writ-how-did-you-5329430c.mp3",
+  "Why do you": "audio/writ-why-do-you-5e27aa21.mp3",
+  "What was it like when": "audio/writ-what-was-it-like-when-6b5374e3.mp3",
+  "Tell me about": "audio/writ-tell-me-about-b55a013f.mp3",
+  "What would you say to": "audio/writ-what-would-you-say-to-6cfc8394.mp3",
+  "I taught myself, really.": "audio/writ-i-taught-myself-really-91e35e90.mp3",
+  "People think the hard part is...": "audio/writ-people-think-the-hard-part-is-631c6720.mp3",
+  "My grandmother, who has never...": "audio/writ-my-grandmother-who-has-never-4322a67a.mp3",
+  "What comes next?": "audio/writ-what-comes-next-37e6afb1.mp3",
+  "Photograph:": "audio/writ-photograph-ab2b9386.mp3",
+  "She is back at training on Monday.": "audio/writ-she-is-back-at-training-on-monday-1390b3f3.mp3",
+  "You have a notebook, a recorder and one afternoon to find a story worth printing. You choose where to go and what to ask. There are no wrong choices. Every path finds a real person and a real story. Can you find all twelve endings?": "audio/adv-you-have-a-notebook-a-recorder-and-one-aft-fb6be291.mp3",
+  "Your editor gives you one afternoon and one page. Four places have called in with something worth seeing. You can only get to one. Where do you go?": "audio/adv-your-editor-gives-you-one-afternoon-and-on-4fa06548.mp3",
+  "The stadium, an hour before the final": "audio/adv-the-stadium-an-hour-before-the-final-28436995.mp3",
+  "The mountain rescue base": "audio/adv-the-mountain-rescue-base-86f7f2dc.mp3",
+  "The science lab at the university": "audio/adv-the-science-lab-at-the-university-8bc78e78.mp3",
+  "The skate park under the bridge": "audio/adv-the-skate-park-under-the-bridge-19e944ab.mp3",
+  "The tunnel under the stand smells of warm rubber and cold concrete. The favourite for the final is surrounded by cameras. In the corner, alone, a younger athlete is retying the same shoelace for the third time.": "audio/adv-the-tunnel-under-the-stand-smells-of-warm-7d94131f.mp3",
+  "Join the cameras around the favourite": "audio/adv-join-the-cameras-around-the-favourite-7cb6327f.mp3",
+  "Go and sit near the one in the corner": "audio/adv-go-and-sit-near-the-one-in-the-corner-c656be8e.mp3",
+  "The favourite gives the same six answers she has given all week. Then, as you turn to leave, she stops you. 'Ask her,' she says, nodding at the corner. 'She beat my time in training on Tuesday and nobody wrote it down.'": "audio/adv-the-favourite-gives-the-same-six-answers-s-19db9adb.mp3",
+  "Go and ask the quiet one": "audio/adv-go-and-ask-the-quiet-one-c3b1ba76.mp3",
+  "Ask who trained them both": "audio/adv-ask-who-trained-them-both-fb198021.mp3",
+  "She talks for eleven minutes and never once mentions winning. She talks about a bus timetable, a borrowed pair of spikes and a mother who works nights. Your page runs the next morning under a four-word headline, and the phone does not stop ringing.": "audio/adv-she-talks-for-eleven-minutes-and-never-onc-cb015196.mp3",
+  "You found an ending: The Quiet Champion! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-quiet-champion-wel-f9398447.mp3",
+  "The coach is seventy-one and has trained both of them since they were nine. 'People ask me for the secret,' he says. 'The secret is turning up on the days nobody is watching.' You print the quotation on its own, in large type, in the middle of the page.": "audio/adv-the-coach-is-seventy-one-and-has-trained-b-48e99cd8.mp3",
+  "You found an ending: The Coach's Story! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-coach-s-story-well-7aeb1592.mp3",
+  "She does not look up for a while. Then she says, without being asked, 'I have run this race four hundred times in my head. In two of them I lose.' You write it down exactly as she says it.": "audio/adv-she-does-not-look-up-for-a-while-then-she-8fcc17f4.mp3",
+  "Stay for the finish and watch closely": "audio/adv-stay-for-the-finish-and-watch-closely-936a4947.mp3",
+  "Ask who taught her to think that way": "audio/adv-ask-who-taught-her-to-think-that-way-ca89676d.mp3",
+  "Two of them cross the line together and nobody in the stadium knows who won. In the long wait you watch the quiet one, and she is not looking at the screen. She is looking for her mother in the stand. That is the picture you describe, and it is better than the result.": "audio/adv-two-of-them-cross-the-line-together-and-no-e9fa32de.mp3",
+  "You found an ending: The Photo Finish! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-photo-finish-well-944fad82.mp3",
+  "The rescue base is a low building full of ropes, radios and mugs. Nothing is happening. A woman is checking a stretcher for the second time that hour, and a dog is asleep under the table.": "audio/adv-the-rescue-base-is-a-low-building-full-of-dc899964.mp3",
+  "Ask about the map room at the back": "audio/adv-ask-about-the-map-room-at-the-back-6e4301c4.mp3",
+  "Ask about the dog under the table": "audio/adv-ask-about-the-dog-under-the-table-f3958953.mp3",
+  "The map room is covered floor to ceiling. Every rescue for thirty years is a small pin. Some parts of the mountain are almost solid with pins, and one whole valley is empty.": "audio/adv-the-map-room-is-covered-floor-to-ceiling-e-aff218fc.mp3",
+  "Ask why one valley has no pins": "audio/adv-ask-why-one-valley-has-no-pins-a4ecaeab.mp3",
+  "Stay in case a call comes in": "audio/adv-stay-in-case-a-call-comes-in-5a29364b.mp3",
+  "The empty valley is empty because a farmer there has spent forty years telling walkers to turn back before the weather closes in. Nobody has ever written about him. Nobody has ever needed to rescue anyone from his valley either. You put both facts in the same sentence and let the reader do the maths.": "audio/adv-the-empty-valley-is-empty-because-a-farmer-b0facd6e.mp3",
+  "You found an ending: The Map Room! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-map-room-well-done-1b31f146.mp3",
+  "At twenty past six the radio goes and the room changes shape. Nobody runs. Everybody moves. Four minutes later the van is gone and you are standing in an empty room with a half-drunk mug of tea going cold. You write about the four minutes, because that is the whole story.": "audio/adv-at-twenty-past-six-the-radio-goes-and-the-3f6b4dd2.mp3",
+  "You found an ending: The Night Call-Out! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-night-call-out-wel-ffd35c93.mp3",
+  "The dog is called Pepper and she is eleven years old. 'She has found sixteen people,' the handler says. 'Two of them were not lost. They were just sitting down and had stopped answering.'": "audio/adv-the-dog-is-called-pepper-and-she-is-eleven-1f17631a.mp3",
+  "Ask what happens when Pepper retires": "audio/adv-ask-what-happens-when-pepper-retires-57cf5c6e.mp3",
+  "'She retires next spring,' he says, and then he cannot say anything else for a moment. Later he tells you that the hardest part of the job is not the mountain. It is knowing that one day you will have to go up it without your dog. You ask if you can print that. He thinks, and says yes.": "audio/adv-she-retires-next-spring-he-says-and-then-h-b2712c68.mp3",
+  "You found an ending: The Dog Handler! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-dog-handler-well-d-2f798113.mp3",
+  "The lab is quiet and far too bright. A student who does not look much older than you is writing numbers into a book, one line at a time, hundreds of them.": "audio/adv-the-lab-is-quiet-and-far-too-bright-a-stud-ec174f62.mp3",
+  "Ask what all the numbers are for": "audio/adv-ask-what-all-the-numbers-are-for-f2426854.mp3",
+  "Ask about the broken glass in the tray": "audio/adv-ask-about-the-broken-glass-in-the-tray-a5e55e86.mp3",
+  "'It is the same test, four hundred and twelve times,' she says. 'Four hundred and eleven of them were wrong. That is not the sad part. That is the job.'": "audio/adv-it-is-the-same-test-four-hundred-and-twelv-950cbb22.mp3",
+  "Ask what happened on number four hundred and twelve": "audio/adv-ask-what-happened-on-number-four-hundred-a-beb66f82.mp3",
+  "Ask how long she has been doing this": "audio/adv-ask-how-long-she-has-been-doing-this-75f74b26.mp3",
+  "On number four hundred and twelve the line on the screen went where she said it would. She tells you she did not cheer. She checked it again, then a third time, then rang her supervisor at half past eleven at night. 'That is what it feels like,' she says. 'Mostly it feels like checking.'": "audio/adv-on-number-four-hundred-and-twelve-the-line-2c7a5bbf.mp3",
+  "You found an ending: The First Result! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-first-result-well-b519b2f4.mp3",
+  "Six years, since she was seventeen. She shows you a photograph of the same lab, the same bench, a younger face. 'People think you need to be clever,' she says. 'You need to be patient. Clever is helpful.' You use that as the last line of the piece.": "audio/adv-six-years-since-she-was-seventeen-she-show-b6f50343.mp3",
+  "You found an ending: The Young Scientist! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-young-scientist-we-5d2d8888.mp3",
+  "The tray holds a cracked sample tube, carefully labelled and kept. 'Three months of work,' she says, almost cheerfully. 'I keep it where I can see it.'": "audio/adv-the-tray-holds-a-cracked-sample-tube-caref-3136167a.mp3",
+  "Ask why she keeps it instead of binning it": "audio/adv-ask-why-she-keeps-it-instead-of-binning-it-c05a0e0e.mp3",
+  "'Because it was not carelessness,' she says. 'It was a bad clamp, and now nobody in this lab uses that clamp.' She keeps the broken tube the way a climber keeps a frayed rope: not as a punishment, but as a fact worth remembering. Your headline writes itself.": "audio/adv-because-it-was-not-carelessness-she-says-i-3fac4193.mp3",
+  "You found an ending: The Broken Sample! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-broken-sample-well-503d9f06.mp3",
+  "Under the bridge the concrete is dry even though it is raining. Someone is trying the same jump over and over. You count seven falls before you have got your notebook out.": "audio/adv-under-the-bridge-the-concrete-is-dry-even-108af699.mp3",
+  "Count the attempts and wait": "audio/adv-count-the-attempts-and-wait-e4af982f.mp3",
+  "Ask who built the ramps": "audio/adv-ask-who-built-the-ramps-92f046c9.mp3",
+  "You stop counting at fifty-one. She lands it on fifty-two, gets up, and immediately goes back to the start to try it again. When she finally stops, she is not out of breath. She is grinning.": "audio/adv-you-stop-counting-at-fifty-one-she-lands-i-e55f6827.mp3",
+  "Ask why she went straight back to the start": "audio/adv-ask-why-she-went-straight-back-to-the-star-206fbdac.mp3",
+  "Ask about the small boy watching from the wall": "audio/adv-ask-about-the-small-boy-watching-from-the-9f208b7e.mp3",
+  "'Because if I stop after I land it, I have only landed it once,' she says, as if this is obvious. You write down the number fifty-two and put it in the first line of the report, because no adjective you own is as convincing as that number.": "audio/adv-because-if-i-stop-after-i-land-it-i-have-o-52c2e378.mp3",
+  "You found an ending: The Fifty-Second Try! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-fifty-second-try-w-5d788335.mp3",
+  "The boy on the wall is six and has been coming every wet Thursday for a month without a board. Today somebody lends him one. He falls twice, laughs both times, and looks around to check that the older ones saw. They did. Every one of them clapped.": "audio/adv-the-boy-on-the-wall-is-six-and-has-been-co-45788dca.mp3",
+  "You found an ending: The Youngest Rider! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-youngest-rider-wel-8d6a6a34.mp3",
+  "The ramps were built by a man who used to skate here in the 1980s. He comes down on Sundays with a saw and a bag of screws. 'It is not a hobby,' someone tells you. 'It is maintenance.'": "audio/adv-the-ramps-were-built-by-a-man-who-used-to-02e529b5.mp3",
+  "Wait until Sunday and meet him": "audio/adv-wait-until-sunday-and-meet-him-5b4292b4.mp3",
+  "On Sunday he is there at eight with a flask and a saw. He has rebuilt the same ramp nine times in thirty years. 'Somebody did it for me,' he says, and that is his entire explanation. It turns out to be the whole article.": "audio/adv-on-sunday-he-is-there-at-eight-with-a-flas-bcdff28f.mp3",
+  "You found an ending: The Ramp Builder! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-ramp-builder-well-268cf1ea.mp3"
 };
 let PLAYER = null;
 
@@ -1473,7 +3149,7 @@ const SECTIONS = [
   { key:"wins",    icon:"⭐", label:"My Wins" }
 ];
 
-let VIEW = { reading: S.reading || null, word:null, vocab:null, sub:null };
+let VIEW = { reading: PROG.reading || null, word:null, vocab:null, sub:null };
 let SHOW_SETTINGS = false, SHOW_TEACHER = false;
 
 function go(section, idx){
@@ -1483,8 +3159,8 @@ function go(section, idx){
   if(section==="reading"){
     /* Resume where she left off if she is coming back to the same passage;
        otherwise start the chosen passage fresh. */
-    if(S.reading && (idx == null || S.reading.p === idx) && S.reading.phase !== "done"){
-      VIEW.reading = S.reading;
+    if(PROG.reading && (idx == null || PROG.reading.p === idx) && PROG.reading.phase !== "done"){
+      VIEW.reading = PROG.reading;
     } else {
       VIEW.reading = { p: idx||0, chunk:0, phase:"read", q:0 };
     }
@@ -1519,20 +3195,20 @@ function viewToday(){
   add(f, pupCard());
 
   /* Pick up where she left off in a passage. */
-  if(S.reading && S.reading.phase === "read" && S.reading.chunk > 0){
-    const P = U.passages[S.reading.p];
+  if(PROG.reading && PROG.reading.phase === "read" && PROG.reading.chunk > 0){
+    const P = U.passages[PROG.reading.p];
     const resume = el("button","taskcard");
     resume.style.borderColor = "var(--accent)";
     add(resume, el("span","ic","▶️"),
-        el("span",null,"Keep reading: " + P.title + " (page " + (S.reading.chunk+1) + ")"));
-    resume.onclick = ()=> go("reading", S.reading.p);
+        el("span",null,"Keep reading: " + P.title + " (page " + (PROG.reading.chunk+1) + ")"));
+    resume.onclick = ()=> go("reading", PROG.reading.p);
     add(f, el("h2",null,"Carry on"));
     add(f, resume);
   }
 
   add(f, el("h2",null,"Your tasks"));
   U.tasks.forEach(t=>{
-    const done = !!S.tasksDone[t.id];
+    const done = !!PROG.tasksDone[t.id];
     const b = el("button","taskcard" + (done ? " done":""));
     add(b, el("span","ic",t.icon), el("span",null,t.label));
     if(done) add(b, el("span","tick","✓ done"));
@@ -1542,7 +3218,7 @@ function viewToday(){
     add(f,row);
   });
 
-  const all = U.tasks.every(t=>S.tasksDone[t.id]);
+  const all = U.tasks.every(t=>PROG.tasksDone[t.id]);
   if(all){
     const g = el("div","good");
     add(g, el("p","prose","All your tasks are done. Well done today."));
@@ -1551,7 +3227,7 @@ function viewToday(){
   return f;
 }
 function completeTask(id){
-  if(!S.tasksDone[id]){ S.tasksDone[id] = true; markToday(); save(); }
+  if(!PROG.tasksDone[id]){ PROG.tasksDone[id] = true; markToday(); save(); }
 }
 
 /* ===================== HUSKY PUP (Today companion) =====================
@@ -1568,13 +3244,39 @@ const PUP_GEAR = [
   [60, "🎖️", "a hero medal"]
 ];
 
+/* Count something across every unit the student has opened. Used wherever a
+   number is promised never to go down. */
+function acrossUnits(key, sub){
+  return Object.keys(S.units).reduce(function(n, k){
+    const u = S.units[k] || {};
+    const box = sub ? ((u[key] || {})[sub] || {}) : (u[key] || {});
+    return n + Object.keys(box).length;
+  }, 0);
+}
+
+/* Move the app to another unit. Everything for the old unit stays where it
+   is; the student simply sees the other one from now on. */
+function switchUnit(n){
+  if(!UNITS[n]) return;
+  S.unit = String(n) === String(Number(n)) ? Number(n) : n;
+  CURRENT_UNIT = S.unit;
+  U = UNITS[CURRENT_UNIT];
+  PROG = unitState(CURRENT_UNIT);
+  WS = null;
+  ORDER_PICK = [];                 /* the warm-up belongs to the old unit */
+  VIEW = { reading: PROG.reading || null, word:null, vocab:null, sub:null };
+  S.section = "today";
+  SHOW_TEACHER = false; SHOW_SETTINGS = false;
+  save(); stopSpeech(); startWordSession(0); render(); window.scrollTo(0,0);
+}
+
 function pupScore(){
   return S.daysPracticed.length
-       + Object.keys(S.passagesDone).length
+       + acrossUnits("passagesDone")
        + Object.keys(S.wordsMastered).length
        + Object.keys(S.vocabSeen).length
-       + Object.keys(S.grammarDone).length
-       + Object.keys(S.adventure.endings).length;
+       + acrossUnits("grammarDone")
+       + acrossUnits("adventure", "endings");
 }
 
 function pupCard(){
@@ -1676,12 +3378,12 @@ function viewReading(){
     add(f, el("h1",null,"Reading"));
     add(f, el("p","sub","Choose a passage."));
     U.passages.forEach((p,i)=>{
-      const done = !!S.passagesDone[i];
-      const here = S.reading && S.reading.p === i && S.reading.phase === "read" && S.reading.chunk > 0;
+      const done = !!PROG.passagesDone[i];
+      const here = PROG.reading && PROG.reading.p === i && PROG.reading.phase === "read" && PROG.reading.chunk > 0;
 
       let status = "New";
       if(done) status = "✓ Done";
-      else if(here) status = "Keep going — page " + (S.reading.chunk+1);
+      else if(here) status = "Keep going — page " + (PROG.reading.chunk+1);
 
       const b = el("button","taskcard" + (done ? " done":""));
       const label = el("span");
@@ -1747,7 +3449,7 @@ function viewReading(){
   if(v.phase === "quiz"){
     const q = P.questions[v.q];
     const key = "p" + v.p + "q" + v.q;
-    const rec = S.answers[key] || { correct:false, tries:0 };
+    const rec = PROG.answers[key] || { correct:false, tries:0 };
     add(f, el("p","sub","Question " + (v.q+1) + " of " + P.questions.length));
 
     const c = el("section","card");
@@ -1769,10 +3471,10 @@ function viewReading(){
         rec.tries++;
         if(i === q.a){
           rec.correct = true;
-          S.answers[key] = rec; bump("qa"); if(rec.tries === 1) bump("q1"); markToday(); save();
+          PROG.answers[key] = rec; bump("qa"); if(rec.tries === 1) bump("q1"); markToday(); save();
           showFeedback(c, true, q.why, ()=>{
             if(v.q === P.questions.length-1){
-              S.passagesDone[v.p] = true;
+              PROG.passagesDone[v.p] = true;
               const t = U.tasks.find(t=>t.go[0]==="reading" && t.go[1]===v.p);
               if(t) completeTask(t.id);
               v.phase = "done";
@@ -1780,7 +3482,7 @@ function viewReading(){
             save(); render(); window.scrollTo(0,0);
           });
         } else {
-          S.answers[key] = rec; bump("qa"); save();
+          PROG.answers[key] = rec; bump("qa"); save();
           showFeedback(c, false, "Almost. Listen to the question again, then try once more.", null);
         }
       };
@@ -2165,14 +3867,14 @@ function viewVocab(){
     const b = el("button","opt", o.def);
     b.onclick = ()=>{
       if(o.w === W.w){
-        S.vocabQuiz.right++; bump("va"); bump("vr"); markToday(); save();
+        PROG.vocabQuiz.right++; bump("va"); bump("vr"); markToday(); save();
         showFeedback(c, true, "'" + W.w + "' means " + W.def, ()=>{
           if(v.quizI === U.vocab.length-1){ v.mode="learn"; v.i=0; v.quizI=0; }
           else v.quizI++;
           render(); window.scrollTo(0,0);
         });
       } else {
-        S.vocabQuiz.wrong++; bump("va"); save();
+        PROG.vocabQuiz.wrong++; bump("va"); save();
         showFeedback(c, false, "Almost. Listen to the word again and try once more.", null);
       }
     };
@@ -2198,7 +3900,7 @@ function startGrammarSet(i){
   GG = { si:i, i:0, introSeen:false };
 }
 function grammarSetProgress(i){
-  return { complete: !!S.grammarDone[i], total: U.grammar[i].items.length };
+  return { complete: !!PROG.grammarDone[i], total: U.grammar[i].items.length };
 }
 
 function viewGrammarMenu(){
@@ -2248,7 +3950,7 @@ function viewGrammar(){
 
   /* Finished the game. */
   if(GG.i >= set.items.length){
-    if(!S.grammarDone[GG.si]){ S.grammarDone[GG.si] = true; markToday(); save(); }
+    if(!PROG.grammarDone[GG.si]){ PROG.grammarDone[GG.si] = true; markToday(); save(); }
     const g = el("section","good prose");
     add(g, el("p",null,"You finished this grammar game. Nice thinking."));
     add(f,g);
@@ -2282,10 +3984,10 @@ function viewGrammar(){
     const b = el("button","opt", o);
     b.onclick = ()=>{
       if(k === item.a){
-        S.grammarQuiz.right++; bump("ga"); bump("gr"); markToday(); save();
+        PROG.grammarQuiz.right++; bump("ga"); bump("gr"); markToday(); save();
         showFeedback(c, true, item.why, ()=>{ GG.i++; render(); window.scrollTo(0,0); });
       } else {
-        S.grammarQuiz.wrong++; bump("ga"); save();
+        PROG.grammarQuiz.wrong++; bump("ga"); save();
         showFeedback(c, false, "Almost. Listen to the question again and try once more.", null);
       }
     };
@@ -2316,32 +4018,36 @@ function viewWriting(){
   });
   add(f,intro);
 
-  /* Step A — choose a setting */
+  /* Step A — first choice (fiction: the setting; non-fiction: the subject) */
+  if(Wr.settings && Wr.settings.length){
   const c1 = el("section","card");
-  add(c1, el("h2",null,"Choose where your story happens"));
+  add(c1, el("h2",null, Wr.settingsLabel || "Choose where your story happens"));
   Wr.settings.forEach(s=>{
     const row = el("div","rowline");
-    const b = el("button","opt" + (S.writingSetting===s.text ? " picked":""), s.icon + "  " + s.text);
-    b.onclick = ()=>{ S.writingSetting = s.text; markToday(); save(); render(); };
+    const b = el("button","opt" + (PROG.writingSetting===s.text ? " picked":""), s.icon + "  " + s.text);
+    b.onclick = ()=>{ PROG.writingSetting = s.text; markToday(); save(); render(); };
     add(row, b, listenBtn(s.text));
     add(c1,row);
   });
   add(f,c1);
+  }
 
-  /* Step B — choose a problem */
+  /* Step B — second choice (fiction: the danger; non-fiction: the angle) */
+  if(Wr.problems && Wr.problems.length){
   const c2 = el("section","card");
-  add(c2, el("h2",null,"Choose the danger"));
+  add(c2, el("h2",null, Wr.problemsLabel || "Choose the danger"));
   Wr.problems.forEach(s=>{
     const row = el("div","rowline");
-    const b = el("button","opt" + (S.writingProblem===s.text ? " picked":""), s.icon + "  " + s.text);
-    b.onclick = ()=>{ S.writingProblem = s.text; markToday(); save(); render(); };
+    const b = el("button","opt" + (PROG.writingProblem===s.text ? " picked":""), s.icon + "  " + s.text);
+    b.onclick = ()=>{ PROG.writingProblem = s.text; markToday(); save(); render(); };
     add(row, b, listenBtn(s.text));
     add(c2,row);
   });
   add(f,c2);
+  }
 
   /* Step C — tap-in-order sentence warm-up (no dragging) */
-  add(f, orderGame(Wr.order));
+  if(Wr.order) add(f, orderGame(Wr.order));
 
   /* Step D — the four writing steps */
   Wr.steps.forEach(st=>{
@@ -2352,11 +4058,16 @@ function viewWriting(){
     add(hr, ht, listenBtn(st.hint));
     add(c,hr);
 
-    if(st.key === "speak"){
-      const p = el("p","sub","Strong words instead of 'said':");
-      add(c,p);
+    /* A word bank for this step: speech verbs in fiction, connectives or
+       question openers in non-fiction. */
+    const bank = (st.key === "speak" ? (Wr.speechVerbs || []) : (st.tiles || []));
+    if(bank.length){
+      const bankLabel = st.key === "speak"
+        ? "Strong words instead of 'said':"
+        : (st.tilesLabel || "Words you could use:");
+      add(c, el("p","sub", bankLabel));
       const tiles = el("div","tiles");
-      Wr.speechVerbs.forEach(v=>{
+      bank.forEach(v=>{
         const b = el("button","small", v);
         b.onclick = ()=>{ say(v); insertAt(st.key, v); };
         add(tiles,b);
@@ -2376,13 +4087,13 @@ function viewWriting(){
     const ta = el("textarea");
     ta.id = "w_" + st.key;
     ta.setAttribute("aria-label", st.label);
-    ta.value = S.writing[st.key] || "";
-    ta.oninput = ()=>{ S.writing[st.key] = ta.value; markToday(); save(); };
+    ta.value = PROG.writing[st.key] || "";
+    ta.oninput = ()=>{ PROG.writing[st.key] = ta.value; markToday(); save(); };
     add(c,ta);
 
     const row = el("div","btn-row");
     const b = el("button","btn-listen","🔊 Read my writing back");
-    b.onclick = ()=>{ const t = (S.writing[st.key]||"").trim(); say(t ? t : "You have not written anything here yet."); };
+    b.onclick = ()=>{ const t = (PROG.writing[st.key]||"").trim(); say(t ? t : "You have not written anything here yet."); };
     add(row,b);
     add(c,row);
     add(f,c);
@@ -2394,15 +4105,16 @@ function viewWriting(){
   Wr.checklist.forEach((item,i)=>{
     const row = el("div","rowline");
     const key = "chk"+i;
-    const b = el("button","opt" + (S.writing[key] ? " picked":""), (S.writing[key] ? "✓  ":"○  ") + item);
-    b.onclick = ()=>{ S.writing[key] = !S.writing[key]; save(); render(); };
+    const b = el("button","opt" + (PROG.writing[key] ? " picked":""), (PROG.writing[key] ? "✓  ":"○  ") + item);
+    b.onclick = ()=>{ PROG.writing[key] = !PROG.writing[key]; save(); render(); };
     add(row, b, listenBtn(item));
     add(c5,row);
   });
 
   const row = el("div","btn-row");
-  const all = el("button","btn-listen","🔊 Read my whole story");
-  all.onclick = ()=> say(fullStory() || "Your story is empty so far.");
+  const piece = U.writing.piece || "story";
+  const all = el("button","btn-listen","🔊 Read my whole " + piece);
+  all.onclick = ()=> say(fullStory() || ("Your " + piece + " is empty so far."));
   const copy = el("button","btn-main","Copy my story");
   copy.onclick = async ()=>{
     try{ await navigator.clipboard.writeText(fullStory()); copy.textContent = "Copied ✓"; }
@@ -2416,14 +4128,14 @@ function viewWriting(){
 }
 
 function fullStory(){
-  return U.writing.steps.map(s=>(S.writing[s.key]||"").trim()).filter(Boolean).join("\n\n");
+  return U.writing.steps.map(s=>(PROG.writing[s.key]||"").trim()).filter(Boolean).join("\n\n");
 }
 function insertAt(key, text){
   const ta = document.getElementById("w_" + key);
   if(!ta) return;
   const cur = ta.value;
   ta.value = cur + (cur && !cur.endsWith(" ") && !cur.endsWith("\n") ? " " : "") + text;
-  S.writing[key] = ta.value; save();
+  PROG.writing[key] = ta.value; save();
   ta.focus();
   ta.setSelectionRange(ta.value.length, ta.value.length);
 }
@@ -2453,7 +4165,7 @@ function orderGame(O){
         setTimeout(()=>{
           if(built === O.answer){
             say("Yes. " + O.answer);
-            S.writing.orderDone = true; markToday(); save();
+            PROG.writing.orderDone = true; markToday(); save();
           } else {
             say("Almost. Listen and try once more.");
           }
@@ -2465,12 +4177,12 @@ function orderGame(O){
     add(tiles,b);
   });
   add(c,tiles);
-  if(S.writing.orderDone){
+  if(PROG.writing.orderDone){
     const g = el("div","good"); add(g, el("p",null,"Yes: " + O.answer));
     add(c,g);
   }
   const reset = el("button","small","Start again");
-  reset.onclick = ()=>{ ORDER_PICK = []; S.writing.orderDone = false; save(); render(); };
+  reset.onclick = ()=>{ ORDER_PICK = []; PROG.writing.orderDone = false; save(); render(); };
   const br = el("div","btn-row"); add(br,reset); add(c,br);
   return c;
 }
@@ -2479,14 +4191,14 @@ function orderGame(O){
    A choose-your-path story. Data lives in U.adventure (DATA BLOCK).
    No wrong choices, no bad endings — every ending is safe and positive,
    so replaying to find new endings is pure reward, never a penalty.
-   The current page and endings found live in S.adventure (only goes up). */
+   The current page and endings found live in PROG.adventure (only goes up). */
 let ADV_MENU = false;
 
 function advTotalEndings(){
   if(!U.adventure) return 0;
   return Object.values(U.adventure.nodes).filter(n => n.ending).length;
 }
-function advFound(){ return Object.keys(S.adventure.endings).length; }
+function advFound(){ return Object.keys(PROG.adventure.endings).length; }
 
 /* Open the story menu (shows a resume card if she is mid-story). */
 function openAdventureMenu(){
@@ -2500,16 +4212,16 @@ function openAdventureMenu(){
 function advStart(){
   stopSpeech();
   ADV_MENU = false;
-  S.adventure.node = U.adventure.start;
+  PROG.adventure.node = U.adventure.start;
   save(); render(); window.scrollTo(0,0);
 }
 
 function advChoose(next){
   stopSpeech();
-  S.adventure.node = next;
+  PROG.adventure.node = next;
   const n = U.adventure.nodes[next];
-  if(n && n.ending && !S.adventure.endings[next]){
-    S.adventure.endings[next] = true;      /* a new ending — permanent win */
+  if(n && n.ending && !PROG.adventure.endings[next]){
+    PROG.adventure.endings[next] = true;      /* a new ending — permanent win */
     bump("end"); markToday();
   }
   save(); render(); window.scrollTo(0,0);
@@ -2519,7 +4231,7 @@ function viewAdventure(){
   const f = document.createDocumentFragment();
   const A = U.adventure;
   if(!A){ add(f, el("p","prose","No story in this unit yet.")); return f; }
-  const nodeId = S.adventure.node;
+  const nodeId = PROG.adventure.node;
   const N = nodeId ? A.nodes[nodeId] : null;
 
   /* ---- menu ---- */
@@ -2554,7 +4266,7 @@ function viewAdventure(){
     Object.keys(A.nodes).forEach(k=>{
       const n = A.nodes[k];
       if(!n.ending) return;
-      const on = !!S.adventure.endings[k];
+      const on = !!PROG.adventure.endings[k];
       const b = el("div","badge " + (on ? "on":"off"));
       add(b, el("span","ic", on ? n.icon : "❓"), el("span",null, on ? n.ending : "Not found yet"));
       add(bw,b);
@@ -2614,12 +4326,25 @@ function viewWins(){
   add(f, el("p","sub","Everything here only goes up. Nothing here can go down."));
 
   const words = Object.keys(S.wordsMastered).length;
-  const passages = Object.keys(S.passagesDone).length;
   const days = S.daysPracticed.length;
   const seen = Object.keys(S.vocabSeen).length;
-  const writingWords = fullStory().split(/\s+/).filter(Boolean).length;
-  const grammarGames = Object.keys(S.grammarDone).length;
-  const endings = Object.keys(S.adventure.endings).length;
+  /* The counters add up every unit, so moving to a new unit adds to the
+     totals instead of resetting them. */
+  const passages = acrossUnits("passagesDone");
+  const grammarGames = acrossUnits("grammarDone");
+  const endings = acrossUnits("adventure", "endings");
+  const writingWords = Object.keys(S.units).reduce(function(n, k){
+    const u = UNITS[k]; if(!u) return n;
+    const w = (S.units[k] || {}).writing || {};
+    const t = u.writing.steps.map(function(s){ return (w[s.key] || "").trim(); })
+      .filter(Boolean).join(" ");
+    return n + t.split(/\s+/).filter(Boolean).length;
+  }, 0);
+  /* Badges are earned on the unit in front of him, then kept for good. */
+  const passagesU = Object.keys(PROG.passagesDone).length;
+  const grammarU = Object.keys(PROG.grammarDone).length;
+  const endingsU = Object.keys(PROG.adventure.endings).length;
+  const writingU = fullStory().split(/\s+/).filter(Boolean).length;
 
   const stats = [
     ["📅", days, "days you practised"],
@@ -2638,28 +4363,32 @@ function viewWins(){
   });
   add(f,c);
 
+  const piece = U.writing.piece || "story";
   const badges = [
-    ["🎤","First passage", passages >= 1],
-    ["📚","Both passages", passages >= 2],
+    ["🎤","First passage", passagesU >= 1],
+    ["📚","Both passages", passagesU >= 2],
     ["✍️","5 words spelled", words >= 5],
     ["🏅","10 words spelled", words >= 10],
     ["🗝️","All unit words seen", seen >= U.vocab.length],
-    ["🧩","Grammar game done", grammarGames >= 1],
-    ["🧠","All grammar games", grammarGames >= U.grammar.length],
-    ["🧭","First adventure ending", endings >= 1],
-    ["🗺️","Six adventure endings", endings >= 6],
-    ["🏆","Every adventure ending", advTotalEndings() > 0 && endings >= advTotalEndings()],
-    ["🖋️","Story started", writingWords >= 20],
-    ["📜","Story finished", writingWords >= 80],
+    ["🧩","Grammar game done", grammarU >= 1],
+    ["🧠","All grammar games", grammarU >= U.grammar.length],
+    ["🧭","First adventure ending", endingsU >= 1],
+    ["🗺️","Six adventure endings", endingsU >= 6],
+    ["🏆","Every adventure ending", advTotalEndings() > 0 && endingsU >= advTotalEndings()],
+    ["🖋️", piece.charAt(0).toUpperCase() + piece.slice(1) + " started", writingU >= 20],
+    ["📜", piece.charAt(0).toUpperCase() + piece.slice(1) + " finished", writingU >= 80],
     ["🌟","5 days of practice", days >= 5]
   ];
   add(f, el("h2",null,"Badges"));
   const bw = el("div");
+  let newBadge = false;
   badges.forEach(([ic,name,on])=>{
-    const b = el("div","badge " + (on ? "on":"off"));
+    if(on && !S.badges[name]){ S.badges[name] = true; newBadge = true; }   /* earned once, kept for good */
+    const b = el("div","badge " + ((on || S.badges[name]) ? "on":"off"));
     add(b, el("span","ic",ic), el("span",null,name));
     add(bw,b);
   });
+  if(newBadge) save();
   add(f,bw);
 
   const row = el("div","btn-row");
@@ -2683,7 +4412,7 @@ function evidence(){
 
   /* Wg — grammar and punctuation */
   const hasSpeechMarks = /["“”]/.test(story);
-  const verbsUsed = U.writing.speechVerbs.filter(v => new RegExp("\\b"+v+"\\b","i").test(story));
+  const verbsUsed = (U.writing.speechVerbs || []).filter(v => new RegExp("\\b"+v+"\\b","i").test(story));
   const lowerStarts = sentences.filter(s => /^[a-z]/.test(s)).length;
   const endsPunctuated = sentences.filter(s => /[.!?]$/.test(s)).length;
 
@@ -2691,7 +4420,7 @@ function evidence(){
   const vocabUsed = U.vocab.filter(v => new RegExp("\\b"+v.w+"\\w*\\b","i").test(story)).map(v=>v.w);
 
   /* Ws — structure: which steps she wrote */
-  const stepsDone = U.writing.steps.filter(s => (S.writing[s.key]||"").trim()).map(s=>s.label);
+  const stepsDone = U.writing.steps.filter(s => (PROG.writing[s.key]||"").trim()).map(s=>s.label);
 
   /* Ww — spelling */
   const allWords = U.wordSessions.flatMap(s => s.words.map(w=>w.w));
@@ -2700,20 +4429,20 @@ function evidence(){
   /* Comprehension */
   let qTotal = 0, qRight = 0, qFirstTime = 0;
   U.passages.forEach((P,pi)=>P.questions.forEach((q,qi)=>{
-    const rec = S.answers["p"+pi+"q"+qi];
+    const rec = PROG.answers["p"+pi+"q"+qi];
     qTotal++;
     if(rec && rec.correct){ qRight++; if(rec.tries === 1) qFirstTime++; }
   }));
 
-  const vq = S.vocabQuiz;
+  const vq = PROG.vocabQuiz;
 
   return {
     story, words, sentences, lens,
     Wc: [
       ["Words written", words.length],
-      ["Steps of the story written", stepsDone.length + " of " + U.writing.steps.length],
-      ["Setting chosen", S.writingSetting || "—"],
-      ["Problem chosen", S.writingProblem || "—"],
+      ["Steps of the " + (U.writing.piece || "story") + " written", stepsDone.length + " of " + U.writing.steps.length],
+      ["Setting chosen", PROG.writingSetting || "—"],
+      ["Problem chosen", PROG.writingProblem || "—"],
       ["First person sustained ('I')", /\bI\b/.test(story) ? "uses 'I'" : "no first-person pronoun found"]
     ],
     Wv: [
@@ -2734,9 +4463,9 @@ function evidence(){
       ["Reporting verb other than 'said'", verbsUsed.length ? "yes (" + verbsUsed.join(", ") + ")" : "no"],
       ["Sentences starting lower-case", lowerStarts],
       ["Sentences ending with . ! or ?", endsPunctuated + " of " + sentences.length],
-      ["Her own checklist ticks", U.writing.checklist.filter((_,i)=>S.writing["chk"+i]).length + " of " + U.writing.checklist.length],
-      ["Grammar games finished", Object.keys(S.grammarDone).length + " of " + U.grammar.length],
-      ["Grammar game answers", S.grammarQuiz.right + " correct of " + (S.grammarQuiz.right + S.grammarQuiz.wrong) + " attempts"]
+      ["Her own checklist ticks", U.writing.checklist.filter((_,i)=>PROG.writing["chk"+i]).length + " of " + U.writing.checklist.length],
+      ["Grammar games finished", Object.keys(PROG.grammarDone).length + " of " + U.grammar.length],
+      ["Grammar game answers", PROG.grammarQuiz.right + " correct of " + (PROG.grammarQuiz.right + PROG.grammarQuiz.wrong) + " attempts"]
     ],
     Ww: [
       ["Spelling words mastered", mastered.length + " of " + allWords.length],
@@ -2746,7 +4475,7 @@ function evidence(){
     comprehension: [
       ["Questions answered correctly", qRight + " of " + qTotal],
       ["Correct on the first try", qFirstTime + " of " + qTotal],
-      ["Passages finished", Object.keys(S.passagesDone).length + " of " + U.passages.length]
+      ["Passages finished", Object.keys(PROG.passagesDone).length + " of " + U.passages.length]
     ]
   };
 }
@@ -2768,11 +4497,11 @@ function reportData(){
   let qTotal=0, qAns=0, qRight=0, qFirst=0;
   U.passages.forEach((P,pi)=>P.questions.forEach((qq,qi)=>{
     qTotal++;
-    const rec = S.answers["p"+pi+"q"+qi];
+    const rec = PROG.answers["p"+pi+"q"+qi];
     if(rec){ qAns++; if(rec.correct){ qRight++; if(rec.tries===1) qFirst++; } }
   }));
   const allWords = U.wordSessions.flatMap(s=>s.words.map(w=>w.w));
-  const vq = S.vocabQuiz, gq = S.grammarQuiz;
+  const vq = PROG.vocabQuiz, gq = PROG.grammarQuiz;
   const pct = (a,b)=> b ? Math.round(a/b*100) : 0;
   return {
     qTotal, qAns, qRight, qFirst,
@@ -2780,7 +4509,7 @@ function reportData(){
     vocab:{ r: vq.right, t: vq.right + vq.wrong },
     gram:{ r: gq.right, t: gq.right + gq.wrong },
     days: S.daysPracticed.length,
-    endings: Object.keys(S.adventure.endings).length,
+    endings: Object.keys(PROG.adventure.endings).length,
     story: fullStory(), pct
   };
 }
@@ -2809,7 +4538,7 @@ function reportComment(){
   }
   const sw = R.story.split(/\s+/).filter(Boolean).length;
   if(sw){
-    p.push("Her unit story, '" + U.writing.title + "', reached " + sw + " words" +
+    p.push("Her unit " + (U.writing.piece || "story") + ", \'" + U.writing.title + "', reached " + sw + " words" +
       (/["“”]/.test(R.story) ? " and includes direct speech" : "") + ".");
   }
   if(R.days){
@@ -2894,6 +4623,23 @@ function viewTeacher(){
   add(o, el("p",null,"Access adjustment: same objectives and same text type as the class, assessed on parallel texts written at approximately Grade 2–3 readability, with audio support on every text block."));
   add(f,o);
 
+  /* ---- which unit is live ---- */
+  add(f, el("h2",null,"Unit"));
+  const uc = el("section","card prose");
+  add(uc, el("p","sub","One unit is live at a time. Each unit keeps its own passages, "
+    + "answers, grammar games, writing and story endings, so switching between them "
+    + "loses nothing. Totals and badges in My Wins add up across every unit."));
+  const urow = el("div","btn-row");
+  Object.keys(UNITS).forEach(function(k){
+    const live = String(k) === String(CURRENT_UNIT);
+    const b = el("button", live ? "btn-main" : null, UNITS[k].title + (live ? "  (live)" : ""));
+    b.disabled = live;
+    b.onclick = function(){ switchUnit(k); };
+    add(urow, b);
+  });
+  add(uc, urow);
+  add(f, uc);
+
   /* comprehension table */
   add(f, el("h2",null,"Comprehension — accuracy by question"));
   const t = el("table");
@@ -2902,7 +4648,7 @@ function viewTeacher(){
   add(t,hr);
   U.passages.forEach((P,pi)=>{
     P.questions.forEach((q,qi)=>{
-      const rec = S.answers["p"+pi+"q"+qi];
+      const rec = PROG.answers["p"+pi+"q"+qi];
       const tr = el("tr");
       add(tr, el("td",null,P.title));
       add(tr, el("td",null,q.q));
@@ -2927,7 +4673,7 @@ function viewTeacher(){
   add(f,t2);
 
   /* vocab */
-  const vq = S.vocabQuiz;
+  const vq = PROG.vocabQuiz;
   const vtot = vq.right + vq.wrong;
   const vp = el("p","prose","Vocabulary quiz: " + vq.right + " correct out of " + vtot + " attempts" +
     (vtot ? " (" + Math.round(vq.right/vtot*100) + "%)" : "") + ".");
@@ -3060,14 +4806,19 @@ function viewTeacher(){
   paste.onclick = ()=>{
     try{
       const obj = JSON.parse(decodeURIComponent(escape(atob(ta.value.trim()))));
-      S = Object.assign(clone(defaultState), obj);
-      save(); applySettings(); alert("Progress loaded."); render();
+      S = hydrate(obj);
+      CURRENT_UNIT = S.unit; U = UNITS[CURRENT_UNIT]; PROG = unitState(CURRENT_UNIT);
+      WS = null; ORDER_PICK = []; VIEW = { reading: PROG.reading || null, word:null, vocab:null, sub:null };
+      save(); applySettings(); startWordSession(0); alert("Progress loaded."); render();
     }catch(e){ alert("That code did not work. Check it was copied in full."); }
   };
   const wipe = el("button",null,"Reset all progress");
   wipe.onclick = ()=>{
     if(confirm("Erase all progress on this computer?")){
-      S = clone(defaultState); save(); applySettings(); render();
+      S = hydrate(null);
+      CURRENT_UNIT = S.unit; U = UNITS[CURRENT_UNIT]; PROG = unitState(CURRENT_UNIT);
+      WS = null; ORDER_PICK = []; VIEW = { reading:null, word:null, vocab:null, sub:null };
+      save(); applySettings(); startWordSession(0); render();
     }
   };
   add(br, cpy, paste, wipe); add(b,br);
@@ -3114,7 +4865,7 @@ function render(){
     /* Remember her place in the passage across sessions — but only a real
        reading position, never the menu or the finished screen. */
     if(VIEW.reading && (VIEW.reading.phase === "read" || VIEW.reading.phase === "quiz")){
-      S.reading = VIEW.reading; save();
+      PROG.reading = VIEW.reading; save();
     }
     switch(S.section){
       case "reading": node = viewReading(); break;
