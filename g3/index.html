@@ -13,8 +13,10 @@
   HOW TO ADD THE NEXT UNIT
   ------------------------
   Everything the student sees lives in the UNITS object below (the DATA BLOCK).
-  To add Unit 2, copy the whole `1: { ... }` block, change the key to `2`,
-  replace the content, then set CURRENT_UNIT = 2. Nothing else needs touching.
+  To add a unit, copy the whole `1: { ... }` block, change the key, and
+  replace the content. Each unit keeps its own progress, so you can move
+  between them freely: pick the live unit in the teacher view, or change
+  DEFAULT_UNIT below to change which unit a brand new browser opens on.
   Safer option: send this file back to Claude with the unit details and have
   the block written for you — a single missing comma will stop the page loading.
 
@@ -202,7 +204,7 @@
 <script>
 /* Build stamp — check this matches what Claude says, so you know the browser
    is not showing you a cached copy of an older file. */
-const BUILD = "G3 v2 · 6 Aug 2026";
+const BUILD = "G3 v3 · 24 Aug 2026";
 
 /* If anything ever breaks, say so on screen instead of failing silently.
    The student will not normally see this. */
@@ -223,7 +225,9 @@ window.onerror = function(m, src, line){
    Parallel content for OIE Stage 4 (Grade 3). NOT Oxford's text.
    ========================================================================== */
 
-const CURRENT_UNIT = 1;
+/* Which unit a brand new browser opens on. The teacher can switch units in
+   the teacher view, and that choice is remembered in S.unit from then on. */
+const DEFAULT_UNIT = 1;
 
 const UNITS = {
 
@@ -709,9 +713,1146 @@ const UNITS = {
           text: "'The signal is dark!' I shout, and the man in the blue coat hears me. He is the signalman! He climbs the post and lights the lamp just in time. The town says the first train trip was perfect. Only the signalman and I know why. He salutes me every time we pass." }
       }
     }
-  }
+  },
 
-  /* , 2: { ...copy the block above and replace the content... } */
+  2: {
+    "title": "Unit 2: Beautiful Bugs!",
+    "oie": "OIE Stage 4 - Student Book pp. 24-39 · Workbook pp. 12-19",
+    "genre": "Non-fiction - non-chronological report",
+    "focus": "Finding facts in a report · how subheadings and topic sentences help you find things fast",
+    "skills": "Prefixes re-, dis- and non- · suffixes -ness and -en · punctuation marks · alphabetical order",
+    "tasks": [
+      {
+        "id": "u2t1",
+        "icon": "📖",
+        "label": "Read: Beetles Everywhere",
+        "go": [
+          "reading",
+          0
+        ]
+      },
+      {
+        "id": "u2t2",
+        "icon": "🔤",
+        "label": "Word Work: re- words",
+        "go": [
+          "word",
+          0
+        ]
+      },
+      {
+        "id": "u2t3",
+        "icon": "🗂️",
+        "label": "Learn 4 new words",
+        "go": [
+          "vocab",
+          0
+        ]
+      }
+    ],
+    "passages": [
+      {
+        "title": "Beetles Everywhere",
+        "blurb": "A report about the biggest bug family on Earth. Same kind of text as the class report.",
+        "chunks": [
+          "Beetles are insects. There are more kinds of beetle than any other animal on Earth.",
+          "What is a beetle? A beetle has six legs and three body parts. It has a head, a thorax and an abdomen.",
+          "Most beetles have hard wing cases on their back. The cases keep the soft wings safe underneath.",
+          "Where do beetles live? Beetles live almost everywhere. You can find them under a leaf, inside an old log, or near a pond.",
+          "What do beetles eat? Some beetles eat plants. Some beetles eat other bugs. A few eat old, soft wood.",
+          "Are beetles helpful? Yes. Many beetles clean up dead leaves and wood. This helps new plants grow.",
+          "Fantastic fact: a ladybird is a beetle too. One ladybird can eat fifty tiny pests in a single day."
+        ],
+        "questions": [
+          {
+            "q": "How many body parts does a beetle have?",
+            "opts": [
+              "Six",
+              "Three",
+              "Two"
+            ],
+            "a": 1,
+            "why": "The report says a head, a thorax and an abdomen. That is three parts. Six is the number of legs."
+          },
+          {
+            "q": "Why does this report use subheadings like 'Where do beetles live?'",
+            "opts": [
+              "To make the report longer",
+              "To tell the story in the right order",
+              "To help you find the part you want"
+            ],
+            "a": 2,
+            "why": "A report is not a story. Subheadings let you jump straight to the facts you need."
+          },
+          {
+            "q": "The report says beetles have 'hard wing cases'. What job do the cases do?",
+            "opts": [
+              "They keep the soft wings safe",
+              "They help the beetle eat",
+              "They make the beetle glow"
+            ],
+            "a": 0,
+            "why": "The text says the cases keep the soft wings safe underneath."
+          }
+        ]
+      },
+      {
+        "title": "Inside an Ant Nest",
+        "blurb": "A report about ants and the work they do. Facts, not a story.",
+        "chunks": [
+          "Ants are small insects that live together in a nest. One nest can hold thousands of ants.",
+          "What do ants eat? Ants will eat almost anything. They especially like sweet things, seeds and tiny bits of fruit.",
+          "What do worker ants do? Worker ants are very busy. They dig tunnels, carry food home and keep the nest clean.",
+          "Worker ants also look after the eggs. A baby ant is called a larva, and the workers feed it every day.",
+          "Who is the queen? Every nest has one queen ant. Her job is to lay the eggs. She is bigger than the others.",
+          "How do ants find their way? An ant leaves a smell trail on the ground. Other ants follow the trail to the food.",
+          "Fantastic fact: an ant can lift something ten times heavier than itself. That is like you lifting a small car."
+        ],
+        "questions": [
+          {
+            "q": "What is the queen ant's job?",
+            "opts": [
+              "To dig the tunnels",
+              "To carry the food home",
+              "To lay the eggs"
+            ],
+            "a": 2,
+            "why": "The report says her job is to lay the eggs. Digging and carrying are worker jobs."
+          },
+          {
+            "q": "How do other ants find the food?",
+            "opts": [
+              "They follow a smell trail",
+              "They listen for a sound",
+              "They fly above the garden"
+            ],
+            "a": 0,
+            "why": "The text says an ant leaves a smell trail and the others follow it."
+          },
+          {
+            "q": "This report starts with 'Ants are small insects that live together in a nest.' Why is that a good first sentence?",
+            "opts": [
+              "It gives an opinion about ants",
+              "It tells you what the whole report is about",
+              "It is the funniest sentence"
+            ],
+            "a": 1,
+            "why": "That is a topic sentence. It introduces the subject before the details begin."
+          }
+        ]
+      },
+      {
+        "title": "Busy Bees",
+        "blurb": "A report about bees and the work they do for plants.",
+        "chunks": [
+          "Bees are insects with two pairs of wings. Most bees live together in a hive.",
+          "What do bees eat? Bees drink a sweet juice from flowers. It is called nectar.",
+          "Why do bees visit flowers? Bees carry a yellow dust called pollen on their legs and body.",
+          "When a bee moves pollen from flower to flower, we say it can pollinate the plant. That helps the plant make seeds.",
+          "Why are bees important? Many of the plants we eat need bees. Without bees we would have far less fruit.",
+          "Are bees pests? A pest is something that damages things. Bees are not pests. They are helpers.",
+          "Fantastic fact: a bee may visit two thousand flowers in one day. No wonder we say 'busy as a bee'."
+        ],
+        "questions": [
+          {
+            "q": "What is nectar?",
+            "opts": [
+              "A sweet juice inside a flower",
+              "A yellow dust on a bee's legs",
+              "A kind of nest"
+            ],
+            "a": 0,
+            "why": "The report says bees drink a sweet juice from flowers, and it is called nectar. The yellow dust is pollen."
+          },
+          {
+            "q": "Why are bees important to people?",
+            "opts": [
+              "They keep gardens tidy",
+              "Many plants we eat need bees",
+              "They scare other insects away"
+            ],
+            "a": 1,
+            "why": "The report says many of the plants we eat need bees, so without them we would have far less fruit."
+          },
+          {
+            "q": "The report says 'A pest is something that damages things.' Why did the writer explain that word?",
+            "opts": [
+              "To make the report sound clever",
+              "Because it is the longest word",
+              "Because the reader may not know it"
+            ],
+            "a": 2,
+            "why": "A good report explains any hard words so every reader can follow."
+          }
+        ]
+      },
+      {
+        "title": "Spiders Are Not Insects",
+        "blurb": "A report that compares two kinds of bug. Good ideas for your own report.",
+        "chunks": [
+          "Many people call a spider an insect. That is not correct. A spider is not an insect at all.",
+          "How can you tell? Count the legs. An insect has six legs. A spider has eight.",
+          "Count the body parts too. An insect has three parts. A spider has only two.",
+          "Where do spiders live? Spiders live in gardens, in sheds, under leaves and in the corners of rooms.",
+          "How do spiders catch food? Many spiders spin a web of silk. The web is sticky, and small flies get caught.",
+          "Are spiders helpful? Yes. Spiders eat flies and other pests, so they help to keep a house clean.",
+          "Fantastic fact: spider silk is thinner than your hair, but it is very strong indeed."
+        ],
+        "questions": [
+          {
+            "q": "How many legs does a spider have?",
+            "opts": [
+              "Six",
+              "Ten",
+              "Eight"
+            ],
+            "a": 2,
+            "why": "The report says an insect has six legs and a spider has eight."
+          },
+          {
+            "q": "Why does the writer tell you to count the legs and the body parts?",
+            "opts": [
+              "To make the report harder",
+              "To show an easy way to tell them apart",
+              "To show spiders are dangerous"
+            ],
+            "a": 1,
+            "why": "Counting is the test. It is how you can tell a spider from an insect."
+          },
+          {
+            "q": "The report says spiders 'help to keep a house clean'. How do they do it?",
+            "opts": [
+              "They eat flies and other pests",
+              "They sweep up dust",
+              "They make silk for people"
+            ],
+            "a": 0,
+            "why": "The text says spiders eat flies and other pests."
+          }
+        ]
+      }
+    ],
+    "wordSessions": [
+      {
+        "pattern": "re-",
+        "say": "the beginning r-e, which means 'again'",
+        "words": [
+          {
+            "w": "redo",
+            "parts": [
+              "re",
+              "do"
+            ],
+            "tricky": "re",
+            "sent": "I will redo my drawing of the beetle."
+          },
+          {
+            "w": "refill",
+            "parts": [
+              "re",
+              "fill"
+            ],
+            "tricky": "re",
+            "sent": "We refill the bird bath every morning."
+          },
+          {
+            "w": "retell",
+            "parts": [
+              "re",
+              "tell"
+            ],
+            "tricky": "re",
+            "sent": "Can you retell the facts in your own words?"
+          },
+          {
+            "w": "return",
+            "parts": [
+              "re",
+              "turn"
+            ],
+            "tricky": "re",
+            "sent": "The ants return to the nest with food."
+          },
+          {
+            "w": "replay",
+            "parts": [
+              "re",
+              "play"
+            ],
+            "tricky": "re",
+            "sent": "I want to replay that part of the film."
+          },
+          {
+            "w": "repaint",
+            "parts": [
+              "re",
+              "paint"
+            ],
+            "tricky": "re",
+            "sent": "Dad will repaint the garden shed."
+          }
+        ]
+      },
+      {
+        "pattern": "dis- and non-",
+        "say": "the beginnings d-i-s and n-o-n, which both mean 'not'",
+        "words": [
+          {
+            "w": "dislike",
+            "parts": [
+              "dis",
+              "like"
+            ],
+            "tricky": "dis",
+            "sent": "I dislike the smell of that flower."
+          },
+          {
+            "w": "disagree",
+            "parts": [
+              "dis",
+              "a",
+              "gree"
+            ],
+            "tricky": "dis",
+            "sent": "We disagree about the best bug."
+          },
+          {
+            "w": "disappear",
+            "parts": [
+              "dis",
+              "app",
+              "ear"
+            ],
+            "tricky": "dis",
+            "sent": "The beetle can disappear under a leaf."
+          },
+          {
+            "w": "nonstop",
+            "parts": [
+              "non",
+              "stop"
+            ],
+            "tricky": "non",
+            "sent": "The bee worked nonstop all day."
+          },
+          {
+            "w": "nonsense",
+            "parts": [
+              "non",
+              "sense"
+            ],
+            "tricky": "non",
+            "sent": "It is nonsense to say spiders are insects."
+          },
+          {
+            "w": "unkind",
+            "parts": [
+              "un",
+              "kind"
+            ],
+            "tricky": "un",
+            "sent": "It is unkind to squash a ladybird."
+          }
+        ]
+      },
+      {
+        "pattern": "-ness",
+        "say": "the ending n-e-s-s, which turns a word into a naming word",
+        "words": [
+          {
+            "w": "kindness",
+            "parts": [
+              "kind",
+              "ness"
+            ],
+            "tricky": "ness",
+            "sent": "He showed kindness to the little frog."
+          },
+          {
+            "w": "darkness",
+            "parts": [
+              "dark",
+              "ness"
+            ],
+            "tricky": "ness",
+            "sent": "Moths fly out in the darkness."
+          },
+          {
+            "w": "softness",
+            "parts": [
+              "soft",
+              "ness"
+            ],
+            "tricky": "ness",
+            "sent": "I felt the softness of the moss."
+          },
+          {
+            "w": "illness",
+            "parts": [
+              "ill",
+              "ness"
+            ],
+            "tricky": "ness",
+            "sent": "The illness kept him at home."
+          },
+          {
+            "w": "sadness",
+            "parts": [
+              "sad",
+              "ness"
+            ],
+            "tricky": "ness",
+            "sent": "There was sadness when the pond dried up."
+          },
+          {
+            "w": "brightness",
+            "parts": [
+              "bright",
+              "ness"
+            ],
+            "tricky": "ness",
+            "sent": "The brightness of the sun woke the bees."
+          }
+        ]
+      },
+      {
+        "pattern": "-en",
+        "say": "the ending e-n, which means 'to make'",
+        "words": [
+          {
+            "w": "harden",
+            "parts": [
+              "hard",
+              "en"
+            ],
+            "tricky": "en",
+            "sent": "The wing cases harden as the beetle grows."
+          },
+          {
+            "w": "soften",
+            "parts": [
+              "soft",
+              "en"
+            ],
+            "tricky": "en",
+            "sent": "Rain will soften the dry ground."
+          },
+          {
+            "w": "darken",
+            "parts": [
+              "dark",
+              "en"
+            ],
+            "tricky": "en",
+            "sent": "The sky began to darken above the pond."
+          },
+          {
+            "w": "brighten",
+            "parts": [
+              "bright",
+              "en"
+            ],
+            "tricky": "en",
+            "sent": "Flowers brighten the whole garden."
+          },
+          {
+            "w": "tighten",
+            "parts": [
+              "tight",
+              "en"
+            ],
+            "tricky": "en",
+            "sent": "The spider will tighten its web."
+          },
+          {
+            "w": "dampen",
+            "parts": [
+              "damp",
+              "en"
+            ],
+            "tricky": "en",
+            "sent": "We dampen the soil to help the plant."
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "w": "insect",
+        "emoji": "🐜",
+        "def": "A very small animal with six legs and three body parts.",
+        "sent": "An ant is a tiny insect."
+      },
+      {
+        "w": "beetle",
+        "emoji": "🪲",
+        "def": "An insect with hard cases over its wings.",
+        "sent": "A green beetle sat on the log."
+      },
+      {
+        "w": "ladybird",
+        "emoji": "🐞",
+        "def": "A small red beetle with black spots.",
+        "sent": "A ladybird landed on my hand."
+      },
+      {
+        "w": "antenna",
+        "emoji": "📡",
+        "def": "A long thin feeler on a bug's head.",
+        "sent": "The ant moved one antenna and stopped."
+      },
+      {
+        "w": "thorax",
+        "emoji": "🐝",
+        "def": "The middle body part of an insect.",
+        "sent": "The legs join on to the thorax."
+      },
+      {
+        "w": "abdomen",
+        "emoji": "🐛",
+        "def": "The back body part of an insect.",
+        "sent": "The bee's abdomen has yellow stripes."
+      },
+      {
+        "w": "segment",
+        "emoji": "🪱",
+        "def": "One part of something that is made of parts.",
+        "sent": "A millipede has a segment for each pair of legs."
+      },
+      {
+        "w": "millipede",
+        "emoji": "🪱",
+        "def": "A long bug with many segments and many legs.",
+        "sent": "The millipede curled up in my hand."
+      },
+      {
+        "w": "species",
+        "emoji": "🔎",
+        "def": "One kind of animal or plant.",
+        "sent": "There are many species of beetle."
+      },
+      {
+        "w": "habitat",
+        "emoji": "🌿",
+        "def": "The place where an animal lives.",
+        "sent": "A damp log is a good habitat for woodlice."
+      },
+      {
+        "w": "pollen",
+        "emoji": "🌼",
+        "def": "A yellow dust made by flowers.",
+        "sent": "Pollen stuck to the bee's legs."
+      },
+      {
+        "w": "pollinate",
+        "emoji": "🐝",
+        "def": "To move pollen to a plant so it can make seeds.",
+        "sent": "Bees pollinate the plants we eat."
+      },
+      {
+        "w": "pest",
+        "emoji": "🚫",
+        "def": "Something that is annoying or damages things.",
+        "sent": "Greenfly are a pest in the garden."
+      },
+      {
+        "w": "larva",
+        "emoji": "🥚",
+        "def": "A baby insect before it changes shape.",
+        "sent": "The worker ants feed every larva."
+      },
+      {
+        "w": "pond",
+        "emoji": "💧",
+        "def": "A small area of water.",
+        "sent": "Dragonflies flew over the pond."
+      },
+      {
+        "w": "leaf",
+        "emoji": "🍃",
+        "def": "A flat green part of a plant.",
+        "sent": "A snail slept under a wet leaf."
+      },
+      {
+        "w": "nest",
+        "emoji": "🏠",
+        "def": "A home an animal builds for itself.",
+        "sent": "The ants carried the seed back to the nest."
+      },
+      {
+        "w": "subheading",
+        "emoji": "📑",
+        "def": "A small title that tells you what a part is about.",
+        "sent": "Each subheading in the report is a question."
+      }
+    ],
+    "grammar": [
+      {
+        "title": "Add the beginning",
+        "skill": "Prefixes re-, dis-, non- and un-",
+        "intro": "A prefix is a small part you add to the front of a word. It changes what the word means. 're-' means again. 'dis-', 'non-' and 'un-' all mean not.",
+        "items": [
+          {
+            "q": "Which word means 'to fill it again'?",
+            "opts": [
+              "unfill",
+              "disfill",
+              "refill"
+            ],
+            "a": 2,
+            "why": "'re-' means again, so refill means fill it again."
+          },
+          {
+            "q": "Which word means 'not kind'?",
+            "opts": [
+              "unkind",
+              "rekind",
+              "nonkind"
+            ],
+            "a": 0,
+            "why": "'un-' means not, so unkind means not kind."
+          },
+          {
+            "q": "The ants ___ under the stone.",
+            "opts": [
+              "reappear",
+              "disappear",
+              "nonappear"
+            ],
+            "a": 1,
+            "why": "They go out of sight, so they disappear. 'dis-' means not."
+          },
+          {
+            "q": "Which word means 'without stopping'?",
+            "opts": [
+              "restop",
+              "nonstop",
+              "unstop"
+            ],
+            "a": 1,
+            "why": "'non-' means not, so nonstop means not stopping."
+          },
+          {
+            "q": "Grandma said, 'I ___ with you. I think spiders are lovely.'",
+            "opts": [
+              "reagree",
+              "nonagree",
+              "disagree"
+            ],
+            "a": 2,
+            "why": "She does not agree, so she disagrees. 'dis-' means not."
+          }
+        ]
+      },
+      {
+        "title": "Which mark?",
+        "skill": "Punctuation marks in a report",
+        "intro": "Every sentence needs an end mark. A full stop ends a telling sentence. A question mark ends a question. An exclamation mark shows surprise. Brackets can hold a short explanation.",
+        "items": [
+          {
+            "q": "Where do beetles live___",
+            "opts": [
+              "Question mark ?",
+              "Full stop .",
+              "Exclamation mark !"
+            ],
+            "a": 0,
+            "why": "It asks something, so it needs a question mark."
+          },
+          {
+            "q": "Beetles live under leaves and logs___",
+            "opts": [
+              "Full stop .",
+              "Question mark ?",
+              "Exclamation mark !"
+            ],
+            "a": 0,
+            "why": "It tells you a fact, so it ends with a full stop."
+          },
+          {
+            "q": "One ladybird can eat fifty pests in a day___",
+            "opts": [
+              "Question mark ?",
+              "Comma ,",
+              "Exclamation mark !"
+            ],
+            "a": 2,
+            "why": "That is a surprising fact, so an exclamation mark fits well."
+          },
+          {
+            "q": "Which sentence puts the explanation inside brackets correctly?",
+            "opts": [
+              "Bees carry pollen a yellow dust (on their legs).",
+              "Bees carry pollen (a yellow dust) on their legs.",
+              "Bees (carry pollen a yellow dust on their legs)."
+            ],
+            "a": 1,
+            "why": "The brackets go around the explanation of the hard word only."
+          },
+          {
+            "q": "Which one is a question a report might use as a subheading?",
+            "opts": [
+              "Ants are busy.",
+              "I like ants!",
+              "What do ants eat?"
+            ],
+            "a": 2,
+            "why": "Report subheadings are often questions, and the paragraph gives the answer."
+          }
+        ]
+      },
+      {
+        "title": "A to Z",
+        "skill": "Alphabetical order",
+        "intro": "In a glossary, words are in alphabetical order. Look at the first letter. If two words start with the same letter, look at the second letter.",
+        "items": [
+          {
+            "q": "Which word comes first in a glossary?",
+            "opts": [
+              "beetle",
+              "ant",
+              "moth"
+            ],
+            "a": 1,
+            "why": "'a' comes before 'b' and 'm' in the alphabet."
+          },
+          {
+            "q": "Which word comes first?",
+            "opts": [
+              "pest",
+              "pollen",
+              "pond"
+            ],
+            "a": 0,
+            "why": "All start with 'p'. Look at the second letter: e comes before o."
+          },
+          {
+            "q": "Which word comes last?",
+            "opts": [
+              "larva",
+              "wing",
+              "nest"
+            ],
+            "a": 1,
+            "why": "'w' is nearest the end of the alphabet."
+          },
+          {
+            "q": "Put these in order: spider, segment, species. Which is first?",
+            "opts": [
+              "segment",
+              "spider",
+              "species"
+            ],
+            "a": 0,
+            "why": "All start with 's'. The second letters are p, e and p, so 'se' comes first."
+          },
+          {
+            "q": "Which word would you find between 'habitat' and 'larva'?",
+            "opts": [
+              "abdomen",
+              "pollen",
+              "insect"
+            ],
+            "a": 2,
+            "why": "'i' comes after 'h' and before 'l'."
+          }
+        ]
+      }
+    ],
+    "writing": {
+      "title": "A Report About a Bug",
+      "type": "Non-chronological report",
+      "piece": "report",
+      "classTask": "The class is planning and writing a non-chronological report (Student Book pp. 38 and 39). This is the same task, in smaller steps.",
+      "reminders": [
+        "A report gives facts. It is not a story.",
+        "Use a subheading for each part. A question works well.",
+        "Start each part with a topic sentence, then add the details.",
+        "Write in the present tense: ants live, bees carry, spiders spin."
+      ],
+      "settingsLabel": "Choose the bug you will write about",
+      "settings": [
+        {
+          "icon": "🐜",
+          "text": "ants"
+        },
+        {
+          "icon": "🐝",
+          "text": "bees"
+        },
+        {
+          "icon": "🪲",
+          "text": "beetles"
+        },
+        {
+          "icon": "🕷️",
+          "text": "spiders"
+        }
+      ],
+      "problemsLabel": "Choose the fantastic fact you will end with",
+      "problems": [
+        {
+          "icon": "💪",
+          "text": "it can lift ten times its own weight"
+        },
+        {
+          "icon": "🌸",
+          "text": "it visits two thousand flowers in a day"
+        },
+        {
+          "icon": "🧵",
+          "text": "its silk is thinner than a hair, but very strong"
+        },
+        {
+          "icon": "🐞",
+          "text": "it eats fifty tiny pests in a day"
+        }
+      ],
+      "order": {
+        "prompt": "Put these words in order to make one topic sentence.",
+        "words": [
+          "Ants",
+          "live",
+          "together",
+          "in",
+          "a",
+          "big",
+          "nest"
+        ],
+        "answer": "Ants live together in a big nest"
+      },
+      "steps": [
+        {
+          "key": "open",
+          "label": "1. Start your report",
+          "hint": "Two sentences. Say what your bug is, and give one big fact.",
+          "starters": [
+            "Ants are small insects that...",
+            "Beetles are the biggest group of insects...",
+            "You may have heard of..."
+          ]
+        },
+        {
+          "key": "eat",
+          "label": "2. What does it eat?",
+          "hint": "Write the subheading first. Then a topic sentence. Then two facts.",
+          "tilesLabel": "Words that move you on to a new idea:",
+          "tiles": [
+            "However",
+            "Also",
+            "In fact",
+            "For example"
+          ],
+          "starters": [
+            "What does it eat?",
+            "Ants will eat almost anything.",
+            "They especially like..."
+          ]
+        },
+        {
+          "key": "home",
+          "label": "3. Where does it live?",
+          "hint": "Subheading, then topic sentence, then the facts.",
+          "starters": [
+            "Where does it live?",
+            "Ants live together in a nest.",
+            "In the nest they..."
+          ]
+        },
+        {
+          "key": "wow",
+          "label": "4. Fantastic facts",
+          "hint": "Finish with one or two amazing facts about your bug.",
+          "starters": [
+            "Are there any fantastic facts?",
+            "Yes! Ants are amazing creatures.",
+            "For example..."
+          ]
+        }
+      ],
+      "checklist": [
+        "My report has a subheading for each part.",
+        "Each part starts with a topic sentence.",
+        "I wrote facts, not a story.",
+        "I used the present tense all the way through.",
+        "I explained any hard words.",
+        "Every sentence ends with the right mark."
+      ]
+    },
+    "adventure": {
+      "title": "The Bug Hunt",
+      "blurb": "A hunt where YOU choose where to look.",
+      "intro": "You have a notebook, a magnifying glass and a whole afternoon in the garden. You choose where to look. There are no wrong choices. Every path finds something real, and nothing here can hurt you. Can you find all twelve endings?",
+      "start": "start",
+      "nodes": {
+        "start": {
+          "text": "The garden is warm and quiet. Somewhere in it, thousands of tiny animals are busy. Where do you look first?",
+          "choices": [
+            {
+              "icon": "🪵",
+              "label": "Under the old log pile",
+              "next": "l1"
+            },
+            {
+              "icon": "🌸",
+              "label": "In the flower bed",
+              "next": "f1"
+            },
+            {
+              "icon": "💧",
+              "label": "At the edge of the pond",
+              "next": "p1"
+            },
+            {
+              "icon": "🌙",
+              "label": "Along the hedge at dusk",
+              "next": "n1"
+            }
+          ]
+        },
+        "l1": {
+          "text": "I lift the old log slowly. Underneath, the ground is dark and damp and full of movement. Something long and shiny slides away from the light. Something small and grey rolls into a ball.",
+          "choices": [
+            {
+              "icon": "🔎",
+              "label": "Follow the long shiny one",
+              "next": "l2a"
+            },
+            {
+              "icon": "🪵",
+              "label": "Peel back a piece of soft bark",
+              "next": "l2b"
+            }
+          ]
+        },
+        "l2a": {
+          "text": "It is a millipede, and it is in no hurry. I count the segments with my finger in the air. Each segment has two pairs of legs. My pencil cannot keep up.",
+          "choices": [
+            {
+              "icon": "🔢",
+              "label": "Count every pair of legs",
+              "next": "le1"
+            },
+            {
+              "icon": "🪵",
+              "label": "Look at what rolled into a ball",
+              "next": "le2"
+            }
+          ]
+        },
+        "l2b": {
+          "text": "The bark comes away like the cover of a book. Underneath, tunnels wind through the wood in curls and loops. At the end of one tunnel sits a small brown beetle, perfectly still.",
+          "choices": [
+            {
+              "icon": "🪲",
+              "label": "Draw the beetle in my notebook",
+              "next": "le3"
+            },
+            {
+              "icon": "🪵",
+              "label": "Look at what rolled into a ball",
+              "next": "le2"
+            }
+          ]
+        },
+        "le1": {
+          "ending": "The Millipede Counter",
+          "icon": "🔢",
+          "text": "I get to forty pairs and lose my place, so I start again. In the end I write: 'more than eighty legs, all moving like a wave.' Dad says that is the best sentence in my notebook. The millipede walks off the edge of my hand and back into the dark."
+        },
+        "le2": {
+          "ending": "The Woodlouse City",
+          "icon": "🪱",
+          "text": "The little grey ball opens up and becomes a woodlouse, then another, then more than I can count. They live under here in their damp grey city. I write 'habitat: dark and damp' and put the log back exactly as it was, so nobody has to move house."
+        },
+        "le3": {
+          "ending": "The Beetle Under the Bark",
+          "icon": "🪲",
+          "text": "I draw the beetle twice: once quickly, once slowly with the magnifying glass. The second drawing has the hard wing cases, the thorax and the abdomen, all in the right places. I label them. It is the first proper diagram I have ever made."
+        },
+        "f1": {
+          "text": "The flower bed hums. It is not one sound but hundreds, all mixed together. A fat bee lands on a purple flower, and the whole flower dips under her weight.",
+          "choices": [
+            {
+              "icon": "🐝",
+              "label": "Watch one bee and follow her",
+              "next": "f2a"
+            },
+            {
+              "icon": "🌼",
+              "label": "Look closely at the flowers",
+              "next": "f2b"
+            }
+          ]
+        },
+        "f2a": {
+          "text": "I choose the fat bee and stay with her. Flower, flower, flower. Her back legs grow fat and yellow with pollen. Then she turns and flies in a straight line over the wall.",
+          "choices": [
+            {
+              "icon": "⏱️",
+              "label": "Time how long she takes on each flower",
+              "next": "fe1"
+            },
+            {
+              "icon": "🐞",
+              "label": "Check the leaf she just left",
+              "next": "fe2"
+            }
+          ]
+        },
+        "f2b": {
+          "text": "Up close the flowers are covered in yellow dust. It comes off on my finger, on my sleeve, on the tip of my pencil. Every bee that lands here carries a little of it away.",
+          "choices": [
+            {
+              "icon": "🌼",
+              "label": "Follow the trail of pollen",
+              "next": "fe3"
+            },
+            {
+              "icon": "🐞",
+              "label": "Check the leaf with the spots on it",
+              "next": "fe2"
+            }
+          ]
+        },
+        "fe1": {
+          "ending": "The Bee Watcher",
+          "icon": "🐝",
+          "text": "Four seconds. Three seconds. Five. She never stops for long. I work out that in one afternoon she could visit hundreds of flowers, and in one day, thousands. 'Busy as a bee' turns out to be a fact, not just a saying."
+        },
+        "fe2": {
+          "ending": "The Ladybird Rescue",
+          "icon": "🐞",
+          "text": "The spots are not spots. They are a ladybird, upside down and stuck in a drop of water. I hold out a leaf and she climbs on, opens her red cases, and flies. Later I read that she may eat fifty greenfly today. The garden owes me one."
+        },
+        "fe3": {
+          "ending": "The Pollen Trail",
+          "icon": "🌼",
+          "text": "I follow the yellow dust from flower to flower, and I finally understand it. The bee is not stealing from the plant. She is carrying its pollen to the next flower so it can make seeds. Both of them get something. I write that down twice, because it is the best fact of the day."
+        },
+        "p1": {
+          "text": "The pond is still, and at first it looks empty. Then my eyes adjust. The surface is a whole world of its own, and something is walking on top of the water.",
+          "choices": [
+            {
+              "icon": "🚣",
+              "label": "Watch the thing walking on the water",
+              "next": "p2a"
+            },
+            {
+              "icon": "🪣",
+              "label": "Look down into the shallow edge",
+              "next": "p2b"
+            }
+          ]
+        },
+        "p2a": {
+          "text": "It is a pond skater, and it really is standing on the water without sinking. Its feet make small dents, like a finger pressing on a balloon. Above it, something long and blue is hovering.",
+          "choices": [
+            {
+              "icon": "💧",
+              "label": "Work out how it stays up",
+              "next": "pe1"
+            },
+            {
+              "icon": "🦋",
+              "label": "Look up at the long blue one",
+              "next": "pe2"
+            }
+          ]
+        },
+        "p2b": {
+          "text": "In the shallow edge the water is warm and brown. Tiny dark commas dart about, hundreds of them, all going nowhere in a hurry.",
+          "choices": [
+            {
+              "icon": "🔢",
+              "label": "Try to count them",
+              "next": "pe3"
+            },
+            {
+              "icon": "🦋",
+              "label": "Look up at the long blue one",
+              "next": "pe2"
+            }
+          ]
+        },
+        "pe1": {
+          "ending": "The Pond Skater",
+          "icon": "🚣",
+          "text": "I put one finger on the water very gently and feel it push back, like a skin. That is how the skater does it: it is light enough to stand on the skin of the water. I write 'the water has a skin' and underline it, because it sounds impossible and it is true."
+        },
+        "pe2": {
+          "ending": "The Dragonfly Landing",
+          "icon": "🦋",
+          "text": "The blue thing stops in the air, goes backwards, then lands on the reed right beside my elbow. A dragonfly, close enough to see the pattern in its wings. I do not move for a whole minute. It leaves first."
+        },
+        "pe3": {
+          "ending": "The Tadpole Count",
+          "icon": "🪣",
+          "text": "I count in fives to two hundred and give up laughing. Instead I write: 'too many tadpoles to count, all in the warm shallow end.' Next spring I will come back and see how many of them turned into frogs."
+        },
+        "n1": {
+          "text": "The sun has gone and the hedge has changed. The daytime bugs have packed up, and a different shift has come on. I switch on my torch and point it low.",
+          "choices": [
+            {
+              "icon": "🔦",
+              "label": "Shine the torch on the hedge",
+              "next": "n2a"
+            },
+            {
+              "icon": "👀",
+              "label": "Turn the torch off and just look",
+              "next": "n2b"
+            }
+          ]
+        },
+        "n2a": {
+          "text": "Moths arrive almost at once, soft and dusty, turning circles in the beam. One lands on my sleeve and folds its wings like a tiny grey tent.",
+          "choices": [
+            {
+              "icon": "📓",
+              "label": "Draw the moth on my sleeve",
+              "next": "ne1"
+            },
+            {
+              "icon": "🐌",
+              "label": "Follow the silver line on the path",
+              "next": "ne3"
+            }
+          ]
+        },
+        "n2b": {
+          "text": "In the dark my eyes take a while. Then I see it: a small green light in the grass, steady and quiet, like a spark that will not go out.",
+          "choices": [
+            {
+              "icon": "✨",
+              "label": "Kneel down and look at the light",
+              "next": "ne2"
+            },
+            {
+              "icon": "🐌",
+              "label": "Follow the silver line on the path",
+              "next": "ne3"
+            }
+          ]
+        },
+        "ne1": {
+          "ending": "The Moth Light",
+          "icon": "🌦️",
+          "text": "I draw the moth quickly before it goes: the feathery feelers, the folded wings, the dust on my sleeve where it sat. Mum says moths are just night butterflies who never learned to show off. I decide that is my favourite fact about them."
+        },
+        "ne2": {
+          "ending": "The Glow-worm",
+          "icon": "✨",
+          "text": "It is a glow-worm, making her own light in the grass. Nobody switched it on and nobody can switch it off. I lie down on the cold path with my chin on my hands and watch until Mum calls me in. Some facts you have to see for yourself."
+        },
+        "ne3": {
+          "ending": "The Snail Highway",
+          "icon": "🐌",
+          "text": "The silver line runs along the path, up the wall and back down again, and at the end of it is one small snail, still going. I follow it all the way back to the start with my torch. A snail's whole journey, mapped in silver. I put it in my notebook as a diagram, with arrows."
+        }
+      }
+    }
+  }
 };
 
 
@@ -719,24 +1860,36 @@ const UNITS = {
    END OF DATA BLOCK — the code below does not need to change.
    ========================================================================== */
 
-const U = UNITS[CURRENT_UNIT];
+let CURRENT_UNIT = DEFAULT_UNIT;
+let U = UNITS[CURRENT_UNIT];
 const LS_KEY = "englishHubG3.v1";
 
-const defaultState = {
-  settings:{ fs:19, bg:"cream", spacing:false, rate:0.85, voice:"" },
+/* Progress that belongs to ONE unit. Kept in S.units[unit] so that moving
+   the app on to a new unit never marks the new work as already done. */
+const defaultUnitState = {
   tasksDone:{},
   passagesDone:{},           // idx -> true
   answers:{},                // "p0q1" -> {correct:bool, tries:int}
-  wordsMastered:{},          // word -> true
-  vocabSeen:{},              // word -> true
   vocabQuiz:{ right:0, wrong:0 },
   grammarDone:{},            // set index -> true
   grammarQuiz:{ right:0, wrong:0 },
   writing:{},                // step key -> text
   writingSetting:"", writingProblem:"",
-  daysPracticed:[],          // ISO dates
   reading:null,              // remembers his place: {p, chunk, phase, q}
-  adventure:{ node:null, endings:{} },  // choose-your-path story: current page + endings found
+  adventure:{ node:null, endings:{} }   // choose-your-path story: current page + endings found
+};
+const UNIT_KEYS = Object.keys(defaultUnitState);
+
+/* Everything that is true of the student, not of one unit. These carry over
+   between units on purpose: wins, badges and the pup must never go down. */
+const defaultState = {
+  settings:{ fs:19, bg:"cream", spacing:false, rate:0.85, voice:"" },
+  unit: DEFAULT_UNIT,        // the live unit
+  units:{},                  // unit number -> the block above
+  wordsMastered:{},          // word -> true
+  vocabSeen:{},              // word -> true
+  badges:{},                 // badge name -> true, once earned it stays earned
+  daysPracticed:[],          // ISO dates
   pup:{ name:"" },           // Today-screen companion (husky pup)
   log:{},                    // usage diary: "YYYY-MM-DD" -> per-day counters (teacher only)
   lastExport:"",             // date the summary CSV was last downloaded/copied
@@ -759,13 +1912,42 @@ function same(a, b){
 }
 
 let S = load();
+CURRENT_UNIT = UNITS[S.unit] ? S.unit : DEFAULT_UNIT;
+S.unit = CURRENT_UNIT;
+U = UNITS[CURRENT_UNIT];
+let PROG = unitState(CURRENT_UNIT);   /* progress for the live unit */
+
+/* Turn anything we might read (a fresh start, a current save, or a save from
+   before units existed) into the current shape. A pre-units save has its
+   progress folded into Unit 1, so nobody loses a term's work to an update. */
+function hydrate(obj){
+  const st = Object.assign(clone(defaultState), obj || {});
+  st.units = st.units || {};
+  const legacy = {}; let hasLegacy = false;
+  UNIT_KEYS.forEach(function(k){
+    if(obj && Object.prototype.hasOwnProperty.call(obj, k)){ legacy[k] = obj[k]; hasLegacy = true; }
+    delete st[k];
+  });
+  if(hasLegacy && !Object.keys(st.units).length){
+    st.units["1"] = Object.assign(clone(defaultUnitState), legacy);
+  }
+  if(!UNITS[st.unit]) st.unit = DEFAULT_UNIT;
+  return st;
+}
+
+/* The progress block for one unit, created on first use. Returns the object
+   that lives inside S, not a copy, so ordinary writes still save. */
+function unitState(n){
+  const k = String(n);
+  S.units[k] = Object.assign(clone(defaultUnitState), S.units[k] || {});
+  return S.units[k];
+}
 
 function load(){
   try{
     const raw = localStorage.getItem(LS_KEY);
-    if(!raw) return clone(defaultState);
-    return Object.assign(clone(defaultState), JSON.parse(raw));
-  }catch(e){ return clone(defaultState); }
+    return hydrate(raw ? JSON.parse(raw) : null);
+  }catch(e){ return hydrate(null); }
 }
 function save(){
   try{ localStorage.setItem(LS_KEY, JSON.stringify(S)); }catch(e){}
@@ -1308,6 +2490,464 @@ const AUDIO = {
   "Hold up your lantern too": "audio/adv-hold-up-your-lantern-too-434bb4f4.mp3",
   "'The signal is dark!' I shout, and the man in the blue coat hears me. He is the signalman! He climbs the post and lights the lamp just in time. The town says the first train trip was perfect. Only the signalman and I know why. He salutes me every time we pass.": "audio/adv-the-signal-is-dark-i-shout-and-the-man-in-05e07773.mp3",
   "You found an ending: The Signal Saver! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-signal-saver-well-f3e7cbdc.mp3",
+  "Read: Beetles Everywhere": "audio/task-read-beetles-everywhere-86aee71b.mp3",
+  "Word Work: re- words": "audio/task-word-work-re-words-87ea1ec3.mp3",
+  "Passage 1. Beetles Everywhere. A report about the biggest bug family on Earth. Same kind of text as the class report.": "audio/read-passage-1-beetles-everywhere-a-report-abou-76c66317.mp3",
+  "Passage 2. Inside an Ant Nest. A report about ants and the work they do. Facts, not a story.": "audio/read-passage-2-inside-an-ant-nest-a-report-abou-a2fdbe01.mp3",
+  "Passage 3. Busy Bees. A report about bees and the work they do for plants.": "audio/read-passage-3-busy-bees-a-report-about-bees-an-3c2d9da2.mp3",
+  "Passage 4. Spiders Are Not Insects. A report that compares two kinds of bug. Good ideas for your own report.": "audio/read-passage-4-spiders-are-not-insects-a-report-29fcf6d6.mp3",
+  "Beetles are insects. There are more kinds of beetle than any other animal on Earth.": "audio/read-beetles-are-insects-there-are-more-kinds-o-af3c8dd0.mp3",
+  "What is a beetle? A beetle has six legs and three body parts. It has a head, a thorax and an abdomen.": "audio/read-what-is-a-beetle-a-beetle-has-six-legs-and-d26ced31.mp3",
+  "Most beetles have hard wing cases on their back. The cases keep the soft wings safe underneath.": "audio/read-most-beetles-have-hard-wing-cases-on-their-638c3cec.mp3",
+  "Where do beetles live? Beetles live almost everywhere. You can find them under a leaf, inside an old log, or near a pond.": "audio/read-where-do-beetles-live-beetles-live-almost-d4762d92.mp3",
+  "What do beetles eat? Some beetles eat plants. Some beetles eat other bugs. A few eat old, soft wood.": "audio/read-what-do-beetles-eat-some-beetles-eat-plant-04cd2518.mp3",
+  "Are beetles helpful? Yes. Many beetles clean up dead leaves and wood. This helps new plants grow.": "audio/read-are-beetles-helpful-yes-many-beetles-clean-a5fd1f9a.mp3",
+  "Fantastic fact: a ladybird is a beetle too. One ladybird can eat fifty tiny pests in a single day.": "audio/read-fantastic-fact-a-ladybird-is-a-beetle-too-497ff965.mp3",
+  "How many body parts does a beetle have?": "audio/read-how-many-body-parts-does-a-beetle-have-8356e5a6.mp3",
+  "Two": "audio/read-two-16e018ec.mp3",
+  "Three": "audio/read-three-f3cd4632.mp3",
+  "Six": "audio/read-six-b10d6634.mp3",
+  "The report says a head, a thorax and an abdomen. That is three parts. Six is the number of legs.": "audio/read-the-report-says-a-head-a-thorax-and-an-abd-e38b7158.mp3",
+  "Why does this report use subheadings like 'Where do beetles live?'": "audio/read-why-does-this-report-use-subheadings-like-3e114c72.mp3",
+  "To tell the story in the right order": "audio/read-to-tell-the-story-in-the-right-order-aeb01199.mp3",
+  "To help you find the part you want": "audio/read-to-help-you-find-the-part-you-want-d5ec6eb7.mp3",
+  "To make the report longer": "audio/read-to-make-the-report-longer-d69aefd3.mp3",
+  "A report is not a story. Subheadings let you jump straight to the facts you need.": "audio/read-a-report-is-not-a-story-subheadings-let-yo-d462f7ab.mp3",
+  "The report says beetles have 'hard wing cases'. What job do the cases do?": "audio/read-the-report-says-beetles-have-hard-wing-cas-1290ca64.mp3",
+  "They keep the soft wings safe": "audio/read-they-keep-the-soft-wings-safe-99504ad9.mp3",
+  "They help the beetle eat": "audio/read-they-help-the-beetle-eat-0a6e878b.mp3",
+  "They make the beetle glow": "audio/read-they-make-the-beetle-glow-14682b49.mp3",
+  "The text says the cases keep the soft wings safe underneath.": "audio/read-the-text-says-the-cases-keep-the-soft-wing-0e4786ab.mp3",
+  "Ants are small insects that live together in a nest. One nest can hold thousands of ants.": "audio/read-ants-are-small-insects-that-live-together-71fcaf5f.mp3",
+  "What do ants eat? Ants will eat almost anything. They especially like sweet things, seeds and tiny bits of fruit.": "audio/read-what-do-ants-eat-ants-will-eat-almost-anyt-e1c4cf9a.mp3",
+  "What do worker ants do? Worker ants are very busy. They dig tunnels, carry food home and keep the nest clean.": "audio/read-what-do-worker-ants-do-worker-ants-are-ver-ff32518c.mp3",
+  "Worker ants also look after the eggs. A baby ant is called a larva, and the workers feed it every day.": "audio/read-worker-ants-also-look-after-the-eggs-a-bab-00d990ef.mp3",
+  "Who is the queen? Every nest has one queen ant. Her job is to lay the eggs. She is bigger than the others.": "audio/read-who-is-the-queen-every-nest-has-one-queen-ab9c864f.mp3",
+  "How do ants find their way? An ant leaves a smell trail on the ground. Other ants follow the trail to the food.": "audio/read-how-do-ants-find-their-way-an-ant-leaves-a-fa911dd5.mp3",
+  "Fantastic fact: an ant can lift something ten times heavier than itself. That is like you lifting a small car.": "audio/read-fantastic-fact-an-ant-can-lift-something-t-37b247bc.mp3",
+  "What is the queen ant's job?": "audio/read-what-is-the-queen-ant-s-job-32e6e077.mp3",
+  "To lay the eggs": "audio/read-to-lay-the-eggs-5f57f3a1.mp3",
+  "To carry the food home": "audio/read-to-carry-the-food-home-34958404.mp3",
+  "To dig the tunnels": "audio/read-to-dig-the-tunnels-d7786b57.mp3",
+  "The report says her job is to lay the eggs. Digging and carrying are worker jobs.": "audio/read-the-report-says-her-job-is-to-lay-the-eggs-7084b60a.mp3",
+  "How do other ants find the food?": "audio/read-how-do-other-ants-find-the-food-2711d171.mp3",
+  "They listen for a sound": "audio/read-they-listen-for-a-sound-88761798.mp3",
+  "They follow a smell trail": "audio/read-they-follow-a-smell-trail-be800596.mp3",
+  "They fly above the garden": "audio/read-they-fly-above-the-garden-c4ed71f6.mp3",
+  "The text says an ant leaves a smell trail and the others follow it.": "audio/read-the-text-says-an-ant-leaves-a-smell-trail-5ec6541c.mp3",
+  "This report starts with 'Ants are small insects that live together in a nest.' Why is that a good first sentence?": "audio/read-this-report-starts-with-ants-are-small-ins-fad11bce.mp3",
+  "It gives an opinion about ants": "audio/read-it-gives-an-opinion-about-ants-8c55490f.mp3",
+  "It tells you what the whole report is about": "audio/read-it-tells-you-what-the-whole-report-is-abou-9bbd1de4.mp3",
+  "It is the funniest sentence": "audio/read-it-is-the-funniest-sentence-e028c123.mp3",
+  "That is a topic sentence. It introduces the subject before the details begin.": "audio/read-that-is-a-topic-sentence-it-introduces-the-31099691.mp3",
+  "Bees are insects with two pairs of wings. Most bees live together in a hive.": "audio/read-bees-are-insects-with-two-pairs-of-wings-m-14cb1cac.mp3",
+  "What do bees eat? Bees drink a sweet juice from flowers. It is called nectar.": "audio/read-what-do-bees-eat-bees-drink-a-sweet-juice-e5fdab5b.mp3",
+  "Why do bees visit flowers? Bees carry a yellow dust called pollen on their legs and body.": "audio/read-why-do-bees-visit-flowers-bees-carry-a-yel-c41b5bc2.mp3",
+  "When a bee moves pollen from flower to flower, we say it can pollinate the plant. That helps the plant make seeds.": "audio/read-when-a-bee-moves-pollen-from-flower-to-flo-e55ddcdc.mp3",
+  "Why are bees important? Many of the plants we eat need bees. Without bees we would have far less fruit.": "audio/read-why-are-bees-important-many-of-the-plants-7ef7d5f0.mp3",
+  "Are bees pests? A pest is something that damages things. Bees are not pests. They are helpers.": "audio/read-are-bees-pests-a-pest-is-something-that-da-eb036323.mp3",
+  "Fantastic fact: a bee may visit two thousand flowers in one day. No wonder we say 'busy as a bee'.": "audio/read-fantastic-fact-a-bee-may-visit-two-thousan-51511082.mp3",
+  "What is nectar?": "audio/read-what-is-nectar-173c82f6.mp3",
+  "A kind of nest": "audio/read-a-kind-of-nest-afc3b72e.mp3",
+  "A yellow dust on a bee's legs": "audio/read-a-yellow-dust-on-a-bee-s-legs-37adb651.mp3",
+  "A sweet juice inside a flower": "audio/read-a-sweet-juice-inside-a-flower-c79ba517.mp3",
+  "The report says bees drink a sweet juice from flowers, and it is called nectar. The yellow dust is pollen.": "audio/read-the-report-says-bees-drink-a-sweet-juice-f-d0a89f35.mp3",
+  "Why are bees important to people?": "audio/read-why-are-bees-important-to-people-fe8e131f.mp3",
+  "They scare other insects away": "audio/read-they-scare-other-insects-away-a1ba171c.mp3",
+  "Many plants we eat need bees": "audio/read-many-plants-we-eat-need-bees-c67e2569.mp3",
+  "They keep gardens tidy": "audio/read-they-keep-gardens-tidy-093488b9.mp3",
+  "The report says many of the plants we eat need bees, so without them we would have far less fruit.": "audio/read-the-report-says-many-of-the-plants-we-eat-a3fb73b4.mp3",
+  "The report says 'A pest is something that damages things.' Why did the writer explain that word?": "audio/read-the-report-says-a-pest-is-something-that-d-beb8a85d.mp3",
+  "To make the report sound clever": "audio/read-to-make-the-report-sound-clever-7458c39e.mp3",
+  "Because it is the longest word": "audio/read-because-it-is-the-longest-word-27710b79.mp3",
+  "Because the reader may not know it": "audio/read-because-the-reader-may-not-know-it-f75fbb18.mp3",
+  "A good report explains any hard words so every reader can follow.": "audio/read-a-good-report-explains-any-hard-words-so-e-88b68fe5.mp3",
+  "Many people call a spider an insect. That is not correct. A spider is not an insect at all.": "audio/read-many-people-call-a-spider-an-insect-that-i-04b14928.mp3",
+  "How can you tell? Count the legs. An insect has six legs. A spider has eight.": "audio/read-how-can-you-tell-count-the-legs-an-insect-b9205a75.mp3",
+  "Count the body parts too. An insect has three parts. A spider has only two.": "audio/read-count-the-body-parts-too-an-insect-has-thr-11b6ab16.mp3",
+  "Where do spiders live? Spiders live in gardens, in sheds, under leaves and in the corners of rooms.": "audio/read-where-do-spiders-live-spiders-live-in-gard-46f70ffc.mp3",
+  "How do spiders catch food? Many spiders spin a web of silk. The web is sticky, and small flies get caught.": "audio/read-how-do-spiders-catch-food-many-spiders-spi-42f47766.mp3",
+  "Are spiders helpful? Yes. Spiders eat flies and other pests, so they help to keep a house clean.": "audio/read-are-spiders-helpful-yes-spiders-eat-flies-d3f20f00.mp3",
+  "Fantastic fact: spider silk is thinner than your hair, but it is very strong indeed.": "audio/read-fantastic-fact-spider-silk-is-thinner-than-1beac162.mp3",
+  "How many legs does a spider have?": "audio/read-how-many-legs-does-a-spider-have-e48de401.mp3",
+  "Ten": "audio/read-ten-83173a1a.mp3",
+  "Eight": "audio/read-eight-20c26c70.mp3",
+  "The report says an insect has six legs and a spider has eight.": "audio/read-the-report-says-an-insect-has-six-legs-and-b1e32ccc.mp3",
+  "Why does the writer tell you to count the legs and the body parts?": "audio/read-why-does-the-writer-tell-you-to-count-the-f3cd1898.mp3",
+  "To show spiders are dangerous": "audio/read-to-show-spiders-are-dangerous-71dbdf43.mp3",
+  "To show an easy way to tell them apart": "audio/read-to-show-an-easy-way-to-tell-them-apart-b671cc96.mp3",
+  "To make the report harder": "audio/read-to-make-the-report-harder-00c20f24.mp3",
+  "Counting is the test. It is how you can tell a spider from an insect.": "audio/read-counting-is-the-test-it-is-how-you-can-tel-ef57dc45.mp3",
+  "The report says spiders 'help to keep a house clean'. How do they do it?": "audio/read-the-report-says-spiders-help-to-keep-a-hou-47f008d9.mp3",
+  "They eat flies and other pests": "audio/read-they-eat-flies-and-other-pests-c82a3793.mp3",
+  "They sweep up dust": "audio/read-they-sweep-up-dust-2f78a060.mp3",
+  "They make silk for people": "audio/read-they-make-silk-for-people-c7f66df8.mp3",
+  "The text says spiders eat flies and other pests.": "audio/read-the-text-says-spiders-eat-flies-and-other-716a8e06.mp3",
+  "Set 1. the beginning r-e, which means 'again'": "audio/word-set-1-the-beginning-r-e-which-means-again-b0af0228.mp3",
+  "Set 2. the beginnings d-i-s and n-o-n, which both mean 'not'": "audio/word-set-2-the-beginnings-d-i-s-and-n-o-n-which-d86d8eaa.mp3",
+  "Set 3. the ending n-e-s-s, which turns a word into a naming word": "audio/word-set-3-the-ending-n-e-s-s-which-turns-a-wor-897f4299.mp3",
+  "Set 4. the ending e-n, which means 'to make'": "audio/word-set-4-the-ending-e-n-which-means-to-make-14ed1a6b.mp3",
+  "redo": "audio/word-redo-4d64c228.mp3",
+  "I will redo my drawing of the beetle.": "audio/word-i-will-redo-my-drawing-of-the-beetle-174b71af.mp3",
+  "re, do. redo": "audio/word-re-do-redo-101f6cd1.mp3",
+  "Yes. You built the word redo.": "audio/word-yes-you-built-the-word-redo-ee197933.mp3",
+  "refill": "audio/word-refill-181f0955.mp3",
+  "We refill the bird bath every morning.": "audio/word-we-refill-the-bird-bath-every-morning-42ea05d9.mp3",
+  "re, fill. refill": "audio/word-re-fill-refill-a4bce32d.mp3",
+  "Yes. You built the word refill.": "audio/word-yes-you-built-the-word-refill-d0f30bfd.mp3",
+  "retell": "audio/word-retell-38ad87fe.mp3",
+  "Can you retell the facts in your own words?": "audio/word-can-you-retell-the-facts-in-your-own-words-7270b6f6.mp3",
+  "re, tell. retell": "audio/word-re-tell-retell-893717c0.mp3",
+  "Yes. You built the word retell.": "audio/word-yes-you-built-the-word-retell-d5b941d9.mp3",
+  "return": "audio/word-return-63143b6f.mp3",
+  "The ants return to the nest with food.": "audio/word-the-ants-return-to-the-nest-with-food-077b88b4.mp3",
+  "re, turn. return": "audio/word-re-turn-return-7d095efd.mp3",
+  "Yes. You built the word return.": "audio/word-yes-you-built-the-word-return-8d2bb4a0.mp3",
+  "replay": "audio/word-replay-341d953e.mp3",
+  "I want to replay that part of the film.": "audio/word-i-want-to-replay-that-part-of-the-film-9758d692.mp3",
+  "re, play. replay": "audio/word-re-play-replay-782095b1.mp3",
+  "Yes. You built the word replay.": "audio/word-yes-you-built-the-word-replay-eb9c5b26.mp3",
+  "repaint": "audio/word-repaint-705f4fdc.mp3",
+  "Dad will repaint the garden shed.": "audio/word-dad-will-repaint-the-garden-shed-ffea41e6.mp3",
+  "re, paint. repaint": "audio/word-re-paint-repaint-b1565bf5.mp3",
+  "Yes. You built the word repaint.": "audio/word-yes-you-built-the-word-repaint-92dc8a81.mp3",
+  "dislike": "audio/word-dislike-aedf6156.mp3",
+  "I dislike the smell of that flower.": "audio/word-i-dislike-the-smell-of-that-flower-e859e15d.mp3",
+  "dis, like. dislike": "audio/word-dis-like-dislike-b4eb073e.mp3",
+  "Yes. You built the word dislike.": "audio/word-yes-you-built-the-word-dislike-29301d3f.mp3",
+  "disagree": "audio/word-disagree-f584439d.mp3",
+  "We disagree about the best bug.": "audio/word-we-disagree-about-the-best-bug-3390f454.mp3",
+  "dis, a, gree. disagree": "audio/word-dis-a-gree-disagree-9b56549e.mp3",
+  "Yes. You built the word disagree.": "audio/word-yes-you-built-the-word-disagree-dff9dc87.mp3",
+  "disappear": "audio/word-disappear-dbec9594.mp3",
+  "The beetle can disappear under a leaf.": "audio/word-the-beetle-can-disappear-under-a-leaf-d3c02c6b.mp3",
+  "dis, app, ear. disappear": "audio/word-dis-app-ear-disappear-d489a3c5.mp3",
+  "Yes. You built the word disappear.": "audio/word-yes-you-built-the-word-disappear-3403c65c.mp3",
+  "nonstop": "audio/word-nonstop-405fe386.mp3",
+  "The bee worked nonstop all day.": "audio/word-the-bee-worked-nonstop-all-day-9435671c.mp3",
+  "non, stop. nonstop": "audio/word-non-stop-nonstop-f33d9838.mp3",
+  "Yes. You built the word nonstop.": "audio/word-yes-you-built-the-word-nonstop-ce9744c8.mp3",
+  "nonsense": "audio/word-nonsense-cb1dc474.mp3",
+  "It is nonsense to say spiders are insects.": "audio/word-it-is-nonsense-to-say-spiders-are-insects-2561ffdf.mp3",
+  "non, sense. nonsense": "audio/word-non-sense-nonsense-09b42d2a.mp3",
+  "Yes. You built the word nonsense.": "audio/word-yes-you-built-the-word-nonsense-eecd4796.mp3",
+  "unkind": "audio/word-unkind-ca4339ee.mp3",
+  "It is unkind to squash a ladybird.": "audio/word-it-is-unkind-to-squash-a-ladybird-5df0acb5.mp3",
+  "un, kind. unkind": "audio/word-un-kind-unkind-14032082.mp3",
+  "Yes. You built the word unkind.": "audio/word-yes-you-built-the-word-unkind-b4297773.mp3",
+  "kindness": "audio/word-kindness-67b889b2.mp3",
+  "He showed kindness to the little frog.": "audio/word-he-showed-kindness-to-the-little-frog-2d943bac.mp3",
+  "kind, ness. kindness": "audio/word-kind-ness-kindness-8d137943.mp3",
+  "Yes. You built the word kindness.": "audio/word-yes-you-built-the-word-kindness-43624d7b.mp3",
+  "darkness": "audio/word-darkness-60eb7e5f.mp3",
+  "Moths fly out in the darkness.": "audio/word-moths-fly-out-in-the-darkness-bee559d0.mp3",
+  "dark, ness. darkness": "audio/word-dark-ness-darkness-a8f6accf.mp3",
+  "Yes. You built the word darkness.": "audio/word-yes-you-built-the-word-darkness-f35de1ca.mp3",
+  "softness": "audio/word-softness-44e96d1d.mp3",
+  "I felt the softness of the moss.": "audio/word-i-felt-the-softness-of-the-moss-f36351a7.mp3",
+  "soft, ness. softness": "audio/word-soft-ness-softness-02d4a8cb.mp3",
+  "Yes. You built the word softness.": "audio/word-yes-you-built-the-word-softness-f8aa417d.mp3",
+  "illness": "audio/word-illness-8ff90d83.mp3",
+  "The illness kept him at home.": "audio/word-the-illness-kept-him-at-home-426a8dac.mp3",
+  "ill, ness. illness": "audio/word-ill-ness-illness-b754f24b.mp3",
+  "Yes. You built the word illness.": "audio/word-yes-you-built-the-word-illness-4c25362d.mp3",
+  "sadness": "audio/word-sadness-094f63dc.mp3",
+  "There was sadness when the pond dried up.": "audio/word-there-was-sadness-when-the-pond-dried-up-5514c4e6.mp3",
+  "sad, ness. sadness": "audio/word-sad-ness-sadness-5bc60235.mp3",
+  "Yes. You built the word sadness.": "audio/word-yes-you-built-the-word-sadness-f26b6d30.mp3",
+  "brightness": "audio/word-brightness-d885f234.mp3",
+  "The brightness of the sun woke the bees.": "audio/word-the-brightness-of-the-sun-woke-the-bees-ca0328e4.mp3",
+  "bright, ness. brightness": "audio/word-bright-ness-brightness-f47bc479.mp3",
+  "Yes. You built the word brightness.": "audio/word-yes-you-built-the-word-brightness-0fe61bb3.mp3",
+  "harden": "audio/word-harden-c42aa1e1.mp3",
+  "The wing cases harden as the beetle grows.": "audio/word-the-wing-cases-harden-as-the-beetle-grows-8c8552c3.mp3",
+  "hard, en. harden": "audio/word-hard-en-harden-95fbf9a9.mp3",
+  "Yes. You built the word harden.": "audio/word-yes-you-built-the-word-harden-b57f072f.mp3",
+  "soften": "audio/word-soften-5937f600.mp3",
+  "Rain will soften the dry ground.": "audio/word-rain-will-soften-the-dry-ground-7810cca8.mp3",
+  "soft, en. soften": "audio/word-soft-en-soften-9800ada6.mp3",
+  "Yes. You built the word soften.": "audio/word-yes-you-built-the-word-soften-01ca3014.mp3",
+  "darken": "audio/word-darken-9d434f61.mp3",
+  "The sky began to darken above the pond.": "audio/word-the-sky-began-to-darken-above-the-pond-0f0d82b1.mp3",
+  "dark, en. darken": "audio/word-dark-en-darken-50307d5f.mp3",
+  "Yes. You built the word darken.": "audio/word-yes-you-built-the-word-darken-12b1b0a2.mp3",
+  "brighten": "audio/word-brighten-c9a21deb.mp3",
+  "Flowers brighten the whole garden.": "audio/word-flowers-brighten-the-whole-garden-2621b07f.mp3",
+  "bright, en. brighten": "audio/word-bright-en-brighten-94e44ccd.mp3",
+  "Yes. You built the word brighten.": "audio/word-yes-you-built-the-word-brighten-2a8447dc.mp3",
+  "tighten": "audio/word-tighten-120bb93b.mp3",
+  "The spider will tighten its web.": "audio/word-the-spider-will-tighten-its-web-066243e4.mp3",
+  "tight, en. tighten": "audio/word-tight-en-tighten-dc5574ec.mp3",
+  "Yes. You built the word tighten.": "audio/word-yes-you-built-the-word-tighten-ca1b9112.mp3",
+  "dampen": "audio/word-dampen-222cfcf6.mp3",
+  "We dampen the soil to help the plant.": "audio/word-we-dampen-the-soil-to-help-the-plant-85b0a08b.mp3",
+  "damp, en. dampen": "audio/word-damp-en-dampen-0e2ed015.mp3",
+  "Yes. You built the word dampen.": "audio/word-yes-you-built-the-word-dampen-6d5c57ce.mp3",
+  "insect. A very small animal with six legs and three body parts.": "audio/vocab-insect-a-very-small-animal-with-six-legs-a-aa556515.mp3",
+  "An ant is a tiny insect.": "audio/vocab-an-ant-is-a-tiny-insect-d8118e7f.mp3",
+  "beetle. An insect with hard cases over its wings.": "audio/vocab-beetle-an-insect-with-hard-cases-over-its-f2364295.mp3",
+  "A green beetle sat on the log.": "audio/vocab-a-green-beetle-sat-on-the-log-fea20488.mp3",
+  "ladybird. A small red beetle with black spots.": "audio/vocab-ladybird-a-small-red-beetle-with-black-spo-6cf4cfbb.mp3",
+  "A ladybird landed on my hand.": "audio/vocab-a-ladybird-landed-on-my-hand-0c67bc7c.mp3",
+  "antenna. A long thin feeler on a bug's head.": "audio/vocab-antenna-a-long-thin-feeler-on-a-bug-s-head-b62dfe16.mp3",
+  "The ant moved one antenna and stopped.": "audio/vocab-the-ant-moved-one-antenna-and-stopped-bc6852b4.mp3",
+  "thorax. The middle body part of an insect.": "audio/vocab-thorax-the-middle-body-part-of-an-insect-472bad53.mp3",
+  "The legs join on to the thorax.": "audio/vocab-the-legs-join-on-to-the-thorax-887bc4ca.mp3",
+  "abdomen. The back body part of an insect.": "audio/vocab-abdomen-the-back-body-part-of-an-insect-795586c8.mp3",
+  "The bee's abdomen has yellow stripes.": "audio/vocab-the-bee-s-abdomen-has-yellow-stripes-4c79de98.mp3",
+  "segment. One part of something that is made of parts.": "audio/vocab-segment-one-part-of-something-that-is-made-1f5ca5f8.mp3",
+  "A millipede has a segment for each pair of legs.": "audio/vocab-a-millipede-has-a-segment-for-each-pair-of-e8f6bd69.mp3",
+  "millipede. A long bug with many segments and many legs.": "audio/vocab-millipede-a-long-bug-with-many-segments-an-58492936.mp3",
+  "The millipede curled up in my hand.": "audio/vocab-the-millipede-curled-up-in-my-hand-6441ca51.mp3",
+  "species. One kind of animal or plant.": "audio/vocab-species-one-kind-of-animal-or-plant-6a68ed4a.mp3",
+  "There are many species of beetle.": "audio/vocab-there-are-many-species-of-beetle-a22cb8df.mp3",
+  "habitat. The place where an animal lives.": "audio/vocab-habitat-the-place-where-an-animal-lives-43cb2254.mp3",
+  "A damp log is a good habitat for woodlice.": "audio/vocab-a-damp-log-is-a-good-habitat-for-woodlice-f9588f7c.mp3",
+  "pollen. A yellow dust made by flowers.": "audio/vocab-pollen-a-yellow-dust-made-by-flowers-a92909be.mp3",
+  "Pollen stuck to the bee's legs.": "audio/vocab-pollen-stuck-to-the-bee-s-legs-3908ef1e.mp3",
+  "pollinate. To move pollen to a plant so it can make seeds.": "audio/vocab-pollinate-to-move-pollen-to-a-plant-so-it-6984b758.mp3",
+  "Bees pollinate the plants we eat.": "audio/vocab-bees-pollinate-the-plants-we-eat-d916077c.mp3",
+  "pest. Something that is annoying or damages things.": "audio/vocab-pest-something-that-is-annoying-or-damages-fc0a9cba.mp3",
+  "Greenfly are a pest in the garden.": "audio/vocab-greenfly-are-a-pest-in-the-garden-47dca110.mp3",
+  "larva. A baby insect before it changes shape.": "audio/vocab-larva-a-baby-insect-before-it-changes-shap-d9aea9bd.mp3",
+  "The worker ants feed every larva.": "audio/vocab-the-worker-ants-feed-every-larva-8874adf1.mp3",
+  "pond. A small area of water.": "audio/vocab-pond-a-small-area-of-water-0da62a5b.mp3",
+  "Dragonflies flew over the pond.": "audio/vocab-dragonflies-flew-over-the-pond-87835f01.mp3",
+  "leaf. A flat green part of a plant.": "audio/vocab-leaf-a-flat-green-part-of-a-plant-cd0fa237.mp3",
+  "A snail slept under a wet leaf.": "audio/vocab-a-snail-slept-under-a-wet-leaf-2178c89e.mp3",
+  "nest. A home an animal builds for itself.": "audio/vocab-nest-a-home-an-animal-builds-for-itself-9e721ec9.mp3",
+  "The ants carried the seed back to the nest.": "audio/vocab-the-ants-carried-the-seed-back-to-the-nest-0a1a03d4.mp3",
+  "subheading. A small title that tells you what a part is about.": "audio/vocab-subheading-a-small-title-that-tells-you-wh-8c717646.mp3",
+  "Each subheading in the report is a question.": "audio/vocab-each-subheading-in-the-report-is-a-questio-8c7853d1.mp3",
+  "What does insect mean?": "audio/vocab-what-does-insect-mean-cfe730f5.mp3",
+  "A very small animal with six legs and three body parts.": "audio/vocab-a-very-small-animal-with-six-legs-and-thre-5e4b745c.mp3",
+  "To move pollen to a plant so it can make seeds.": "audio/vocab-to-move-pollen-to-a-plant-so-it-can-make-s-01c86e86.mp3",
+  "A long bug with many segments and many legs.": "audio/vocab-a-long-bug-with-many-segments-and-many-leg-298a3d5c.mp3",
+  "'insect' means A very small animal with six legs and three body parts.": "audio/vocab-insect-means-a-very-small-animal-with-six-ea404f12.mp3",
+  "What does beetle mean?": "audio/vocab-what-does-beetle-mean-b9f334ac.mp3",
+  "The back body part of an insect.": "audio/vocab-the-back-body-part-of-an-insect-621aa5bc.mp3",
+  "An insect with hard cases over its wings.": "audio/vocab-an-insect-with-hard-cases-over-its-wings-e731fd18.mp3",
+  "'beetle' means An insect with hard cases over its wings.": "audio/vocab-beetle-means-an-insect-with-hard-cases-ove-686623bb.mp3",
+  "What does ladybird mean?": "audio/vocab-what-does-ladybird-mean-ed618815.mp3",
+  "A baby insect before it changes shape.": "audio/vocab-a-baby-insect-before-it-changes-shape-6b396cd3.mp3",
+  "A small red beetle with black spots.": "audio/vocab-a-small-red-beetle-with-black-spots-3d61bb5e.mp3",
+  "The place where an animal lives.": "audio/vocab-the-place-where-an-animal-lives-4dcfddd9.mp3",
+  "'ladybird' means A small red beetle with black spots.": "audio/vocab-ladybird-means-a-small-red-beetle-with-bla-22ac0d4a.mp3",
+  "What does antenna mean?": "audio/vocab-what-does-antenna-mean-0389af7b.mp3",
+  "A long thin feeler on a bug's head.": "audio/vocab-a-long-thin-feeler-on-a-bug-s-head-8db6c4c7.mp3",
+  "'antenna' means A long thin feeler on a bug's head.": "audio/vocab-antenna-means-a-long-thin-feeler-on-a-bug-60aca8cf.mp3",
+  "What does thorax mean?": "audio/vocab-what-does-thorax-mean-aa85996a.mp3",
+  "A small title that tells you what a part is about.": "audio/vocab-a-small-title-that-tells-you-what-a-part-i-ba004cb2.mp3",
+  "A small area of water.": "audio/vocab-a-small-area-of-water-6f2d24aa.mp3",
+  "The middle body part of an insect.": "audio/vocab-the-middle-body-part-of-an-insect-834fc8b6.mp3",
+  "'thorax' means The middle body part of an insect.": "audio/vocab-thorax-means-the-middle-body-part-of-an-in-9dbc8336.mp3",
+  "What does abdomen mean?": "audio/vocab-what-does-abdomen-mean-31553174.mp3",
+  "A flat green part of a plant.": "audio/vocab-a-flat-green-part-of-a-plant-ae2e7c20.mp3",
+  "'abdomen' means The back body part of an insect.": "audio/vocab-abdomen-means-the-back-body-part-of-an-ins-9fdeae22.mp3",
+  "What does segment mean?": "audio/vocab-what-does-segment-mean-dfc320e1.mp3",
+  "One part of something that is made of parts.": "audio/vocab-one-part-of-something-that-is-made-of-part-7054fe4c.mp3",
+  "'segment' means One part of something that is made of parts.": "audio/vocab-segment-means-one-part-of-something-that-i-015cd529.mp3",
+  "What does millipede mean?": "audio/vocab-what-does-millipede-mean-beacb392.mp3",
+  "'millipede' means A long bug with many segments and many legs.": "audio/vocab-millipede-means-a-long-bug-with-many-segme-dd331cc3.mp3",
+  "What does species mean?": "audio/vocab-what-does-species-mean-ccdd4c6d.mp3",
+  "One kind of animal or plant.": "audio/vocab-one-kind-of-animal-or-plant-95e5587b.mp3",
+  "'species' means One kind of animal or plant.": "audio/vocab-species-means-one-kind-of-animal-or-plant-da5fdf93.mp3",
+  "What does habitat mean?": "audio/vocab-what-does-habitat-mean-2fa503c9.mp3",
+  "'habitat' means The place where an animal lives.": "audio/vocab-habitat-means-the-place-where-an-animal-li-f562f9ae.mp3",
+  "What does pollen mean?": "audio/vocab-what-does-pollen-mean-08a43bd5.mp3",
+  "A yellow dust made by flowers.": "audio/vocab-a-yellow-dust-made-by-flowers-2bc6dbc1.mp3",
+  "'pollen' means A yellow dust made by flowers.": "audio/vocab-pollen-means-a-yellow-dust-made-by-flowers-b212d42c.mp3",
+  "What does pollinate mean?": "audio/vocab-what-does-pollinate-mean-76166561.mp3",
+  "'pollinate' means To move pollen to a plant so it can make seeds.": "audio/vocab-pollinate-means-to-move-pollen-to-a-plant-1d19a3e6.mp3",
+  "What does pest mean?": "audio/vocab-what-does-pest-mean-85c0455c.mp3",
+  "Something that is annoying or damages things.": "audio/vocab-something-that-is-annoying-or-damages-thin-5d0b5013.mp3",
+  "'pest' means Something that is annoying or damages things.": "audio/vocab-pest-means-something-that-is-annoying-or-d-c99a44cb.mp3",
+  "What does larva mean?": "audio/vocab-what-does-larva-mean-30336920.mp3",
+  "'larva' means A baby insect before it changes shape.": "audio/vocab-larva-means-a-baby-insect-before-it-change-09ff9526.mp3",
+  "What does pond mean?": "audio/vocab-what-does-pond-mean-7e4c1cd2.mp3",
+  "'pond' means A small area of water.": "audio/vocab-pond-means-a-small-area-of-water-131e79c0.mp3",
+  "What does leaf mean?": "audio/vocab-what-does-leaf-mean-341dbb0c.mp3",
+  "'leaf' means A flat green part of a plant.": "audio/vocab-leaf-means-a-flat-green-part-of-a-plant-a55c338a.mp3",
+  "What does nest mean?": "audio/vocab-what-does-nest-mean-c4fc6089.mp3",
+  "A home an animal builds for itself.": "audio/vocab-a-home-an-animal-builds-for-itself-5340f965.mp3",
+  "'nest' means A home an animal builds for itself.": "audio/vocab-nest-means-a-home-an-animal-builds-for-its-1b4f9337.mp3",
+  "What does subheading mean?": "audio/vocab-what-does-subheading-mean-d831edf3.mp3",
+  "'subheading' means A small title that tells you what a part is about.": "audio/vocab-subheading-means-a-small-title-that-tells-4294c395.mp3",
+  "Game 1. Add the beginning. Prefixes re-, dis-, non- and un-": "audio/gram-game-1-add-the-beginning-prefixes-re-dis-n-b23979c3.mp3",
+  "Game 2. Which mark?. Punctuation marks in a report": "audio/gram-game-2-which-mark-punctuation-marks-in-a-r-2cebc93e.mp3",
+  "Game 3. A to Z. Alphabetical order": "audio/gram-game-3-a-to-z-alphabetical-order-66545128.mp3",
+  "A prefix is a small part you add to the front of a word. It changes what the word means. 're-' means again. 'dis-', 'non-' and 'un-' all mean not.": "audio/gram-a-prefix-is-a-small-part-you-add-to-the-fr-16f3eee0.mp3",
+  "Which word means 'to fill it again'?": "audio/gram-which-word-means-to-fill-it-again-a3edde90.mp3",
+  "unfill": "audio/gram-unfill-f4cab9d8.mp3",
+  "disfill": "audio/gram-disfill-30a98d25.mp3",
+  "'re-' means again, so refill means fill it again.": "audio/gram-re-means-again-so-refill-means-fill-it-aga-17b958c5.mp3",
+  "Which word means 'not kind'?": "audio/gram-which-word-means-not-kind-91b0b621.mp3",
+  "rekind": "audio/gram-rekind-ede6bda9.mp3",
+  "nonkind": "audio/gram-nonkind-3b03e7e2.mp3",
+  "'un-' means not, so unkind means not kind.": "audio/gram-un-means-not-so-unkind-means-not-kind-f98db021.mp3",
+  "The ants ___ under the stone.": "audio/gram-the-ants-under-the-stone-6b329a9a.mp3",
+  "nonappear": "audio/gram-nonappear-194864d6.mp3",
+  "reappear": "audio/gram-reappear-79a52b26.mp3",
+  "They go out of sight, so they disappear. 'dis-' means not.": "audio/gram-they-go-out-of-sight-so-they-disappear-dis-a7303bcd.mp3",
+  "Which word means 'without stopping'?": "audio/gram-which-word-means-without-stopping-992fda07.mp3",
+  "unstop": "audio/gram-unstop-18f502f8.mp3",
+  "restop": "audio/gram-restop-0afd3d39.mp3",
+  "'non-' means not, so nonstop means not stopping.": "audio/gram-non-means-not-so-nonstop-means-not-stoppin-31c32a8e.mp3",
+  "Grandma said, 'I ___ with you. I think spiders are lovely.'": "audio/gram-grandma-said-i-with-you-i-think-spiders-ar-e5a5f478.mp3",
+  "reagree": "audio/gram-reagree-b12f5f45.mp3",
+  "nonagree": "audio/gram-nonagree-06bb0c2e.mp3",
+  "She does not agree, so she disagrees. 'dis-' means not.": "audio/gram-she-does-not-agree-so-she-disagrees-dis-me-47cc8f3f.mp3",
+  "Every sentence needs an end mark. A full stop ends a telling sentence. A question mark ends a question. An exclamation mark shows surprise. Brackets can hold a short explanation.": "audio/gram-every-sentence-needs-an-end-mark-a-full-st-49b9fcd6.mp3",
+  "Where do beetles live___": "audio/gram-where-do-beetles-live-16a04b30.mp3",
+  "Exclamation mark !": "audio/gram-exclamation-mark-0f0b1212.mp3",
+  "Full stop .": "audio/gram-full-stop-76a83a57.mp3",
+  "Question mark ?": "audio/gram-question-mark-921dd15f.mp3",
+  "It asks something, so it needs a question mark.": "audio/gram-it-asks-something-so-it-needs-a-question-m-4d5e18d7.mp3",
+  "Beetles live under leaves and logs___": "audio/gram-beetles-live-under-leaves-and-logs-dd00ae2e.mp3",
+  "It tells you a fact, so it ends with a full stop.": "audio/gram-it-tells-you-a-fact-so-it-ends-with-a-full-efb097ea.mp3",
+  "One ladybird can eat fifty pests in a day___": "audio/gram-one-ladybird-can-eat-fifty-pests-in-a-day-1774f80f.mp3",
+  "Comma ,": "audio/gram-comma-91aebbc3.mp3",
+  "That is a surprising fact, so an exclamation mark fits well.": "audio/gram-that-is-a-surprising-fact-so-an-exclamatio-6d157e31.mp3",
+  "Which sentence puts the explanation inside brackets correctly?": "audio/gram-which-sentence-puts-the-explanation-inside-ac436f78.mp3",
+  "Bees carry pollen (a yellow dust) on their legs.": "audio/gram-bees-carry-pollen-a-yellow-dust-on-their-l-6ee2ff77.mp3",
+  "Bees carry pollen a yellow dust (on their legs).": "audio/gram-bees-carry-pollen-a-yellow-dust-on-their-l-9d7aa9db.mp3",
+  "Bees (carry pollen a yellow dust on their legs).": "audio/gram-bees-carry-pollen-a-yellow-dust-on-their-l-010f4345.mp3",
+  "The brackets go around the explanation of the hard word only.": "audio/gram-the-brackets-go-around-the-explanation-of-c2fd04e3.mp3",
+  "Which one is a question a report might use as a subheading?": "audio/gram-which-one-is-a-question-a-report-might-use-ad1fc5ee.mp3",
+  "Ants are busy.": "audio/gram-ants-are-busy-39ef568a.mp3",
+  "I like ants!": "audio/gram-i-like-ants-316543d3.mp3",
+  "What do ants eat?": "audio/gram-what-do-ants-eat-edb8d594.mp3",
+  "Report subheadings are often questions, and the paragraph gives the answer.": "audio/gram-report-subheadings-are-often-questions-and-b4d98caf.mp3",
+  "In a glossary, words are in alphabetical order. Look at the first letter. If two words start with the same letter, look at the second letter.": "audio/gram-in-a-glossary-words-are-in-alphabetical-or-c4214d4a.mp3",
+  "Which word comes first in a glossary?": "audio/gram-which-word-comes-first-in-a-glossary-9f6fb2a6.mp3",
+  "moth": "audio/gram-moth-c9d24a5f.mp3",
+  "beetle": "audio/gram-beetle-23668cd2.mp3",
+  "ant": "audio/gram-ant-64bd05d8.mp3",
+  "'a' comes before 'b' and 'm' in the alphabet.": "audio/gram-a-comes-before-b-and-m-in-the-alphabet-d30ae49a.mp3",
+  "Which word comes first?": "audio/gram-which-word-comes-first-580f270f.mp3",
+  "pest": "audio/gram-pest-df1d03c5.mp3",
+  "pollen": "audio/gram-pollen-d095ea05.mp3",
+  "pond": "audio/gram-pond-17b30a3b.mp3",
+  "All start with 'p'. Look at the second letter: e comes before o.": "audio/gram-all-start-with-p-look-at-the-second-letter-39f7e747.mp3",
+  "Which word comes last?": "audio/gram-which-word-comes-last-088e7729.mp3",
+  "larva": "audio/gram-larva-2de6ba12.mp3",
+  "wing": "audio/gram-wing-bd6658dc.mp3",
+  "nest": "audio/gram-nest-10eff628.mp3",
+  "'w' is nearest the end of the alphabet.": "audio/gram-w-is-nearest-the-end-of-the-alphabet-790522ff.mp3",
+  "Put these in order: spider, segment, species. Which is first?": "audio/gram-put-these-in-order-spider-segment-species-9acaa89c.mp3",
+  "species": "audio/gram-species-035294d0.mp3",
+  "spider": "audio/gram-spider-640fb061.mp3",
+  "segment": "audio/gram-segment-6a80eba8.mp3",
+  "All start with 's'. The second letters are p, e and p, so 'se' comes first.": "audio/gram-all-start-with-s-the-second-letters-are-p-c141a977.mp3",
+  "Which word would you find between 'habitat' and 'larva'?": "audio/gram-which-word-would-you-find-between-habitat-f66ef176.mp3",
+  "insect": "audio/gram-insect-1a4e4a7c.mp3",
+  "abdomen": "audio/gram-abdomen-75d46294.mp3",
+  "'i' comes after 'h' and before 'l'.": "audio/gram-i-comes-after-h-and-before-l-83c935d4.mp3",
+  "Your report is empty so far.": "audio/writ-your-report-is-empty-so-far-d293e0ba.mp3",
+  "The class is planning and writing a non-chronological report (Student Book pp. 38 and 39). This is the same task, in smaller steps.": "audio/writ-the-class-is-planning-and-writing-a-non-ch-15003929.mp3",
+  "A report gives facts. It is not a story.": "audio/writ-a-report-gives-facts-it-is-not-a-story-fcb0b70f.mp3",
+  "Use a subheading for each part. A question works well.": "audio/writ-use-a-subheading-for-each-part-a-question-9805c94b.mp3",
+  "Start each part with a topic sentence, then add the details.": "audio/writ-start-each-part-with-a-topic-sentence-then-da50ac76.mp3",
+  "Write in the present tense: ants live, bees carry, spiders spin.": "audio/writ-write-in-the-present-tense-ants-live-bees-9750ced0.mp3",
+  "ants": "audio/writ-ants-df033bb1.mp3",
+  "bees": "audio/writ-bees-f45728c2.mp3",
+  "beetles": "audio/writ-beetles-478f54aa.mp3",
+  "spiders": "audio/writ-spiders-51aa874c.mp3",
+  "it can lift ten times its own weight": "audio/writ-it-can-lift-ten-times-its-own-weight-a0d898a8.mp3",
+  "it visits two thousand flowers in a day": "audio/writ-it-visits-two-thousand-flowers-in-a-day-4fef8c24.mp3",
+  "its silk is thinner than a hair, but very strong": "audio/writ-its-silk-is-thinner-than-a-hair-but-very-s-ead30f8f.mp3",
+  "it eats fifty tiny pests in a day": "audio/writ-it-eats-fifty-tiny-pests-in-a-day-5446efc7.mp3",
+  "Put these words in order to make one topic sentence.": "audio/writ-put-these-words-in-order-to-make-one-topic-8e7c8df0.mp3",
+  "Two sentences. Say what your bug is, and give one big fact.": "audio/writ-two-sentences-say-what-your-bug-is-and-giv-2d04f675.mp3",
+  "Write the subheading first. Then a topic sentence. Then two facts.": "audio/writ-write-the-subheading-first-then-a-topic-se-76594419.mp3",
+  "Subheading, then topic sentence, then the facts.": "audio/writ-subheading-then-topic-sentence-then-the-fa-16e392b3.mp3",
+  "Finish with one or two amazing facts about your bug.": "audio/writ-finish-with-one-or-two-amazing-facts-about-0b36df7d.mp3",
+  "My report has a subheading for each part.": "audio/writ-my-report-has-a-subheading-for-each-part-592d2be6.mp3",
+  "Each part starts with a topic sentence.": "audio/writ-each-part-starts-with-a-topic-sentence-fdfb642b.mp3",
+  "I wrote facts, not a story.": "audio/writ-i-wrote-facts-not-a-story-13570a7d.mp3",
+  "I used the present tense all the way through.": "audio/writ-i-used-the-present-tense-all-the-way-throu-18826869.mp3",
+  "I explained any hard words.": "audio/writ-i-explained-any-hard-words-309f560e.mp3",
+  "Every sentence ends with the right mark.": "audio/writ-every-sentence-ends-with-the-right-mark-131ed6da.mp3",
+  "Yes. Ants live together in a big nest": "audio/writ-yes-ants-live-together-in-a-big-nest-e2e5790f.mp3",
+  "Ants are small insects that...": "audio/writ-ants-are-small-insects-that-a32f342c.mp3",
+  "Beetles are the biggest group of insects...": "audio/writ-beetles-are-the-biggest-group-of-insects-caad9c8a.mp3",
+  "You may have heard of...": "audio/writ-you-may-have-heard-of-8d737522.mp3",
+  "What does it eat?": "audio/writ-what-does-it-eat-f4102265.mp3",
+  "Ants will eat almost anything.": "audio/writ-ants-will-eat-almost-anything-3b659f72.mp3",
+  "They especially like...": "audio/writ-they-especially-like-9f16050c.mp3",
+  "However": "audio/writ-however-1c9d9af8.mp3",
+  "Also": "audio/writ-also-630df194.mp3",
+  "In fact": "audio/writ-in-fact-d8e9058d.mp3",
+  "For example": "audio/writ-for-example-dc3c09a1.mp3",
+  "Where does it live?": "audio/writ-where-does-it-live-cf1898d7.mp3",
+  "Ants live together in a nest.": "audio/writ-ants-live-together-in-a-nest-320d1254.mp3",
+  "In the nest they...": "audio/writ-in-the-nest-they-deb913a7.mp3",
+  "Are there any fantastic facts?": "audio/writ-are-there-any-fantastic-facts-979e6593.mp3",
+  "Yes! Ants are amazing creatures.": "audio/writ-yes-ants-are-amazing-creatures-70339dea.mp3",
+  "For example...": "audio/writ-for-example-e4a9a1af.mp3",
+  "You have a notebook, a magnifying glass and a whole afternoon in the garden. You choose where to look. There are no wrong choices. Every path finds something real, and nothing here can hurt you. Can you find all twelve endings?": "audio/adv-you-have-a-notebook-a-magnifying-glass-and-2ab3be1b.mp3",
+  "The garden is warm and quiet. Somewhere in it, thousands of tiny animals are busy. Where do you look first?": "audio/adv-the-garden-is-warm-and-quiet-somewhere-in-1b670735.mp3",
+  "Under the old log pile": "audio/adv-under-the-old-log-pile-ed1d6ab9.mp3",
+  "In the flower bed": "audio/adv-in-the-flower-bed-a0119cc5.mp3",
+  "At the edge of the pond": "audio/adv-at-the-edge-of-the-pond-35e9ca66.mp3",
+  "Along the hedge at dusk": "audio/adv-along-the-hedge-at-dusk-7fd4c6a6.mp3",
+  "I lift the old log slowly. Underneath, the ground is dark and damp and full of movement. Something long and shiny slides away from the light. Something small and grey rolls into a ball.": "audio/adv-i-lift-the-old-log-slowly-underneath-the-g-db54e5be.mp3",
+  "Follow the long shiny one": "audio/adv-follow-the-long-shiny-one-239ec9f1.mp3",
+  "Peel back a piece of soft bark": "audio/adv-peel-back-a-piece-of-soft-bark-394bb0ec.mp3",
+  "It is a millipede, and it is in no hurry. I count the segments with my finger in the air. Each segment has two pairs of legs. My pencil cannot keep up.": "audio/adv-it-is-a-millipede-and-it-is-in-no-hurry-i-925999cd.mp3",
+  "Count every pair of legs": "audio/adv-count-every-pair-of-legs-eef14197.mp3",
+  "Look at what rolled into a ball": "audio/adv-look-at-what-rolled-into-a-ball-7d53d5b5.mp3",
+  "I get to forty pairs and lose my place, so I start again. In the end I write: 'more than eighty legs, all moving like a wave.' Dad says that is the best sentence in my notebook. The millipede walks off the edge of my hand and back into the dark.": "audio/adv-i-get-to-forty-pairs-and-lose-my-place-so-15b4f5e2.mp3",
+  "You found an ending: The Millipede Counter! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-millipede-counter-7c331349.mp3",
+  "The little grey ball opens up and becomes a woodlouse, then another, then more than I can count. They live under here in their damp grey city. I write 'habitat: dark and damp' and put the log back exactly as it was, so nobody has to move house.": "audio/adv-the-little-grey-ball-opens-up-and-becomes-9bc56481.mp3",
+  "You found an ending: The Woodlouse City! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-woodlouse-city-wel-133b160e.mp3",
+  "The bark comes away like the cover of a book. Underneath, tunnels wind through the wood in curls and loops. At the end of one tunnel sits a small brown beetle, perfectly still.": "audio/adv-the-bark-comes-away-like-the-cover-of-a-bo-04937451.mp3",
+  "Draw the beetle in my notebook": "audio/adv-draw-the-beetle-in-my-notebook-8faa4f4e.mp3",
+  "I draw the beetle twice: once quickly, once slowly with the magnifying glass. The second drawing has the hard wing cases, the thorax and the abdomen, all in the right places. I label them. It is the first proper diagram I have ever made.": "audio/adv-i-draw-the-beetle-twice-once-quickly-once-c6d4dfa9.mp3",
+  "You found an ending: The Beetle Under the Bark! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-beetle-under-the-b-e4b20acd.mp3",
+  "The flower bed hums. It is not one sound but hundreds, all mixed together. A fat bee lands on a purple flower, and the whole flower dips under her weight.": "audio/adv-the-flower-bed-hums-it-is-not-one-sound-bu-943de57b.mp3",
+  "Watch one bee and follow her": "audio/adv-watch-one-bee-and-follow-her-31422a5c.mp3",
+  "Look closely at the flowers": "audio/adv-look-closely-at-the-flowers-0a6ccc57.mp3",
+  "I choose the fat bee and stay with her. Flower, flower, flower. Her back legs grow fat and yellow with pollen. Then she turns and flies in a straight line over the wall.": "audio/adv-i-choose-the-fat-bee-and-stay-with-her-flo-9bacd114.mp3",
+  "Time how long she takes on each flower": "audio/adv-time-how-long-she-takes-on-each-flower-f51bb435.mp3",
+  "Check the leaf she just left": "audio/adv-check-the-leaf-she-just-left-184ead53.mp3",
+  "Four seconds. Three seconds. Five. She never stops for long. I work out that in one afternoon she could visit hundreds of flowers, and in one day, thousands. 'Busy as a bee' turns out to be a fact, not just a saying.": "audio/adv-four-seconds-three-seconds-five-she-never-9b4c7da6.mp3",
+  "You found an ending: The Bee Watcher! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-bee-watcher-well-d-e78829ee.mp3",
+  "The spots are not spots. They are a ladybird, upside down and stuck in a drop of water. I hold out a leaf and she climbs on, opens her red cases, and flies. Later I read that she may eat fifty greenfly today. The garden owes me one.": "audio/adv-the-spots-are-not-spots-they-are-a-ladybir-9a32a958.mp3",
+  "You found an ending: The Ladybird Rescue! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-ladybird-rescue-we-7a4fdba5.mp3",
+  "Up close the flowers are covered in yellow dust. It comes off on my finger, on my sleeve, on the tip of my pencil. Every bee that lands here carries a little of it away.": "audio/adv-up-close-the-flowers-are-covered-in-yellow-5dc24760.mp3",
+  "Follow the trail of pollen": "audio/adv-follow-the-trail-of-pollen-f3cde92f.mp3",
+  "Check the leaf with the spots on it": "audio/adv-check-the-leaf-with-the-spots-on-it-20b3cbf9.mp3",
+  "I follow the yellow dust from flower to flower, and I finally understand it. The bee is not stealing from the plant. She is carrying its pollen to the next flower so it can make seeds. Both of them get something. I write that down twice, because it is the best fact of the day.": "audio/adv-i-follow-the-yellow-dust-from-flower-to-fl-62fb8d4e.mp3",
+  "You found an ending: The Pollen Trail! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-pollen-trail-well-0b3cf3df.mp3",
+  "The pond is still, and at first it looks empty. Then my eyes adjust. The surface is a whole world of its own, and something is walking on top of the water.": "audio/adv-the-pond-is-still-and-at-first-it-looks-em-c3f2a24d.mp3",
+  "Watch the thing walking on the water": "audio/adv-watch-the-thing-walking-on-the-water-93830f41.mp3",
+  "Look down into the shallow edge": "audio/adv-look-down-into-the-shallow-edge-f451e11f.mp3",
+  "It is a pond skater, and it really is standing on the water without sinking. Its feet make small dents, like a finger pressing on a balloon. Above it, something long and blue is hovering.": "audio/adv-it-is-a-pond-skater-and-it-really-is-stand-28ffdab7.mp3",
+  "Work out how it stays up": "audio/adv-work-out-how-it-stays-up-f9ae9511.mp3",
+  "Look up at the long blue one": "audio/adv-look-up-at-the-long-blue-one-a2a5c311.mp3",
+  "I put one finger on the water very gently and feel it push back, like a skin. That is how the skater does it: it is light enough to stand on the skin of the water. I write 'the water has a skin' and underline it, because it sounds impossible and it is true.": "audio/adv-i-put-one-finger-on-the-water-very-gently-c8f83146.mp3",
+  "You found an ending: The Pond Skater! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-pond-skater-well-d-0027d722.mp3",
+  "The blue thing stops in the air, goes backwards, then lands on the reed right beside my elbow. A dragonfly, close enough to see the pattern in its wings. I do not move for a whole minute. It leaves first.": "audio/adv-the-blue-thing-stops-in-the-air-goes-backw-e12b9bf5.mp3",
+  "You found an ending: The Dragonfly Landing! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-dragonfly-landing-c400f863.mp3",
+  "In the shallow edge the water is warm and brown. Tiny dark commas dart about, hundreds of them, all going nowhere in a hurry.": "audio/adv-in-the-shallow-edge-the-water-is-warm-and-05011799.mp3",
+  "Try to count them": "audio/adv-try-to-count-them-149f82f8.mp3",
+  "I count in fives to two hundred and give up laughing. Instead I write: 'too many tadpoles to count, all in the warm shallow end.' Next spring I will come back and see how many of them turned into frogs.": "audio/adv-i-count-in-fives-to-two-hundred-and-give-u-908491fc.mp3",
+  "You found an ending: The Tadpole Count! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-tadpole-count-well-6bbc414e.mp3",
+  "The sun has gone and the hedge has changed. The daytime bugs have packed up, and a different shift has come on. I switch on my torch and point it low.": "audio/adv-the-sun-has-gone-and-the-hedge-has-changed-23ed2177.mp3",
+  "Shine the torch on the hedge": "audio/adv-shine-the-torch-on-the-hedge-8d60cf6d.mp3",
+  "Turn the torch off and just look": "audio/adv-turn-the-torch-off-and-just-look-6c41a944.mp3",
+  "Moths arrive almost at once, soft and dusty, turning circles in the beam. One lands on my sleeve and folds its wings like a tiny grey tent.": "audio/adv-moths-arrive-almost-at-once-soft-and-dusty-6746b0c2.mp3",
+  "Draw the moth on my sleeve": "audio/adv-draw-the-moth-on-my-sleeve-4b30b11f.mp3",
+  "Follow the silver line on the path": "audio/adv-follow-the-silver-line-on-the-path-3b8336cf.mp3",
+  "I draw the moth quickly before it goes: the feathery feelers, the folded wings, the dust on my sleeve where it sat. Mum says moths are just night butterflies who never learned to show off. I decide that is my favourite fact about them.": "audio/adv-i-draw-the-moth-quickly-before-it-goes-the-0811a604.mp3",
+  "You found an ending: The Moth Light! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-moth-light-well-do-b66dacc4.mp3",
+  "The silver line runs along the path, up the wall and back down again, and at the end of it is one small snail, still going. I follow it all the way back to the start with my torch. A snail's whole journey, mapped in silver. I put it in my notebook as a diagram, with arrows.": "audio/adv-the-silver-line-runs-along-the-path-up-the-c65e6a5a.mp3",
+  "You found an ending: The Snail Highway! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-snail-highway-well-233c3ed4.mp3",
+  "In the dark my eyes take a while. Then I see it: a small green light in the grass, steady and quiet, like a spark that will not go out.": "audio/adv-in-the-dark-my-eyes-take-a-while-then-i-se-bea68474.mp3",
+  "Kneel down and look at the light": "audio/adv-kneel-down-and-look-at-the-light-87c9ce38.mp3",
+  "It is a glow-worm, making her own light in the grass. Nobody switched it on and nobody can switch it off. I lie down on the cold path with my chin on my hands and watch until Mum calls me in. Some facts you have to see for yourself.": "audio/adv-it-is-a-glow-worm-making-her-own-light-in-ba1aef52.mp3",
+  "You found an ending: The Glow-worm! Well done. You kept your hero safe.": "audio/adv-you-found-an-ending-the-glow-worm-well-don-25eec81d.mp3"
 };
 let PLAYER = null;
 
@@ -1459,7 +3099,7 @@ const SECTIONS = [
   { key:"wins",    icon:"⭐", label:"My Wins" }
 ];
 
-let VIEW = { reading: S.reading || null, word:null, vocab:null, sub:null };
+let VIEW = { reading: PROG.reading || null, word:null, vocab:null, sub:null };
 let SHOW_SETTINGS = false, SHOW_TEACHER = false;
 
 function go(section, idx){
@@ -1469,8 +3109,8 @@ function go(section, idx){
   if(section==="reading"){
     /* Resume where he left off if he is coming back to the same passage;
        otherwise start the chosen passage fresh. */
-    if(S.reading && (idx == null || S.reading.p === idx) && S.reading.phase !== "done"){
-      VIEW.reading = S.reading;
+    if(PROG.reading && (idx == null || PROG.reading.p === idx) && PROG.reading.phase !== "done"){
+      VIEW.reading = PROG.reading;
     } else {
       VIEW.reading = { p: idx||0, chunk:0, phase:"read", q:0 };
     }
@@ -1505,20 +3145,20 @@ function viewToday(){
   add(f, pupCard());
 
   /* Pick up where he left off in a passage. */
-  if(S.reading && S.reading.phase === "read" && S.reading.chunk > 0){
-    const P = U.passages[S.reading.p];
+  if(PROG.reading && PROG.reading.phase === "read" && PROG.reading.chunk > 0){
+    const P = U.passages[PROG.reading.p];
     const resume = el("button","taskcard");
     resume.style.borderColor = "var(--accent)";
     add(resume, el("span","ic","▶️"),
-        el("span",null,"Keep reading: " + P.title + " (page " + (S.reading.chunk+1) + ")"));
-    resume.onclick = ()=> go("reading", S.reading.p);
+        el("span",null,"Keep reading: " + P.title + " (page " + (PROG.reading.chunk+1) + ")"));
+    resume.onclick = ()=> go("reading", PROG.reading.p);
     add(f, el("h2",null,"Carry on"));
     add(f, resume);
   }
 
   add(f, el("h2",null,"Your tasks"));
   U.tasks.forEach(t=>{
-    const done = !!S.tasksDone[t.id];
+    const done = !!PROG.tasksDone[t.id];
     const b = el("button","taskcard" + (done ? " done":""));
     add(b, el("span","ic",t.icon), el("span",null,t.label));
     if(done) add(b, el("span","tick","✓ done"));
@@ -1528,7 +3168,7 @@ function viewToday(){
     add(f,row);
   });
 
-  const all = U.tasks.every(t=>S.tasksDone[t.id]);
+  const all = U.tasks.every(t=>PROG.tasksDone[t.id]);
   if(all){
     const g = el("div","good");
     add(g, el("p","prose","All your tasks are done. Well done today."));
@@ -1537,7 +3177,7 @@ function viewToday(){
   return f;
 }
 function completeTask(id){
-  if(!S.tasksDone[id]){ S.tasksDone[id] = true; markToday(); save(); }
+  if(!PROG.tasksDone[id]){ PROG.tasksDone[id] = true; markToday(); save(); }
 }
 
 /* ===================== HUSKY PUP (Today companion) =====================
@@ -1554,13 +3194,39 @@ const PUP_GEAR = [
   [60, "🎖️", "a hero medal"]
 ];
 
+/* Count something across every unit the student has opened. Used wherever a
+   number is promised never to go down. */
+function acrossUnits(key, sub){
+  return Object.keys(S.units).reduce(function(n, k){
+    const u = S.units[k] || {};
+    const box = sub ? ((u[key] || {})[sub] || {}) : (u[key] || {});
+    return n + Object.keys(box).length;
+  }, 0);
+}
+
+/* Move the app to another unit. Everything for the old unit stays where it
+   is; the student simply sees the other one from now on. */
+function switchUnit(n){
+  if(!UNITS[n]) return;
+  S.unit = String(n) === String(Number(n)) ? Number(n) : n;
+  CURRENT_UNIT = S.unit;
+  U = UNITS[CURRENT_UNIT];
+  PROG = unitState(CURRENT_UNIT);
+  WS = null;
+  ORDER_PICK = [];                 /* the warm-up belongs to the old unit */
+  VIEW = { reading: PROG.reading || null, word:null, vocab:null, sub:null };
+  S.section = "today";
+  SHOW_TEACHER = false; SHOW_SETTINGS = false;
+  save(); stopSpeech(); startWordSession(0); render(); window.scrollTo(0,0);
+}
+
 function pupScore(){
   return S.daysPracticed.length
-       + Object.keys(S.passagesDone).length
+       + acrossUnits("passagesDone")
        + Object.keys(S.wordsMastered).length
        + Object.keys(S.vocabSeen).length
-       + Object.keys(S.grammarDone).length
-       + Object.keys(S.adventure.endings).length;
+       + acrossUnits("grammarDone")
+       + acrossUnits("adventure", "endings");
 }
 
 function pupCard(){
@@ -1662,12 +3328,12 @@ function viewReading(){
     add(f, el("h1",null,"Reading"));
     add(f, el("p","sub","Choose a passage."));
     U.passages.forEach((p,i)=>{
-      const done = !!S.passagesDone[i];
-      const here = S.reading && S.reading.p === i && S.reading.phase === "read" && S.reading.chunk > 0;
+      const done = !!PROG.passagesDone[i];
+      const here = PROG.reading && PROG.reading.p === i && PROG.reading.phase === "read" && PROG.reading.chunk > 0;
 
       let status = "New";
       if(done) status = "✓ Done";
-      else if(here) status = "Keep going — page " + (S.reading.chunk+1);
+      else if(here) status = "Keep going — page " + (PROG.reading.chunk+1);
 
       const b = el("button","taskcard" + (done ? " done":""));
       const label = el("span");
@@ -1733,7 +3399,7 @@ function viewReading(){
   if(v.phase === "quiz"){
     const q = P.questions[v.q];
     const key = "p" + v.p + "q" + v.q;
-    const rec = S.answers[key] || { correct:false, tries:0 };
+    const rec = PROG.answers[key] || { correct:false, tries:0 };
     add(f, el("p","sub","Question " + (v.q+1) + " of " + P.questions.length));
 
     const c = el("section","card");
@@ -1755,10 +3421,10 @@ function viewReading(){
         rec.tries++;
         if(i === q.a){
           rec.correct = true;
-          S.answers[key] = rec; bump("qa"); if(rec.tries === 1) bump("q1"); markToday(); save();
+          PROG.answers[key] = rec; bump("qa"); if(rec.tries === 1) bump("q1"); markToday(); save();
           showFeedback(c, true, q.why, ()=>{
             if(v.q === P.questions.length-1){
-              S.passagesDone[v.p] = true;
+              PROG.passagesDone[v.p] = true;
               const t = U.tasks.find(t=>t.go[0]==="reading" && t.go[1]===v.p);
               if(t) completeTask(t.id);
               v.phase = "done";
@@ -1766,7 +3432,7 @@ function viewReading(){
             save(); render(); window.scrollTo(0,0);
           });
         } else {
-          S.answers[key] = rec; bump("qa"); save();
+          PROG.answers[key] = rec; bump("qa"); save();
           showFeedback(c, false, "Almost. Listen to the question again, then try once more.", null);
         }
       };
@@ -2151,14 +3817,14 @@ function viewVocab(){
     const b = el("button","opt", o.def);
     b.onclick = ()=>{
       if(o.w === W.w){
-        S.vocabQuiz.right++; bump("va"); bump("vr"); markToday(); save();
+        PROG.vocabQuiz.right++; bump("va"); bump("vr"); markToday(); save();
         showFeedback(c, true, "'" + W.w + "' means " + W.def, ()=>{
           if(v.quizI === U.vocab.length-1){ v.mode="learn"; v.i=0; v.quizI=0; }
           else v.quizI++;
           render(); window.scrollTo(0,0);
         });
       } else {
-        S.vocabQuiz.wrong++; bump("va"); save();
+        PROG.vocabQuiz.wrong++; bump("va"); save();
         showFeedback(c, false, "Almost. Listen to the word again and try once more.", null);
       }
     };
@@ -2184,7 +3850,7 @@ function startGrammarSet(i){
   GG = { si:i, i:0, introSeen:false };
 }
 function grammarSetProgress(i){
-  return { complete: !!S.grammarDone[i], total: U.grammar[i].items.length };
+  return { complete: !!PROG.grammarDone[i], total: U.grammar[i].items.length };
 }
 
 function viewGrammarMenu(){
@@ -2234,7 +3900,7 @@ function viewGrammar(){
 
   /* Finished the game. */
   if(GG.i >= set.items.length){
-    if(!S.grammarDone[GG.si]){ S.grammarDone[GG.si] = true; markToday(); save(); }
+    if(!PROG.grammarDone[GG.si]){ PROG.grammarDone[GG.si] = true; markToday(); save(); }
     const g = el("section","good prose");
     add(g, el("p",null,"You finished this grammar game. Nice thinking."));
     add(f,g);
@@ -2268,10 +3934,10 @@ function viewGrammar(){
     const b = el("button","opt", o);
     b.onclick = ()=>{
       if(k === item.a){
-        S.grammarQuiz.right++; bump("ga"); bump("gr"); markToday(); save();
+        PROG.grammarQuiz.right++; bump("ga"); bump("gr"); markToday(); save();
         showFeedback(c, true, item.why, ()=>{ GG.i++; render(); window.scrollTo(0,0); });
       } else {
-        S.grammarQuiz.wrong++; bump("ga"); save();
+        PROG.grammarQuiz.wrong++; bump("ga"); save();
         showFeedback(c, false, "Almost. Listen to the question again and try once more.", null);
       }
     };
@@ -2302,32 +3968,36 @@ function viewWriting(){
   });
   add(f,intro);
 
-  /* Step A — choose a setting */
+  /* Step A — first choice (fiction: the setting; non-fiction: the subject) */
+  if(Wr.settings && Wr.settings.length){
   const c1 = el("section","card");
-  add(c1, el("h2",null,"Choose where your story happens"));
+  add(c1, el("h2",null, Wr.settingsLabel || "Choose where your story happens"));
   Wr.settings.forEach(s=>{
     const row = el("div","rowline");
-    const b = el("button","opt" + (S.writingSetting===s.text ? " picked":""), s.icon + "  " + s.text);
-    b.onclick = ()=>{ S.writingSetting = s.text; markToday(); save(); render(); };
+    const b = el("button","opt" + (PROG.writingSetting===s.text ? " picked":""), s.icon + "  " + s.text);
+    b.onclick = ()=>{ PROG.writingSetting = s.text; markToday(); save(); render(); };
     add(row, b, listenBtn(s.text));
     add(c1,row);
   });
   add(f,c1);
+  }
 
-  /* Step B — choose a problem */
+  /* Step B — second choice (fiction: the danger; non-fiction: the angle) */
+  if(Wr.problems && Wr.problems.length){
   const c2 = el("section","card");
-  add(c2, el("h2",null,"Choose the danger"));
+  add(c2, el("h2",null, Wr.problemsLabel || "Choose the danger"));
   Wr.problems.forEach(s=>{
     const row = el("div","rowline");
-    const b = el("button","opt" + (S.writingProblem===s.text ? " picked":""), s.icon + "  " + s.text);
-    b.onclick = ()=>{ S.writingProblem = s.text; markToday(); save(); render(); };
+    const b = el("button","opt" + (PROG.writingProblem===s.text ? " picked":""), s.icon + "  " + s.text);
+    b.onclick = ()=>{ PROG.writingProblem = s.text; markToday(); save(); render(); };
     add(row, b, listenBtn(s.text));
     add(c2,row);
   });
   add(f,c2);
+  }
 
   /* Step C — tap-in-order sentence warm-up (no dragging) */
-  add(f, orderGame(Wr.order));
+  if(Wr.order) add(f, orderGame(Wr.order));
 
   /* Step D — the four writing steps */
   Wr.steps.forEach(st=>{
@@ -2338,11 +4008,16 @@ function viewWriting(){
     add(hr, ht, listenBtn(st.hint));
     add(c,hr);
 
-    if(st.key === "speak"){
-      const p = el("p","sub","Strong words instead of 'said':");
-      add(c,p);
+    /* A word bank for this step: speech verbs in fiction, connectives or
+       question openers in non-fiction. */
+    const bank = (st.key === "speak" ? (Wr.speechVerbs || []) : (st.tiles || []));
+    if(bank.length){
+      const bankLabel = st.key === "speak"
+        ? "Strong words instead of 'said':"
+        : (st.tilesLabel || "Words you could use:");
+      add(c, el("p","sub", bankLabel));
       const tiles = el("div","tiles");
-      Wr.speechVerbs.forEach(v=>{
+      bank.forEach(v=>{
         const b = el("button","small", v);
         b.onclick = ()=>{ say(v); insertAt(st.key, v); };
         add(tiles,b);
@@ -2362,13 +4037,13 @@ function viewWriting(){
     const ta = el("textarea");
     ta.id = "w_" + st.key;
     ta.setAttribute("aria-label", st.label);
-    ta.value = S.writing[st.key] || "";
-    ta.oninput = ()=>{ S.writing[st.key] = ta.value; markToday(); save(); };
+    ta.value = PROG.writing[st.key] || "";
+    ta.oninput = ()=>{ PROG.writing[st.key] = ta.value; markToday(); save(); };
     add(c,ta);
 
     const row = el("div","btn-row");
     const b = el("button","btn-listen","🔊 Read my writing back");
-    b.onclick = ()=>{ const t = (S.writing[st.key]||"").trim(); if(t){ speak(t); } else { say("You have not written anything here yet."); } };
+    b.onclick = ()=>{ const t = (PROG.writing[st.key]||"").trim(); if(t){ speak(t); } else { say("You have not written anything here yet."); } };
     add(row,b);
     add(c,row);
     add(f,c);
@@ -2380,15 +4055,16 @@ function viewWriting(){
   Wr.checklist.forEach((item,i)=>{
     const row = el("div","rowline");
     const key = "chk"+i;
-    const b = el("button","opt" + (S.writing[key] ? " picked":""), (S.writing[key] ? "✓  ":"○  ") + item);
-    b.onclick = ()=>{ S.writing[key] = !S.writing[key]; save(); render(); };
+    const b = el("button","opt" + (PROG.writing[key] ? " picked":""), (PROG.writing[key] ? "✓  ":"○  ") + item);
+    b.onclick = ()=>{ PROG.writing[key] = !PROG.writing[key]; save(); render(); };
     add(row, b, listenBtn(item));
     add(c5,row);
   });
 
   const row = el("div","btn-row");
-  const all = el("button","btn-listen","🔊 Read my whole story");
-  all.onclick = ()=>{ const t = fullStory(); if(t){ speak(t); } else { say("Your story is empty so far."); } };
+  const piece = U.writing.piece || "story";
+  const all = el("button","btn-listen","🔊 Read my whole " + piece);
+  all.onclick = ()=>{ const t = fullStory(); if(t){ speak(t); } else { say("Your " + piece + " is empty so far."); } };
   const copy = el("button","btn-main","Copy my story");
   copy.onclick = async ()=>{
     try{ await navigator.clipboard.writeText(fullStory()); copy.textContent = "Copied ✓"; }
@@ -2402,14 +4078,14 @@ function viewWriting(){
 }
 
 function fullStory(){
-  return U.writing.steps.map(s=>(S.writing[s.key]||"").trim()).filter(Boolean).join("\n\n");
+  return U.writing.steps.map(s=>(PROG.writing[s.key]||"").trim()).filter(Boolean).join("\n\n");
 }
 function insertAt(key, text){
   const ta = document.getElementById("w_" + key);
   if(!ta) return;
   const cur = ta.value;
   ta.value = cur + (cur && !cur.endsWith(" ") && !cur.endsWith("\n") ? " " : "") + text;
-  S.writing[key] = ta.value; save();
+  PROG.writing[key] = ta.value; save();
   ta.focus();
   ta.setSelectionRange(ta.value.length, ta.value.length);
 }
@@ -2439,7 +4115,7 @@ function orderGame(O){
         setTimeout(()=>{
           if(built === O.answer){
             say("Yes. " + O.answer);
-            S.writing.orderDone = true; markToday(); save();
+            PROG.writing.orderDone = true; markToday(); save();
           } else {
             say("Almost. Listen and try once more.");
           }
@@ -2451,12 +4127,12 @@ function orderGame(O){
     add(tiles,b);
   });
   add(c,tiles);
-  if(S.writing.orderDone){
+  if(PROG.writing.orderDone){
     const g = el("div","good"); add(g, el("p",null,"Yes: " + O.answer));
     add(c,g);
   }
   const reset = el("button","small","Start again");
-  reset.onclick = ()=>{ ORDER_PICK = []; S.writing.orderDone = false; save(); render(); };
+  reset.onclick = ()=>{ ORDER_PICK = []; PROG.writing.orderDone = false; save(); render(); };
   const br = el("div","btn-row"); add(br,reset); add(c,br);
   return c;
 }
@@ -2465,14 +4141,14 @@ function orderGame(O){
    A choose-your-path story. Data lives in U.adventure (DATA BLOCK).
    No wrong choices, no bad endings — every ending is safe and positive,
    so replaying to find new endings is pure reward, never a penalty.
-   The current page and endings found live in S.adventure (only goes up). */
+   The current page and endings found live in PROG.adventure (only goes up). */
 let ADV_MENU = false;
 
 function advTotalEndings(){
   if(!U.adventure) return 0;
   return Object.values(U.adventure.nodes).filter(n => n.ending).length;
 }
-function advFound(){ return Object.keys(S.adventure.endings).length; }
+function advFound(){ return Object.keys(PROG.adventure.endings).length; }
 
 /* Open the story menu (shows a resume card if he is mid-story). */
 function openAdventureMenu(){
@@ -2486,16 +4162,16 @@ function openAdventureMenu(){
 function advStart(){
   stopSpeech();
   ADV_MENU = false;
-  S.adventure.node = U.adventure.start;
+  PROG.adventure.node = U.adventure.start;
   save(); render(); window.scrollTo(0,0);
 }
 
 function advChoose(next){
   stopSpeech();
-  S.adventure.node = next;
+  PROG.adventure.node = next;
   const n = U.adventure.nodes[next];
-  if(n && n.ending && !S.adventure.endings[next]){
-    S.adventure.endings[next] = true;      /* a new ending — permanent win */
+  if(n && n.ending && !PROG.adventure.endings[next]){
+    PROG.adventure.endings[next] = true;      /* a new ending — permanent win */
     bump("end"); markToday();
   }
   save(); render(); window.scrollTo(0,0);
@@ -2505,7 +4181,7 @@ function viewAdventure(){
   const f = document.createDocumentFragment();
   const A = U.adventure;
   if(!A){ add(f, el("p","prose","No story in this unit yet.")); return f; }
-  const nodeId = S.adventure.node;
+  const nodeId = PROG.adventure.node;
   const N = nodeId ? A.nodes[nodeId] : null;
 
   /* ---- menu ---- */
@@ -2540,7 +4216,7 @@ function viewAdventure(){
     Object.keys(A.nodes).forEach(k=>{
       const n = A.nodes[k];
       if(!n.ending) return;
-      const on = !!S.adventure.endings[k];
+      const on = !!PROG.adventure.endings[k];
       const b = el("div","badge " + (on ? "on":"off"));
       add(b, el("span","ic", on ? n.icon : "❓"), el("span",null, on ? n.ending : "Not found yet"));
       add(bw,b);
@@ -2600,12 +4276,25 @@ function viewWins(){
   add(f, el("p","sub","Everything here only goes up. Nothing here can go down."));
 
   const words = Object.keys(S.wordsMastered).length;
-  const passages = Object.keys(S.passagesDone).length;
   const days = S.daysPracticed.length;
   const seen = Object.keys(S.vocabSeen).length;
-  const writingWords = fullStory().split(/\s+/).filter(Boolean).length;
-  const grammarGames = Object.keys(S.grammarDone).length;
-  const endings = Object.keys(S.adventure.endings).length;
+  /* The counters add up every unit, so moving to a new unit adds to the
+     totals instead of resetting them. */
+  const passages = acrossUnits("passagesDone");
+  const grammarGames = acrossUnits("grammarDone");
+  const endings = acrossUnits("adventure", "endings");
+  const writingWords = Object.keys(S.units).reduce(function(n, k){
+    const u = UNITS[k]; if(!u) return n;
+    const w = (S.units[k] || {}).writing || {};
+    const t = u.writing.steps.map(function(s){ return (w[s.key] || "").trim(); })
+      .filter(Boolean).join(" ");
+    return n + t.split(/\s+/).filter(Boolean).length;
+  }, 0);
+  /* Badges are earned on the unit in front of him, then kept for good. */
+  const passagesU = Object.keys(PROG.passagesDone).length;
+  const grammarU = Object.keys(PROG.grammarDone).length;
+  const endingsU = Object.keys(PROG.adventure.endings).length;
+  const writingU = fullStory().split(/\s+/).filter(Boolean).length;
 
   const stats = [
     ["📅", days, "days you practised"],
@@ -2624,28 +4313,32 @@ function viewWins(){
   });
   add(f,c);
 
+  const piece = U.writing.piece || "story";
   const badges = [
-    ["🎤","First passage", passages >= 1],
-    ["📚","Both passages", passages >= 2],
+    ["🎤","First passage", passagesU >= 1],
+    ["📚","Both passages", passagesU >= 2],
     ["✍️","5 words spelled", words >= 5],
     ["🏅","10 words spelled", words >= 10],
     ["🗝️","All unit words seen", seen >= U.vocab.length],
-    ["🧩","Grammar game done", grammarGames >= 1],
-    ["🧠","All grammar games", grammarGames >= U.grammar.length],
-    ["🧭","First adventure ending", endings >= 1],
-    ["🗺️","Six adventure endings", endings >= 6],
-    ["🏆","Every adventure ending", advTotalEndings() > 0 && endings >= advTotalEndings()],
-    ["🖋️","Story started", writingWords >= 20],
-    ["📜","Story finished", writingWords >= 80],
+    ["🧩","Grammar game done", grammarU >= 1],
+    ["🧠","All grammar games", grammarU >= U.grammar.length],
+    ["🧭","First adventure ending", endingsU >= 1],
+    ["🗺️","Six adventure endings", endingsU >= 6],
+    ["🏆","Every adventure ending", advTotalEndings() > 0 && endingsU >= advTotalEndings()],
+    ["🖋️", piece.charAt(0).toUpperCase() + piece.slice(1) + " started", writingU >= 20],
+    ["📜", piece.charAt(0).toUpperCase() + piece.slice(1) + " finished", writingU >= 80],
     ["🌟","5 days of practice", days >= 5]
   ];
   add(f, el("h2",null,"Badges"));
   const bw = el("div");
+  let newBadge = false;
   badges.forEach(([ic,name,on])=>{
-    const b = el("div","badge " + (on ? "on":"off"));
+    if(on && !S.badges[name]){ S.badges[name] = true; newBadge = true; }   /* earned once, kept for good */
+    const b = el("div","badge " + ((on || S.badges[name]) ? "on":"off"));
     add(b, el("span","ic",ic), el("span",null,name));
     add(bw,b);
   });
+  if(newBadge) save();
   add(f,bw);
 
   const row = el("div","btn-row");
@@ -2669,7 +4362,7 @@ function evidence(){
 
   /* Wg — grammar and punctuation */
   const hasSpeechMarks = /["“”]/.test(story);
-  const verbsUsed = U.writing.speechVerbs.filter(v => new RegExp("\\b"+v+"\\b","i").test(story));
+  const verbsUsed = (U.writing.speechVerbs || []).filter(v => new RegExp("\\b"+v+"\\b","i").test(story));
   const lowerStarts = sentences.filter(s => /^[a-z]/.test(s)).length;
   const endsPunctuated = sentences.filter(s => /[.!?]$/.test(s)).length;
 
@@ -2677,7 +4370,7 @@ function evidence(){
   const vocabUsed = U.vocab.filter(v => new RegExp("\\b"+v.w+"\\w*\\b","i").test(story)).map(v=>v.w);
 
   /* Ws — structure: which steps he wrote */
-  const stepsDone = U.writing.steps.filter(s => (S.writing[s.key]||"").trim()).map(s=>s.label);
+  const stepsDone = U.writing.steps.filter(s => (PROG.writing[s.key]||"").trim()).map(s=>s.label);
 
   /* Ww — spelling */
   const allWords = U.wordSessions.flatMap(s => s.words.map(w=>w.w));
@@ -2686,20 +4379,20 @@ function evidence(){
   /* Comprehension */
   let qTotal = 0, qRight = 0, qFirstTime = 0;
   U.passages.forEach((P,pi)=>P.questions.forEach((q,qi)=>{
-    const rec = S.answers["p"+pi+"q"+qi];
+    const rec = PROG.answers["p"+pi+"q"+qi];
     qTotal++;
     if(rec && rec.correct){ qRight++; if(rec.tries === 1) qFirstTime++; }
   }));
 
-  const vq = S.vocabQuiz;
+  const vq = PROG.vocabQuiz;
 
   return {
     story, words, sentences, lens,
     Wc: [
       ["Words written", words.length],
-      ["Steps of the story written", stepsDone.length + " of " + U.writing.steps.length],
-      ["Setting chosen", S.writingSetting || "—"],
-      ["Problem chosen", S.writingProblem || "—"],
+      ["Steps of the " + (U.writing.piece || "story") + " written", stepsDone.length + " of " + U.writing.steps.length],
+      ["Setting chosen", PROG.writingSetting || "—"],
+      ["Problem chosen", PROG.writingProblem || "—"],
       ["First person sustained ('I')", /\bI\b/.test(story) ? "uses 'I'" : "no first-person pronoun found"]
     ],
     Wv: [
@@ -2720,9 +4413,9 @@ function evidence(){
       ["Reporting verb other than 'said'", verbsUsed.length ? "yes (" + verbsUsed.join(", ") + ")" : "no"],
       ["Sentences starting lower-case", lowerStarts],
       ["Sentences ending with . ! or ?", endsPunctuated + " of " + sentences.length],
-      ["His own checklist ticks", U.writing.checklist.filter((_,i)=>S.writing["chk"+i]).length + " of " + U.writing.checklist.length],
-      ["Grammar games finished", Object.keys(S.grammarDone).length + " of " + U.grammar.length],
-      ["Grammar game answers", S.grammarQuiz.right + " correct of " + (S.grammarQuiz.right + S.grammarQuiz.wrong) + " attempts"]
+      ["His own checklist ticks", U.writing.checklist.filter((_,i)=>PROG.writing["chk"+i]).length + " of " + U.writing.checklist.length],
+      ["Grammar games finished", Object.keys(PROG.grammarDone).length + " of " + U.grammar.length],
+      ["Grammar game answers", PROG.grammarQuiz.right + " correct of " + (PROG.grammarQuiz.right + PROG.grammarQuiz.wrong) + " attempts"]
     ],
     Ww: [
       ["Spelling words mastered", mastered.length + " of " + allWords.length],
@@ -2732,7 +4425,7 @@ function evidence(){
     comprehension: [
       ["Questions answered correctly", qRight + " of " + qTotal],
       ["Correct on the first try", qFirstTime + " of " + qTotal],
-      ["Passages finished", Object.keys(S.passagesDone).length + " of " + U.passages.length]
+      ["Passages finished", Object.keys(PROG.passagesDone).length + " of " + U.passages.length]
     ]
   };
 }
@@ -2754,11 +4447,11 @@ function reportData(){
   let qTotal=0, qAns=0, qRight=0, qFirst=0;
   U.passages.forEach((P,pi)=>P.questions.forEach((qq,qi)=>{
     qTotal++;
-    const rec = S.answers["p"+pi+"q"+qi];
+    const rec = PROG.answers["p"+pi+"q"+qi];
     if(rec){ qAns++; if(rec.correct){ qRight++; if(rec.tries===1) qFirst++; } }
   }));
   const allWords = U.wordSessions.flatMap(s=>s.words.map(w=>w.w));
-  const vq = S.vocabQuiz, gq = S.grammarQuiz;
+  const vq = PROG.vocabQuiz, gq = PROG.grammarQuiz;
   const pct = (a,b)=> b ? Math.round(a/b*100) : 0;
   return {
     qTotal, qAns, qRight, qFirst,
@@ -2766,7 +4459,7 @@ function reportData(){
     vocab:{ r: vq.right, t: vq.right + vq.wrong },
     gram:{ r: gq.right, t: gq.right + gq.wrong },
     days: S.daysPracticed.length,
-    endings: Object.keys(S.adventure.endings).length,
+    endings: Object.keys(PROG.adventure.endings).length,
     story: fullStory(), pct
   };
 }
@@ -2795,7 +4488,7 @@ function reportComment(){
   }
   const sw = R.story.split(/\s+/).filter(Boolean).length;
   if(sw){
-    p.push("His unit story, '" + U.writing.title + "', reached " + sw + " words" +
+    p.push("His unit " + (U.writing.piece || "story") + ", \'" + U.writing.title + "', reached " + sw + " words" +
       (/["“”]/.test(R.story) ? " and includes direct speech" : "") + ".");
   }
   if(R.days){
@@ -2880,6 +4573,23 @@ function viewTeacher(){
   add(o, el("p",null,"Access adjustment: same objectives and same text type as the class, assessed on parallel texts written at approximately Grade 1–2 readability, with audio support on every text block."));
   add(f,o);
 
+  /* ---- which unit is live ---- */
+  add(f, el("h2",null,"Unit"));
+  const uc = el("section","card prose");
+  add(uc, el("p","sub","One unit is live at a time. Each unit keeps its own passages, "
+    + "answers, grammar games, writing and story endings, so switching between them "
+    + "loses nothing. Totals and badges in My Wins add up across every unit."));
+  const urow = el("div","btn-row");
+  Object.keys(UNITS).forEach(function(k){
+    const live = String(k) === String(CURRENT_UNIT);
+    const b = el("button", live ? "btn-main" : null, UNITS[k].title + (live ? "  (live)" : ""));
+    b.disabled = live;
+    b.onclick = function(){ switchUnit(k); };
+    add(urow, b);
+  });
+  add(uc, urow);
+  add(f, uc);
+
   /* comprehension table */
   add(f, el("h2",null,"Comprehension — accuracy by question"));
   const t = el("table");
@@ -2888,7 +4598,7 @@ function viewTeacher(){
   add(t,hr);
   U.passages.forEach((P,pi)=>{
     P.questions.forEach((q,qi)=>{
-      const rec = S.answers["p"+pi+"q"+qi];
+      const rec = PROG.answers["p"+pi+"q"+qi];
       const tr = el("tr");
       add(tr, el("td",null,P.title));
       add(tr, el("td",null,q.q));
@@ -2913,7 +4623,7 @@ function viewTeacher(){
   add(f,t2);
 
   /* vocab */
-  const vq = S.vocabQuiz;
+  const vq = PROG.vocabQuiz;
   const vtot = vq.right + vq.wrong;
   const vp = el("p","prose","Vocabulary quiz: " + vq.right + " correct out of " + vtot + " attempts" +
     (vtot ? " (" + Math.round(vq.right/vtot*100) + "%)" : "") + ".");
@@ -3046,14 +4756,19 @@ function viewTeacher(){
   paste.onclick = ()=>{
     try{
       const obj = JSON.parse(decodeURIComponent(escape(atob(ta.value.trim()))));
-      S = Object.assign(clone(defaultState), obj);
-      save(); applySettings(); alert("Progress loaded."); render();
+      S = hydrate(obj);
+      CURRENT_UNIT = S.unit; U = UNITS[CURRENT_UNIT]; PROG = unitState(CURRENT_UNIT);
+      WS = null; ORDER_PICK = []; VIEW = { reading: PROG.reading || null, word:null, vocab:null, sub:null };
+      save(); applySettings(); startWordSession(0); alert("Progress loaded."); render();
     }catch(e){ alert("That code did not work. Check it was copied in full."); }
   };
   const wipe = el("button",null,"Reset all progress");
   wipe.onclick = ()=>{
     if(confirm("Erase all progress on this computer?")){
-      S = clone(defaultState); save(); applySettings(); render();
+      S = hydrate(null);
+      CURRENT_UNIT = S.unit; U = UNITS[CURRENT_UNIT]; PROG = unitState(CURRENT_UNIT);
+      WS = null; ORDER_PICK = []; VIEW = { reading:null, word:null, vocab:null, sub:null };
+      save(); applySettings(); startWordSession(0); render();
     }
   };
   add(br, cpy, paste, wipe); add(b,br);
@@ -3100,7 +4815,7 @@ function render(){
     /* Remember his place in the passage across sessions — but only a real
        reading position, never the menu or the finished screen. */
     if(VIEW.reading && (VIEW.reading.phase === "read" || VIEW.reading.phase === "quiz")){
-      S.reading = VIEW.reading; save();
+      PROG.reading = VIEW.reading; save();
     }
     switch(S.section){
       case "reading": node = viewReading(); break;
